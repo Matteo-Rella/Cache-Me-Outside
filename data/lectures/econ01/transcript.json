@@ -1,0 +1,4117 @@
+[
+  {
+    "start": 0.0,
+    "end": 2.42,
+    "text": "[SQUEAKING]"
+  },
+  {
+    "start": 2.42,
+    "end": 4.36,
+    "text": "[RUSTLING]"
+  },
+  {
+    "start": 4.36,
+    "end": 11.63,
+    "text": "[CLICKING]"
+  },
+  {
+    "start": 11.63,
+    "end": 13.68,
+    "text": "JONATHAN GRUBER: This is 14.01."
+  },
+  {
+    "start": 13.68,
+    "end": 19.25,
+    "text": "I'm John Gruber, and this is microeconomics."
+  },
+  {
+    "start": 19.25,
+    "end": 21.5,
+    "text": "Today, I want to cover three things."
+  },
+  {
+    "start": 21.5,
+    "end": 23.84,
+    "text": "I want to talk about the course details."
+  },
+  {
+    "start": 23.84,
+    "end": 25.91,
+    "text": "I want to talk about what is microeconomics."
+  },
+  {
+    "start": 25.91,
+    "end": 29.12,
+    "text": "And then I'll start the substance of the course"
+  },
+  {
+    "start": 29.12,
+    "end": 31.45,
+    "text": "by talking about supply and demand."
+  },
+  {
+    "start": 31.45,
+    "end": 33.53,
+    "text": "Couple of the points about the course-- the course"
+  },
+  {
+    "start": 33.53,
+    "end": 36.71,
+    "text": "will have a distinct sort of policy angle to it."
+  },
+  {
+    "start": 36.71,
+    "end": 40.68,
+    "text": "I sort of do economic policy, government policy is my thing."
+  },
+  {
+    "start": 40.68,
+    "end": 42.89,
+    "text": "So I think it's what makes economics exciting"
+  },
+  {
+    "start": 42.89,
+    "end": 45.08,
+    "text": "and it sort of offers, I think, an interesting angle"
+  },
+  {
+    "start": 45.08,
+    "end": 47.48,
+    "text": "to understand why we're learning what we're learning."
+  },
+  {
+    "start": 47.48,
+    "end": 48.98,
+    "text": "I think sometimes in an intro class,"
+  },
+  {
+    "start": 48.98,
+    "end": 50.81,
+    "text": "it's sort of hard to understand why the heck"
+  },
+  {
+    "start": 50.81,
+    "end": 52.7,
+    "text": "you're doing things."
+  },
+  {
+    "start": 52.7,
+    "end": 54.69,
+    "text": "However, that's just sort of a slight flavor."
+  },
+  {
+    "start": 54.69,
+    "end": 55.73,
+    "text": "If you're really more interested in this,"
+  },
+  {
+    "start": 55.73,
+    "end": 57.46,
+    "text": "I teach a whole course called 1441."
+  },
+  {
+    "start": 57.46,
+    "end": 59.01,
+    "text": "I'm not teaching it this year, but it"
+  },
+  {
+    "start": 59.01,
+    "end": 62.0,
+    "text": "will be taught by a visitor in the spring, Kristin Butcher"
+  },
+  {
+    "start": 62.0,
+    "end": 62.86,
+    "text": "from Wellesley."
+  },
+  {
+    "start": 62.86,
+    "end": 64.19,
+    "text": "And I'll be teaching next year."
+  },
+  {
+    "start": 64.19,
+    "end": 66.53,
+    "text": "That dives much more into these policy issues."
+  },
+  {
+    "start": 66.53,
+    "end": 69.11,
+    "text": "So I'm going to use government policy as sort of an organizing"
+  },
+  {
+    "start": 69.11,
+    "end": 72.5,
+    "text": "theme, but it won't be the dominant theme of the class."
+  },
+  {
+    "start": 72.5,
+    "end": 75.3,
+    "text": "Finally, three points about my teaching style."
+  },
+  {
+    "start": 75.3,
+    "end": 76.88,
+    "text": "I don't write everything on the board."
+  },
+  {
+    "start": 76.88,
+    "end": 78.25,
+    "text": "We're not in high school anymore."
+  },
+  {
+    "start": 78.25,
+    "end": 81.14,
+    "text": "You're actually responsible for what I say, not what I write."
+  },
+  {
+    "start": 81.14,
+    "end": 84.17,
+    "text": "Partly that's because my handwriting is brutal,"
+  },
+  {
+    "start": 84.17,
+    "end": 86.84,
+    "text": "as you can tell already."
+  },
+  {
+    "start": 86.84,
+    "end": 89.24,
+    "text": "So what that means is, please, please do not"
+  },
+  {
+    "start": 89.24,
+    "end": 92.09,
+    "text": "be afraid to ask me what the hell I just wrote on the board."
+  },
+  {
+    "start": 92.09,
+    "end": 93.38,
+    "text": "There's no shame in that."
+  },
+  {
+    "start": 93.38,
+    "end": 94.83,
+    "text": "Don't just lean to your neighbors, and say,"
+  },
+  {
+    "start": 94.83,
+    "end": 95.84,
+    "text": "what the hell did he just write in the board."
+  },
+  {
+    "start": 95.84,
+    "end": 97.42,
+    "text": "Ask, me, because if you can't read it,"
+  },
+  {
+    "start": 97.42,
+    "end": 100.38,
+    "text": "I'm sure someone else can't read it, so feel free to ask."
+  },
+  {
+    "start": 100.38,
+    "end": 102.74,
+    "text": "And in general, please feel free to engage"
+  },
+  {
+    "start": 102.74,
+    "end": 104.36,
+    "text": "with questions in this class."
+  },
+  {
+    "start": 104.36,
+    "end": 107.57,
+    "text": "The other point of my teaching style is I talk way too fast."
+  },
+  {
+    "start": 107.57,
+    "end": 109.82,
+    "text": "And the longer I go-- there's a mathematical function,"
+  },
+  {
+    "start": 109.82,
+    "end": 111.74,
+    "text": "which is the longer I go without interruption,"
+  },
+  {
+    "start": 111.74,
+    "end": 114.71,
+    "text": "the faster I speak, until I just spin off."
+  },
+  {
+    "start": 114.71,
+    "end": 117.74,
+    "text": "So basically, please ask questions."
+  },
+  {
+    "start": 117.74,
+    "end": 119.3,
+    "text": "If anything is not clear, or you just"
+  },
+  {
+    "start": 119.3,
+    "end": 122.03,
+    "text": "want to ask questions about some related tangent"
+  },
+  {
+    "start": 122.03,
+    "end": 124.12,
+    "text": "or whatever, please feel free to do so."
+  },
+  {
+    "start": 124.12,
+    "end": 126.5,
+    "text": "You might think, how would that work in a class this big?"
+  },
+  {
+    "start": 126.5,
+    "end": 128.25,
+    "text": "There's always way too few questions, even"
+  },
+  {
+    "start": 128.25,
+    "end": 128.96,
+    "text": "a class this big."
+  },
+  {
+    "start": 128.96,
+    "end": 131.67,
+    "text": "So never be afraid that it will slow me down or whatever."
+  },
+  {
+    "start": 131.67,
+    "end": 132.38,
+    "text": "Ask me questions."
+  },
+  {
+    "start": 132.38,
+    "end": 134.69,
+    "text": "We have plenty of time on the class."
+  },
+  {
+    "start": 134.69,
+    "end": 136.52,
+    "text": "And you'll be doing your classmates a favor,"
+  },
+  {
+    "start": 136.52,
+    "end": 138.65,
+    "text": "because it'll slow me down."
+  },
+  {
+    "start": 138.65,
+    "end": 141.38,
+    "text": "Finally, last point, I have this terrible tendency"
+  },
+  {
+    "start": 141.38,
+    "end": 144.26,
+    "text": "to use the term \"guys\" in a gender neutral way."
+  },
+  {
+    "start": 144.26,
+    "end": 146.27,
+    "text": "So this class, I like to see, looks"
+  },
+  {
+    "start": 146.27,
+    "end": 148.72,
+    "text": "like it's a fairly healthy representation"
+  },
+  {
+    "start": 148.72,
+    "end": 149.75,
+    "text": "both males and females."
+  },
+  {
+    "start": 149.75,
+    "end": 151.25,
+    "text": "When I say \"guys,\" I don't mean men."
+  },
+  {
+    "start": 151.25,
+    "end": 152.09,
+    "text": "I mean people."
+  },
+  {
+    "start": 152.09,
+    "end": 153.09,
+    "text": "I mean people."
+  },
+  {
+    "start": 153.09,
+    "end": 155.18,
+    "text": "So women, don't take it personally."
+  },
+  {
+    "start": 155.18,
+    "end": 156.37,
+    "text": "\"Guys\" means economic agent."
+  },
+  {
+    "start": 156.37,
+    "end": 157.04,
+    "text": "It means people."
+  },
+  {
+    "start": 157.04,
+    "end": 157.9,
+    "text": "It doesn't mean men."
+  },
+  {
+    "start": 157.9,
+    "end": 159.36,
+    "text": "Just the way-- just a bad tendency."
+  },
+  {
+    "start": 159.36,
+    "end": 161.72,
+    "text": "It drives my wife crazy, but I've decided better"
+  },
+  {
+    "start": 161.72,
+    "end": 165.2,
+    "text": "to just apologize up front than try to fix it throughout,"
+  },
+  {
+    "start": 165.2,
+    "end": 167.87,
+    "text": "which is impossible."
+  },
+  {
+    "start": 167.87,
+    "end": 171.62,
+    "text": "So let's talk about what is microeconomics."
+  },
+  {
+    "start": 171.62,
+    "end": 175.19,
+    "text": "So fundamentally, microeconomics-- how people"
+  },
+  {
+    "start": 175.19,
+    "end": 176.96,
+    "text": "took AP high school Econ?"
+  },
+  {
+    "start": 180.69,
+    "end": 184.02,
+    "text": "How many people-- for how many people"
+  },
+  {
+    "start": 184.02,
+    "end": 185.1,
+    "text": "was it taught really well?"
+  },
+  {
+    "start": 187.86,
+    "end": 188.81,
+    "text": "That's about right."
+  },
+  {
+    "start": 188.81,
+    "end": 190.68,
+    "text": "That's why I did my high school online class."
+  },
+  {
+    "start": 190.68,
+    "end": 193.97,
+    "text": "That's the answer I wanted to hear."
+  },
+  {
+    "start": 193.97,
+    "end": 195.88,
+    "text": "So tell your friends still in high school who"
+  },
+  {
+    "start": 195.88,
+    "end": 197.88,
+    "text": "are taking high school Econ, if your high school"
+  },
+  {
+    "start": 197.88,
+    "end": 199.8,
+    "text": "teacher isn't great, tell them to go on EdX"
+  },
+  {
+    "start": 199.8,
+    "end": 201.54,
+    "text": "and take the class."
+  },
+  {
+    "start": 201.54,
+    "end": 204.75,
+    "text": "And help out your friends still in high school."
+  },
+  {
+    "start": 204.75,
+    "end": 207.32,
+    "text": "So what is microeconomics?"
+  },
+  {
+    "start": 207.32,
+    "end": 209.37,
+    "text": "Microeconomics is the study of how"
+  },
+  {
+    "start": 209.37,
+    "end": 212.16,
+    "text": "individuals and firms make decisions"
+  },
+  {
+    "start": 212.16,
+    "end": 213.12,
+    "text": "in a world of scarcity."
+  },
+  {
+    "start": 216.71,
+    "end": 221.27,
+    "text": "Scarcity is what drives microeconomics."
+  },
+  {
+    "start": 221.27,
+    "end": 223.25,
+    "text": "Basically, what microeconomics is"
+  },
+  {
+    "start": 223.25,
+    "end": 232.77,
+    "text": "is a series of constrained optimization exercises,"
+  },
+  {
+    "start": 232.77,
+    "end": 237.03,
+    "text": "where economic agents, be they firms or individuals,"
+  },
+  {
+    "start": 237.03,
+    "end": 240.24,
+    "text": "try to make themselves as well off as possible"
+  },
+  {
+    "start": 240.24,
+    "end": 242.14,
+    "text": "given their constraints."
+  },
+  {
+    "start": 242.14,
+    "end": 242.64,
+    "text": "Yeah."
+  },
+  {
+    "start": 242.64,
+    "end": 244.74,
+    "text": "AUDIENCE: Will this cover irrationality?"
+  },
+  {
+    "start": 244.74,
+    "end": 248.23,
+    "text": "JONATHAN GRUBER: I will, but not as much as I should."
+  },
+  {
+    "start": 248.23,
+    "end": 249.69,
+    "text": "Essentially, we have another course"
+  },
+  {
+    "start": 249.69,
+    "end": 252.69,
+    "text": "in the department called 1413, Behavioral Economics, which"
+  },
+  {
+    "start": 252.69,
+    "end": 253.95,
+    "text": "gets into that much more."
+  },
+  {
+    "start": 253.95,
+    "end": 256.56,
+    "text": "I will sprinkle it throughout, but not"
+  },
+  {
+    "start": 256.56,
+    "end": 258.43,
+    "text": "as much as I actually believe in it."
+  },
+  {
+    "start": 258.43,
+    "end": 260.43,
+    "text": "In other words, the way we think about economics"
+  },
+  {
+    "start": 260.43,
+    "end": 262.28,
+    "text": "is it's best to sort of get the basics down"
+  },
+  {
+    "start": 262.28,
+    "end": 264.24,
+    "text": "before you start worrying about the deviations."
+  },
+  {
+    "start": 264.24,
+    "end": 265.66,
+    "text": "Find it's better to climb the tree"
+  },
+  {
+    "start": 265.66,
+    "end": 268.68,
+    "text": "before you start going out in the branches."
+  },
+  {
+    "start": 268.68,
+    "end": 272.13,
+    "text": "So basically, what this course is then about"
+  },
+  {
+    "start": 272.13,
+    "end": 275.42,
+    "text": "is it's about trade-offs."
+  },
+  {
+    "start": 275.42,
+    "end": 277.76,
+    "text": "It's about given that you're constrained,"
+  },
+  {
+    "start": 277.76,
+    "end": 281.45,
+    "text": "how do you trade off things to make yourself as well off"
+  },
+  {
+    "start": 281.45,
+    "end": 283.25,
+    "text": "as possible?"
+  },
+  {
+    "start": 283.25,
+    "end": 287.02,
+    "text": "And behind this notion of trade-offs is going to be--"
+  },
+  {
+    "start": 287.02,
+    "end": 289.4,
+    "text": "I'll say about 100 times this is the most important thing"
+  },
+  {
+    "start": 289.4,
+    "end": 291.03,
+    "text": "in the course, so just ignore that."
+  },
+  {
+    "start": 291.03,
+    "end": 292.16,
+    "text": "But this is one of the most important things."
+  },
+  {
+    "start": 292.16,
+    "end": 293.12,
+    "text": "I'll say \"one of the most important\" things"
+  },
+  {
+    "start": 293.12,
+    "end": 295.54,
+    "text": "in the course, is the notion of opportunity cost."
+  },
+  {
+    "start": 298.08,
+    "end": 301.32,
+    "text": "Opportunity cost is a very important concept"
+  },
+  {
+    "start": 301.32,
+    "end": 305.53,
+    "text": "that we teach, sort of the first concept we teach,"
+  },
+  {
+    "start": 305.53,
+    "end": 310.23,
+    "text": "which is that every action or every inaction"
+  },
+  {
+    "start": 310.23,
+    "end": 312.66,
+    "text": "has a cost in that you could've been doing something"
+  },
+  {
+    "start": 312.66,
+    "end": 314.67,
+    "text": "else instead."
+  },
+  {
+    "start": 314.67,
+    "end": 319.68,
+    "text": "So if you buy a shirt, you could have bought pants."
+  },
+  {
+    "start": 319.68,
+    "end": 321.87,
+    "text": "If you stayed at home and watched TV,"
+  },
+  {
+    "start": 321.87,
+    "end": 324.18,
+    "text": "you could have been out working."
+  },
+  {
+    "start": 324.18,
+    "end": 326.67,
+    "text": "Everything you do has a next best alternative"
+  },
+  {
+    "start": 326.67,
+    "end": 328.47,
+    "text": "you could have done instead."
+  },
+  {
+    "start": 328.47,
+    "end": 331.63,
+    "text": "And that is called the \"opportunity cost.\""
+  },
+  {
+    "start": 331.63,
+    "end": 335.23,
+    "text": "And that's a critical concept in economics,"
+  },
+  {
+    "start": 335.23,
+    "end": 336.79,
+    "text": "and that is why, in some sense, we"
+  },
+  {
+    "start": 336.79,
+    "end": 340.29,
+    "text": "are referred to casually as the \"dismal science.\""
+  },
+  {
+    "start": 340.29,
+    "end": 342.25,
+    "text": "Economics is referred to as the dismal science."
+  },
+  {
+    "start": 342.25,
+    "end": 344.92,
+    "text": "First of all, I'm flattered we're considered a science."
+  },
+  {
+    "start": 344.92,
+    "end": 346.48,
+    "text": "But it's called the \"dismal science\""
+  },
+  {
+    "start": 346.48,
+    "end": 349.57,
+    "text": "because our whole point is that nothing is free."
+  },
+  {
+    "start": 349.57,
+    "end": 350.74,
+    "text": "There is always a trade-off."
+  },
+  {
+    "start": 350.74,
+    "end": 352.2,
+    "text": "There's always an opportunity cost."
+  },
+  {
+    "start": 352.2,
+    "end": 356.29,
+    "text": "Anything you do, you could be doing something else instead."
+  },
+  {
+    "start": 356.29,
+    "end": 357.67,
+    "text": "And your constrained optimization"
+  },
+  {
+    "start": 357.67,
+    "end": 359.89,
+    "text": "means you're going to have to pass up one thing"
+  },
+  {
+    "start": 359.89,
+    "end": 361.33,
+    "text": "to do another."
+  },
+  {
+    "start": 361.33,
+    "end": 363.82,
+    "text": "Now, some may call it \"dismal,\" but as a former MIT"
+  },
+  {
+    "start": 363.82,
+    "end": 365.68,
+    "text": "undergraduate, I call it \"fun.\""
+  },
+  {
+    "start": 365.68,
+    "end": 367.81,
+    "text": "And this is why I think MIT is the perfect place"
+  },
+  {
+    "start": 367.81,
+    "end": 371.45,
+    "text": "to be teaching economics, because MIT engineering is"
+  },
+  {
+    "start": 371.45,
+    "end": 372.91,
+    "text": "all about constrained optimization."
+  },
+  {
+    "start": 372.91,
+    "end": 374.36,
+    "text": "That's what engineering is."
+  },
+  {
+    "start": 374.36,
+    "end": 375.73,
+    "text": "And economics is just the engine."
+  },
+  {
+    "start": 375.73,
+    "end": 380.86,
+    "text": "It's just the principles you learn in engineering"
+  },
+  {
+    "start": 380.86,
+    "end": 382.89,
+    "text": "applied in different contexts."
+  },
+  {
+    "start": 382.89,
+    "end": 385.54,
+    "text": "So if we think about the 2.007 contests-- that still"
+  },
+  {
+    "start": 385.54,
+    "end": 388.21,
+    "text": "exist with the robots, 2.007?"
+  },
+  {
+    "start": 388.21,
+    "end": 390.43,
+    "text": "Yeah, the 2.007 contests, those, as you know,"
+  },
+  {
+    "start": 390.43,
+    "end": 392.89,
+    "text": "are contests where you're given a limited set of materials."
+  },
+  {
+    "start": 392.89,
+    "end": 394.99,
+    "text": "And you have to build a robot that does some task,"
+  },
+  {
+    "start": 394.99,
+    "end": 398.02,
+    "text": "like pushing ping-pong balls off a table or something like that."
+  },
+  {
+    "start": 398.02,
+    "end": 399.8,
+    "text": "That's just constraint optimization."
+  },
+  {
+    "start": 399.8,
+    "end": 402.05,
+    "text": "It's got nothing to do with economics,"
+  },
+  {
+    "start": 402.05,
+    "end": 403.93,
+    "text": "but it's constrained optimization."
+  },
+  {
+    "start": 403.93,
+    "end": 410.56,
+    "text": "So just think of microeconomics as like engineering,"
+  },
+  {
+    "start": 410.56,
+    "end": 412.8,
+    "text": "but actually interesting."
+  },
+  {
+    "start": 412.8,
+    "end": 414.55,
+    "text": "So think of microeconomics as engineering,"
+  },
+  {
+    "start": 414.55,
+    "end": 416.0,
+    "text": "but instead of building something"
+  },
+  {
+    "start": 416.0,
+    "end": 418.75,
+    "text": "to push a ping-pong ball off tables, you actually"
+  },
+  {
+    "start": 418.75,
+    "end": 421.03,
+    "text": "build people's lives, and businesses,"
+  },
+  {
+    "start": 421.03,
+    "end": 424.23,
+    "text": "and understand the decisions that drive our economy."
+  },
+  {
+    "start": 424.23,
+    "end": 425.65,
+    "text": "So same principles you could think"
+  },
+  {
+    "start": 425.65,
+    "end": 428.41,
+    "text": "of for your engineering classes, but applied to people's lives."
+  },
+  {
+    "start": 428.41,
+    "end": 430.83,
+    "text": "And that's why, in fact, modern economics was born in this"
+  },
+  {
+    "start": 430.83,
+    "end": 435.97,
+    "text": "room, this room or 26.100 by Paul Samuelson in the 1940s"
+  },
+  {
+    "start": 435.97,
+    "end": 439.63,
+    "text": "and '50s, who wrote the fundamental textbook that gave"
+  },
+  {
+    "start": 439.63,
+    "end": 441.25,
+    "text": "birth to modern economics."
+  },
+  {
+    "start": 441.25,
+    "end": 443.68,
+    "text": "Because he was here and applied the kind of engineering"
+  },
+  {
+    "start": 443.68,
+    "end": 446.08,
+    "text": "principles of MIT to actually develop"
+  },
+  {
+    "start": 446.08,
+    "end": 447.58,
+    "text": "the field of modern economics."
+  },
+  {
+    "start": 447.58,
+    "end": 449.47,
+    "text": "What we'll learn today was developed at MIT,"
+  },
+  {
+    "start": 449.47,
+    "end": 451.82,
+    "text": "so it's a great place to be learning it."
+  },
+  {
+    "start": 451.82,
+    "end": 456.04,
+    "text": "Now, with that as background-- any questions about that,"
+  },
+  {
+    "start": 456.04,
+    "end": 459.56,
+    "text": "about what is microeconomics?"
+  },
+  {
+    "start": 459.56,
+    "end": 461.78,
+    "text": "With that as background, let's turn"
+  },
+  {
+    "start": 461.78,
+    "end": 465.92,
+    "text": "to our first model we'll talk about this semester, which"
+  },
+  {
+    "start": 465.92,
+    "end": 467.33,
+    "text": "is the supply and demand model."
+  },
+  {
+    "start": 474.63,
+    "end": 477.75,
+    "text": "Supply and demand-- now, the way we're"
+  },
+  {
+    "start": 477.75,
+    "end": 482.8,
+    "text": "going to proceed in this course is going to drive you crazy,"
+  },
+  {
+    "start": 482.8,
+    "end": 485.5,
+    "text": "because we're going to proceed by teaching,"
+  },
+  {
+    "start": 485.5,
+    "end": 487.21,
+    "text": "as the very first question pointed out,"
+  },
+  {
+    "start": 487.21,
+    "end": 490.93,
+    "text": "by teaching very simplified models."
+  },
+  {
+    "start": 490.93,
+    "end": 493.21,
+    "text": "We're going to essentially-- what is a model?"
+  },
+  {
+    "start": 493.21,
+    "end": 494.8,
+    "text": "A model is technically a description"
+  },
+  {
+    "start": 494.8,
+    "end": 497.83,
+    "text": "between any two or more economic variables or any two or more"
+  },
+  {
+    "start": 497.83,
+    "end": 499.96,
+    "text": "variables."
+  },
+  {
+    "start": 499.96,
+    "end": 503.53,
+    "text": "But unlike the models used in all your other classes,"
+  },
+  {
+    "start": 503.53,
+    "end": 506.11,
+    "text": "these aren't laws, by and large, they're models."
+  },
+  {
+    "start": 506.12,
+    "end": 508.24,
+    "text": "So we don't have a relation between energy and mass"
+  },
+  {
+    "start": 508.24,
+    "end": 509.28,
+    "text": "which you can write down."
+  },
+  {
+    "start": 509.28,
+    "end": 510.79,
+    "text": "It's a law and you're done."
+  },
+  {
+    "start": 510.79,
+    "end": 515.26,
+    "text": "We have models which are never 100% true, but always"
+  },
+  {
+    "start": 515.26,
+    "end": 517.3,
+    "text": "pretty true, \"pretty\" being somewhere"
+  },
+  {
+    "start": 517.3,
+    "end": 520.9,
+    "text": "between 10% and 95% true."
+  },
+  {
+    "start": 520.9,
+    "end": 524.65,
+    "text": "So basically, the idea is to make a trade-off."
+  },
+  {
+    "start": 524.65,
+    "end": 526.75,
+    "text": "We want to write down in our models"
+  },
+  {
+    "start": 526.75,
+    "end": 529.48,
+    "text": "a set of simplifying assumptions that"
+  },
+  {
+    "start": 529.48,
+    "end": 533.05,
+    "text": "allow us, with a relatively small set of steps,"
+  },
+  {
+    "start": 533.05,
+    "end": 536.79,
+    "text": "to capture relatively broad phenomena."
+  },
+  {
+    "start": 536.79,
+    "end": 538.8,
+    "text": "So it's essentially a trade-off."
+  },
+  {
+    "start": 538.8,
+    "end": 540.69,
+    "text": "On the one hand, we'd like a model"
+  },
+  {
+    "start": 540.69,
+    "end": 543.48,
+    "text": "that captures as well as possible the phenomena"
+  },
+  {
+    "start": 543.48,
+    "end": 547.47,
+    "text": "in the real world, like E equals Mc squared."
+  },
+  {
+    "start": 547.47,
+    "end": 552.23,
+    "text": "But we want to do so in the most tractable possible way"
+  },
+  {
+    "start": 552.23,
+    "end": 554.15,
+    "text": "so that we can teach it from first principles,"
+  },
+  {
+    "start": 554.15,
+    "end": 560.93,
+    "text": "and don't need an arrow to teach every single insight we have."
+  },
+  {
+    "start": 560.93,
+    "end": 563.6,
+    "text": "So basically in economics, we tend"
+  },
+  {
+    "start": 563.6,
+    "end": 568.01,
+    "text": "to resolve that by erring on the side of tractability."
+  },
+  {
+    "start": 568.01,
+    "end": 569.84,
+    "text": "That is why I can teach you the entire field"
+  },
+  {
+    "start": 569.84,
+    "end": 571.86,
+    "text": "of microeconomics-- which is really sort of--"
+  },
+  {
+    "start": 571.86,
+    "end": 573.32,
+    "text": "macro is kind of a fun application."
+  },
+  {
+    "start": 573.32,
+    "end": 574.51,
+    "text": "Micro is really economics."
+  },
+  {
+    "start": 574.51,
+    "end": 576.59,
+    "text": "I can teach you the entire field of microeconomics"
+  },
+  {
+    "start": 576.59,
+    "end": 578.15,
+    "text": "in the semester, because I'm going"
+  },
+  {
+    "start": 578.15,
+    "end": 580.73,
+    "text": "to make a whole huge set of simplifying assumptions"
+  },
+  {
+    "start": 580.73,
+    "end": 583.16,
+    "text": "to make things tractable."
+  },
+  {
+    "start": 583.16,
+    "end": 585.71,
+    "text": "But the key thing is that you will"
+  },
+  {
+    "start": 585.71,
+    "end": 588.65,
+    "text": "be amazed at what these models will be able to do."
+  },
+  {
+    "start": 588.65,
+    "end": 591.06,
+    "text": "With a fairly simple set of models,"
+  },
+  {
+    "start": 591.07,
+    "end": 592.94,
+    "text": "we will be able to offer insights and explain"
+  },
+  {
+    "start": 592.94,
+    "end": 595.34,
+    "text": "a whole huge variety of phenomena,"
+  },
+  {
+    "start": 595.34,
+    "end": 597.98,
+    "text": "never perfectly, but always pretty well,"
+  },
+  {
+    "start": 597.98,
+    "end": 600.26,
+    "text": "generally pretty well."
+  },
+  {
+    "start": 600.26,
+    "end": 601.94,
+    "text": "And so that is essentially the trade-off"
+  },
+  {
+    "start": 601.94,
+    "end": 604.95,
+    "text": "we're going to try to do this semester."
+  },
+  {
+    "start": 604.95,
+    "end": 606.86,
+    "text": "So the line I like is the statistician"
+  },
+  {
+    "start": 606.86,
+    "end": 611.81,
+    "text": "George Box said that all models are wrong, but some are useful."
+  },
+  {
+    "start": 611.81,
+    "end": 615.23,
+    "text": "Now obviously, it doesn't apply to models in the hard sciences,"
+  },
+  {
+    "start": 615.23,
+    "end": 617.83,
+    "text": "but in the social sciences, that's true."
+  },
+  {
+    "start": 617.83,
+    "end": 619.42,
+    "text": "And basically, I'm going to write down"
+  },
+  {
+    "start": 619.42,
+    "end": 621.16,
+    "text": "a set of models like that."
+  },
+  {
+    "start": 621.16,
+    "end": 624.07,
+    "text": "Now, with every model I write down, I'm going to try--"
+  },
+  {
+    "start": 624.07,
+    "end": 627.63,
+    "text": "my goal is to have you understand it at three levels."
+  },
+  {
+    "start": 627.63,
+    "end": 629.42,
+    "text": "The first and most important level"
+  },
+  {
+    "start": 629.42,
+    "end": 632.75,
+    "text": "is the intuitive level, the level"
+  },
+  {
+    "start": 632.75,
+    "end": 634.34,
+    "text": "which you sort of understand."
+  },
+  {
+    "start": 634.34,
+    "end": 636.21,
+    "text": "I call it \"passing the Mom Test.\""
+  },
+  {
+    "start": 636.21,
+    "end": 638.63,
+    "text": "You can go home and explain it to your mom at Thanksgiving"
+  },
+  {
+    "start": 638.63,
+    "end": 640.91,
+    "text": "or at the end of semester."
+  },
+  {
+    "start": 640.91,
+    "end": 644.03,
+    "text": "No offense to dads, just called it \"the Mom Test.\""
+  },
+  {
+    "start": 644.03,
+    "end": 645.74,
+    "text": "So basically, that's the intuitive level."
+  },
+  {
+    "start": 645.74,
+    "end": 648.59,
+    "text": "You really understand it in a way that you could explain it."
+  },
+  {
+    "start": 648.59,
+    "end": 650.7,
+    "text": "The second is graphical."
+  },
+  {
+    "start": 650.7,
+    "end": 652.37,
+    "text": "We were going to do-- most of our models"
+  },
+  {
+    "start": 652.37,
+    "end": 655.49,
+    "text": "here were developed in a graphical framework using"
+  },
+  {
+    "start": 655.49,
+    "end": 660.25,
+    "text": "x/y graphs that really in economics, we think delivers"
+  },
+  {
+    "start": 660.25,
+    "end": 662.02,
+    "text": "a lot of shorthand power."
+  },
+  {
+    "start": 662.02,
+    "end": 664.48,
+    "text": "And the third is mathematical."
+  },
+  {
+    "start": 664.48,
+    "end": 666.52,
+    "text": "The mathematical is probably the least important,"
+  },
+  {
+    "start": 666.52,
+    "end": 668.51,
+    "text": "but it's the easiest to test you on."
+  },
+  {
+    "start": 668.51,
+    "end": 674.2,
+    "text": "So we're going to need to know things mathematically as well."
+  },
+  {
+    "start": 674.2,
+    "end": 678.43,
+    "text": "So let's start by considering the supply and demand"
+  },
+  {
+    "start": 678.43,
+    "end": 682.0,
+    "text": "model by using the famous example"
+  },
+  {
+    "start": 682.0,
+    "end": 683.92,
+    "text": "brought up by Adam Smith."
+  },
+  {
+    "start": 683.92,
+    "end": 686.46,
+    "text": "Adam Smith is sort of considered the father of economics."
+  },
+  {
+    "start": 686.46,
+    "end": 688.63,
+    "text": "If Paul Samuelson is the father of modern economics,"
+  },
+  {
+    "start": 688.63,
+    "end": 690.55,
+    "text": "Adam Smith is the father of all economics."
+  },
+  {
+    "start": 690.55,
+    "end": 693.7,
+    "text": "His 1776 book, The Wealth of Nations"
+  },
+  {
+    "start": 693.7,
+    "end": 696.1,
+    "text": "did an incredible job of actually laying out"
+  },
+  {
+    "start": 696.1,
+    "end": 699.07,
+    "text": "the entire core of the economics field--"
+  },
+  {
+    "start": 699.07,
+    "end": 701.75,
+    "text": "no math, just words, but he just nailed it."
+  },
+  {
+    "start": 701.75,
+    "end": 705.4,
+    "text": "And one of his most famous examples"
+  },
+  {
+    "start": 705.4,
+    "end": 708.34,
+    "text": "was the water diamond paradox."
+  },
+  {
+    "start": 708.34,
+    "end": 710.11,
+    "text": "He said, think about water and diamonds."
+  },
+  {
+    "start": 710.11,
+    "end": 711.19,
+    "text": "He said, start with water."
+  },
+  {
+    "start": 711.19,
+    "end": 713.11,
+    "text": "Nothing is more important for life than water."
+  },
+  {
+    "start": 713.11,
+    "end": 714.86,
+    "text": "It's the building block of all of life."
+  },
+  {
+    "start": 714.86,
+    "end": 716.91,
+    "text": "Even when we look for life on other planets,"
+  },
+  {
+    "start": 716.91,
+    "end": 719.08,
+    "text": "we always start by looking for water."
+  },
+  {
+    "start": 719.08,
+    "end": 721.45,
+    "text": "Now think of diamonds, one of the more frivolous things"
+  },
+  {
+    "start": 721.45,
+    "end": 724.99,
+    "text": "you can buy, certainly irrelevant to leading"
+  },
+  {
+    "start": 724.99,
+    "end": 729.01,
+    "text": "a successful or happy or productive life, or any life."
+  },
+  {
+    "start": 729.01,
+    "end": 732.55,
+    "text": "Yet for most of us, water's free and diamonds"
+  },
+  {
+    "start": 732.55,
+    "end": 734.8,
+    "text": "are super expensive."
+  },
+  {
+    "start": 734.8,
+    "end": 737.14,
+    "text": "How can this be, Adam Smith asked."
+  },
+  {
+    "start": 737.14,
+    "end": 740.56,
+    "text": "Well, the answer he posed is that what I first described"
+  },
+  {
+    "start": 740.56,
+    "end": 741.94,
+    "text": "was just demand."
+  },
+  {
+    "start": 741.94,
+    "end": 743.8,
+    "text": "That is, we demand lots of water."
+  },
+  {
+    "start": 743.8,
+    "end": 745.59,
+    "text": "We demand fewer diamonds."
+  },
+  {
+    "start": 745.59,
+    "end": 749.86,
+    "text": "But we have to match that with the concept of supply."
+  },
+  {
+    "start": 749.86,
+    "end": 752.87,
+    "text": "And the supply of water is almost infinite,"
+  },
+  {
+    "start": 752.87,
+    "end": 755.11,
+    "text": "while the supply of diamonds-- maybe not naturally,"
+  },
+  {
+    "start": 755.11,
+    "end": 758.48,
+    "text": "maybe it's through decisions of various businesses--"
+  },
+  {
+    "start": 758.48,
+    "end": 761.41,
+    "text": "but it's somewhat limited."
+  },
+  {
+    "start": 761.41,
+    "end": 765.7,
+    "text": "So basically what he developed is"
+  },
+  {
+    "start": 765.7,
+    "end": 768.0,
+    "text": "what we call the \"supply and demand scissors\"--"
+  },
+  {
+    "start": 768.0,
+    "end": 771.73,
+    "text": "that you can't just think of supply or demand in isolation."
+  },
+  {
+    "start": 771.73,
+    "end": 773.68,
+    "text": "You have to put them together if you"
+  },
+  {
+    "start": 773.68,
+    "end": 776.92,
+    "text": "want to explain the real world phenomena we see, like the fact"
+  },
+  {
+    "start": 776.92,
+    "end": 781.15,
+    "text": "that water is cheap and diamonds are expensive."
+  },
+  {
+    "start": 781.15,
+    "end": 782.66,
+    "text": "So let's just about an example."
+  },
+  {
+    "start": 782.66,
+    "end": 784.33,
+    "text": "So there's one graph that was handed out"
+  },
+  {
+    "start": 784.33,
+    "end": 787.57,
+    "text": "in the back, which is, let's talk"
+  },
+  {
+    "start": 787.57,
+    "end": 788.7,
+    "text": "about the market for roses."
+  },
+  {
+    "start": 793.27,
+    "end": 798.58,
+    "text": "So in the market for roses, we have a demand curve"
+  },
+  {
+    "start": 798.58,
+    "end": 799.5,
+    "text": "and a supply curve."
+  },
+  {
+    "start": 799.5,
+    "end": 801.67,
+    "text": "So what we have here-- this is the kind of x/y graph"
+  },
+  {
+    "start": 801.67,
+    "end": 804.31,
+    "text": "we're going to look at all throughout the semester."
+  },
+  {
+    "start": 804.31,
+    "end": 808.88,
+    "text": "On the x-axis is the quantity of roses."
+  },
+  {
+    "start": 808.88,
+    "end": 812.61,
+    "text": "On the y-axis is the price of roses."
+  },
+  {
+    "start": 812.61,
+    "end": 816.58,
+    "text": "The blue, downward-sloping line is the demand curve."
+  },
+  {
+    "start": 816.58,
+    "end": 819.55,
+    "text": "Now, what I'm going to do here, I'm just giving you a overview."
+  },
+  {
+    "start": 819.55,
+    "end": 822.72,
+    "text": "We are going, over the next five or six lectures, dive"
+  },
+  {
+    "start": 822.72,
+    "end": 825.18,
+    "text": "into where this demand curve comes from."
+  },
+  {
+    "start": 825.18,
+    "end": 827.39,
+    "text": "We'll go to first principles and build it back up."
+  },
+  {
+    "start": 827.39,
+    "end": 828.93,
+    "text": "But for now, what we know of a demand"
+  },
+  {
+    "start": 828.93,
+    "end": 833.04,
+    "text": "curve is it simply represents the relationship"
+  },
+  {
+    "start": 833.04,
+    "end": 837.62,
+    "text": "between the price of a good and how much people want it."
+  },
+  {
+    "start": 837.62,
+    "end": 840.44,
+    "text": "Therefore, we assume it is downward sloping."
+  },
+  {
+    "start": 840.44,
+    "end": 843.5,
+    "text": "At higher prices, people want less of the good."
+  },
+  {
+    "start": 843.5,
+    "end": 845.66,
+    "text": "And we'll derive where that comes from shortly,"
+  },
+  {
+    "start": 845.66,
+    "end": 847.11,
+    "text": "starting next lecture."
+  },
+  {
+    "start": 847.11,
+    "end": 849.55,
+    "text": "But for now, I think it's pretty intuitive"
+  },
+  {
+    "start": 849.55,
+    "end": 851.45,
+    "text": "that if the price of roses is higher,"
+  },
+  {
+    "start": 851.45,
+    "end": 852.71,
+    "text": "people want fewer of them."
+  },
+  {
+    "start": 852.71,
+    "end": 855.65,
+    "text": "And that's why it's downward sloping."
+  },
+  {
+    "start": 855.65,
+    "end": 857.96,
+    "text": "Basically, as the price of roses goes up,"
+  },
+  {
+    "start": 857.96,
+    "end": 860.75,
+    "text": "people want fewer roses."
+  },
+  {
+    "start": 860.75,
+    "end": 864.03,
+    "text": "The yellow curve is the supply curve."
+  },
+  {
+    "start": 864.03,
+    "end": 865.78,
+    "text": "Now, after we've derived the demand curve,"
+  },
+  {
+    "start": 865.78,
+    "end": 867.88,
+    "text": "we'll then go and spend about 12 lectures"
+  },
+  {
+    "start": 867.88,
+    "end": 868.96,
+    "text": "deriving the supply curve."
+  },
+  {
+    "start": 868.96,
+    "end": 869.79,
+    "text": "That's a bit harder."
+  },
+  {
+    "start": 869.79,
+    "end": 871.84,
+    "text": "But once again, we'll start from first principles"
+  },
+  {
+    "start": 871.84,
+    "end": 872.86,
+    "text": "and build it up."
+  },
+  {
+    "start": 872.86,
+    "end": 875.05,
+    "text": "For now, you just need to know that's how much firms"
+  },
+  {
+    "start": 875.05,
+    "end": 877.51,
+    "text": "are willing to supply, given the price."
+  },
+  {
+    "start": 877.51,
+    "end": 880.18,
+    "text": "So basically, as the price goes up,"
+  },
+  {
+    "start": 880.18,
+    "end": 883.21,
+    "text": "firms want to produce more roses."
+  },
+  {
+    "start": 883.21,
+    "end": 885.29,
+    "text": "The higher price means you make more money,"
+  },
+  {
+    "start": 885.29,
+    "end": 887.56,
+    "text": "so you want to produce more of them."
+  },
+  {
+    "start": 887.56,
+    "end": 889.96,
+    "text": "This is slightly less intuitive than demand,"
+  },
+  {
+    "start": 889.96,
+    "end": 892.2,
+    "text": "but we'll derive it and explain how it can be."
+  },
+  {
+    "start": 892.2,
+    "end": 894.07,
+    "text": "But for now, just go with the basic intuition"
+  },
+  {
+    "start": 894.07,
+    "end": 895.99,
+    "text": "that if you're making something, and you can sell it"
+  },
+  {
+    "start": 895.99,
+    "end": 897.36,
+    "text": "in the market for a higher price,"
+  },
+  {
+    "start": 897.36,
+    "end": 899.39,
+    "text": "you're going to want to make more of it."
+  },
+  {
+    "start": 899.39,
+    "end": 902.78,
+    "text": "And that leads to the upward sloping supply curve."
+  },
+  {
+    "start": 902.78,
+    "end": 907.18,
+    "text": "Where the points meet is the market equilibrium."
+  },
+  {
+    "start": 907.18,
+    "end": 910.87,
+    "text": "Where supply and demand meets is the market equilibrium."
+  },
+  {
+    "start": 910.87,
+    "end": 915.91,
+    "text": "And that is the point where both consumers and producers are"
+  },
+  {
+    "start": 915.91,
+    "end": 919.43,
+    "text": "happy to make a transaction."
+  },
+  {
+    "start": 919.43,
+    "end": 923.18,
+    "text": "Consumers are happy because on their demand curve"
+  },
+  {
+    "start": 923.18,
+    "end": 927.77,
+    "text": "is the $3 and 600 roses."
+  },
+  {
+    "start": 927.77,
+    "end": 932.67,
+    "text": "That is, they are willing to buy 600 roses at $3."
+  },
+  {
+    "start": 932.67,
+    "end": 934.5,
+    "text": "Producers are happy, because on their supply"
+  },
+  {
+    "start": 934.5,
+    "end": 936.15,
+    "text": "curve is the same point."
+  },
+  {
+    "start": 936.15,
+    "end": 940.11,
+    "text": "They are willing to supply 600 roses at $3."
+  },
+  {
+    "start": 940.11,
+    "end": 943.02,
+    "text": "That is the one point where consumers are happy"
+  },
+  {
+    "start": 943.02,
+    "end": 944.49,
+    "text": "and producers are happy."
+  },
+  {
+    "start": 944.49,
+    "end": 945.93,
+    "text": "Therefore, it's the equilibrium--"
+  },
+  {
+    "start": 945.93,
+    "end": 949.76,
+    "text": "highly non-technical, but that's the basic intuition."
+  },
+  {
+    "start": 949.76,
+    "end": 951.72,
+    "text": "The point at which they're both willing to make"
+  },
+  {
+    "start": 951.72,
+    "end": 952.89,
+    "text": "that transaction, the point at which they're"
+  },
+  {
+    "start": 952.89,
+    "end": 954.81,
+    "text": "both satisfied with that transaction,"
+  },
+  {
+    "start": 954.81,
+    "end": 957.63,
+    "text": "is the equilibrium, which in this case is $3 per"
+  },
+  {
+    "start": 957.63,
+    "end": 960.12,
+    "text": "rose and 600 roses."
+  },
+  {
+    "start": 960.12,
+    "end": 962.01,
+    "text": "Now, this raises lots of questions."
+  },
+  {
+    "start": 962.01,
+    "end": 963.3,
+    "text": "Where did the curves come from?"
+  },
+  {
+    "start": 963.3,
+    "end": 965.88,
+    "text": "How does equilibrium get achieved?"
+  },
+  {
+    "start": 965.88,
+    "end": 967.29,
+    "text": "Why the heck do we give roses?"
+  },
+  {
+    "start": 967.29,
+    "end": 968.7,
+    "text": "These are a bunch of questions."
+  },
+  {
+    "start": 968.7,
+    "end": 971.88,
+    "text": "We will come to all these questions"
+  },
+  {
+    "start": 971.88,
+    "end": 974.22,
+    "text": "over the next set of lectures."
+  },
+  {
+    "start": 974.22,
+    "end": 975.75,
+    "text": "But the basic thing is to understand"
+  },
+  {
+    "start": 975.75,
+    "end": 979.88,
+    "text": "this intuition of Adam Smith's supply and demand model."
+  },
+  {
+    "start": 979.88,
+    "end": 980.75,
+    "text": "Questions about that?"
+  },
+  {
+    "start": 984.91,
+    "end": 991.03,
+    "text": "Now, this model also raises another important distinction"
+  },
+  {
+    "start": 991.03,
+    "end": 992.41,
+    "text": "that we'll focus on this semester"
+  },
+  {
+    "start": 992.41,
+    "end": 994.0,
+    "text": "and is easy to get mixed up."
+  },
+  {
+    "start": 994.0,
+    "end": 995.77,
+    "text": "So I want you to, if you're ever unclear,"
+  },
+  {
+    "start": 995.77,
+    "end": 997.24,
+    "text": "I want you to ask me about it."
+  },
+  {
+    "start": 997.24,
+    "end": 1003.08,
+    "text": "And that's the distinction between positive"
+  },
+  {
+    "start": 1003.08,
+    "end": 1010.28,
+    "text": "versus normative analyses-- positive versus normative."
+  },
+  {
+    "start": 1010.28,
+    "end": 1015.55,
+    "text": "Positive analysis is the study of the way things are,"
+  },
+  {
+    "start": 1015.55,
+    "end": 1017.97,
+    "text": "while normative analyses is the study"
+  },
+  {
+    "start": 1017.97,
+    "end": 1020.05,
+    "text": "of the way things should be."
+  },
+  {
+    "start": 1020.05,
+    "end": 1022.81,
+    "text": "A positive analysis is the study of the way things are,"
+  },
+  {
+    "start": 1022.81,
+    "end": 1024.88,
+    "text": "while normative analysis is the study"
+  },
+  {
+    "start": 1024.88,
+    "end": 1028.04,
+    "text": "of the way things should be."
+  },
+  {
+    "start": 1028.04,
+    "end": 1034.16,
+    "text": "Let me give you a great example, which is eBay auctions."
+  },
+  {
+    "start": 1034.16,
+    "end": 1035.95,
+    "text": "Auctions are a terrific example."
+  },
+  {
+    "start": 1035.95,
+    "end": 1037.41,
+    "text": "They're like the textbook example"
+  },
+  {
+    "start": 1037.41,
+    "end": 1038.66,
+    "text": "of a competitive market."
+  },
+  {
+    "start": 1038.66,
+    "end": 1039.92,
+    "text": "You can see it in your head--"
+  },
+  {
+    "start": 1039.92,
+    "end": 1042.64,
+    "text": "demand comes as a bunch of people going on and bidding."
+  },
+  {
+    "start": 1042.64,
+    "end": 1044.6,
+    "text": "People who want it more bid more,"
+  },
+  {
+    "start": 1044.6,
+    "end": 1046.46,
+    "text": "so you actually get a demand curve."
+  },
+  {
+    "start": 1046.46,
+    "end": 1049.4,
+    "text": "The higher the price, the fewer people you're getting to bid."
+  },
+  {
+    "start": 1049.4,
+    "end": 1054.21,
+    "text": "Supply is how many units of it are for sale on eBay."
+  },
+  {
+    "start": 1054.21,
+    "end": 1057.12,
+    "text": "You bid until those two meet."
+  },
+  {
+    "start": 1057.12,
+    "end": 1059.34,
+    "text": "And then you have a market equilibrium"
+  },
+  {
+    "start": 1059.34,
+    "end": 1062.49,
+    "text": "at that bidded price."
+  },
+  {
+    "start": 1062.49,
+    "end": 1066.45,
+    "text": "Now, one example of an eBay auction"
+  },
+  {
+    "start": 1066.45,
+    "end": 1069.19,
+    "text": "that got a lot of attention a number of years ago,"
+  },
+  {
+    "start": 1069.19,
+    "end": 1071.61,
+    "text": "early in the days of eBay, was someone"
+  },
+  {
+    "start": 1071.61,
+    "end": 1073.29,
+    "text": "offered their kidney for auction."
+  },
+  {
+    "start": 1073.29,
+    "end": 1074.75,
+    "text": "They said, look, I got two kidneys."
+  },
+  {
+    "start": 1074.75,
+    "end": 1075.67,
+    "text": "You only need one to live."
+  },
+  {
+    "start": 1075.67,
+    "end": 1077.55,
+    "text": "There are people out there who need a kidney."
+  },
+  {
+    "start": 1077.55,
+    "end": 1081.33,
+    "text": "I'm putting my kidney on eBay for auction."
+  },
+  {
+    "start": 1081.33,
+    "end": 1083.16,
+    "text": "And what happened, bidding went nuts."
+  },
+  {
+    "start": 1083.16,
+    "end": 1084.96,
+    "text": "It started at $25,000."
+  },
+  {
+    "start": 1084.96,
+    "end": 1088.13,
+    "text": "It climbed to $5 million before the auction was shut down,"
+  },
+  {
+    "start": 1088.13,
+    "end": 1089.82,
+    "text": "and eBay decided they wouldn't allow"
+  },
+  {
+    "start": 1089.82,
+    "end": 1095.15,
+    "text": "you to sell your body on eBay, bodily parts on eBay."
+  },
+  {
+    "start": 1095.15,
+    "end": 1098.31,
+    "text": "So this raises two questions."
+  },
+  {
+    "start": 1098.31,
+    "end": 1100.82,
+    "text": "The first is the positive question,"
+  },
+  {
+    "start": 1100.82,
+    "end": 1103.54,
+    "text": "why did the price go so high?"
+  },
+  {
+    "start": 1103.54,
+    "end": 1104.75,
+    "text": "So what's the answer to that?"
+  },
+  {
+    "start": 1104.75,
+    "end": 1106.69,
+    "text": "What's the answer to the positive question?"
+  },
+  {
+    "start": 1106.69,
+    "end": 1109.19,
+    "text": "AUDIENCE: Somebody wanted a kidney."
+  },
+  {
+    "start": 1109.19,
+    "end": 1111.32,
+    "text": "JONATHAN GRUBER: Good answer, but let's raise hands"
+  },
+  {
+    "start": 1111.32,
+    "end": 1112.04,
+    "text": "and give answers."
+  },
+  {
+    "start": 1112.04,
+    "end": 1112.94,
+    "text": "That's part of it."
+  },
+  {
+    "start": 1112.94,
+    "end": 1114.0,
+    "text": "Yeah."
+  },
+  {
+    "start": 1114.0,
+    "end": 1114.83,
+    "text": "AUDIENCE: Low supply, high demand."
+  },
+  {
+    "start": 1114.83,
+    "end": 1116.54,
+    "text": "JONATHAN GRUBER: Low supply, high demand."
+  },
+  {
+    "start": 1116.54,
+    "end": 1118.98,
+    "text": "Demand is incredibly high, because I'd die without it."
+  },
+  {
+    "start": 1118.98,
+    "end": 1120.77,
+    "text": "Supply is low, because like not a lot of us"
+  },
+  {
+    "start": 1120.77,
+    "end": 1122.14,
+    "text": "are willing to sell their kidneys"
+  },
+  {
+    "start": 1122.14,
+    "end": 1127.49,
+    "text": "on eBay So low supply, high demand led to a high price--"
+  },
+  {
+    "start": 1127.49,
+    "end": 1128.82,
+    "text": "Adam Smith at work."
+  },
+  {
+    "start": 1128.82,
+    "end": 1132.2,
+    "text": "That's the positive analysis."
+  },
+  {
+    "start": 1132.2,
+    "end": 1135.99,
+    "text": "But then there's the normative question, which is,"
+  },
+  {
+    "start": 1135.99,
+    "end": 1139.13,
+    "text": "should you be allowed to sell your kidneys on eBay?"
+  },
+  {
+    "start": 1139.13,
+    "end": 1140.38,
+    "text": "That's the normative question."
+  },
+  {
+    "start": 1140.38,
+    "end": 1143.28,
+    "text": "The positive question is, what happens if you do?"
+  },
+  {
+    "start": 1143.28,
+    "end": 1146.15,
+    "text": "The normative question is, should you?"
+  },
+  {
+    "start": 1146.15,
+    "end": 1151.0,
+    "text": "Now, the standard economics answer to start"
+  },
+  {
+    "start": 1151.0,
+    "end": 1153.82,
+    "text": "would be, of course you should."
+  },
+  {
+    "start": 1153.82,
+    "end": 1156.37,
+    "text": "We're in a world where thousands of people"
+  },
+  {
+    "start": 1156.37,
+    "end": 1159.31,
+    "text": "die every year because there's a waiting list for a kidney"
+  },
+  {
+    "start": 1159.31,
+    "end": 1162.38,
+    "text": "transplant."
+  },
+  {
+    "start": 1162.38,
+    "end": 1164.76,
+    "text": "and these are people who would happily pay a lot of money"
+  },
+  {
+    "start": 1164.76,
+    "end": 1167.58,
+    "text": "to stay alive, I presume."
+  },
+  {
+    "start": 1167.58,
+    "end": 1170.88,
+    "text": "Meanwhile, there's hundreds of millions"
+  },
+  {
+    "start": 1170.88,
+    "end": 1175.61,
+    "text": "of people walking around with two kidneys who only need one."
+  },
+  {
+    "start": 1175.61,
+    "end": 1178.98,
+    "text": "And many of these people are poor."
+  },
+  {
+    "start": 1178.98,
+    "end": 1181.5,
+    "text": "And lives could be changed by being paid $1 million"
+  },
+  {
+    "start": 1181.5,
+    "end": 1185.29,
+    "text": "for their kidney, and might be happy to take the risk that one"
+  },
+  {
+    "start": 1185.29,
+    "end": 1187.25,
+    "text": "kidney will be fine, as it is for most everyone"
+  },
+  {
+    "start": 1187.25,
+    "end": 1189.23,
+    "text": "for most of their life, in return"
+  },
+  {
+    "start": 1189.23,
+    "end": 1192.65,
+    "text": "for having a life-changing payment from a stranger."
+  },
+  {
+    "start": 1192.65,
+    "end": 1193.7,
+    "text": "So economists say, look--"
+  },
+  {
+    "start": 1193.7,
+    "end": 1197.24,
+    "text": "here's a transaction that makes both parties better off."
+  },
+  {
+    "start": 1197.24,
+    "end": 1200.15,
+    "text": "The person who gets the kidney gets to stay alive,"
+  },
+  {
+    "start": 1200.15,
+    "end": 1203.18,
+    "text": "and they are willing to pay a huge amount for that."
+  },
+  {
+    "start": 1203.18,
+    "end": 1205.88,
+    "text": "The person who sells the kidney in most probability"
+  },
+  {
+    "start": 1205.88,
+    "end": 1207.72,
+    "text": "is fine, because almost all of us"
+  },
+  {
+    "start": 1207.72,
+    "end": 1209.64,
+    "text": "can make it through life fine with one kidney,"
+  },
+  {
+    "start": 1209.64,
+    "end": 1211.94,
+    "text": "and create a life-changing amount of money that"
+  },
+  {
+    "start": 1211.94,
+    "end": 1216.65,
+    "text": "could allow them to pursue their dreams in various ways."
+  },
+  {
+    "start": 1216.65,
+    "end": 1219.35,
+    "text": "So that's the standard argument, would be,"
+  },
+  {
+    "start": 1219.35,
+    "end": 1223.7,
+    "text": "yeah, you should be able to sell your kidneys on eBay."
+  },
+  {
+    "start": 1223.7,
+    "end": 1226.07,
+    "text": "So the question is, why not?"
+  },
+  {
+    "start": 1226.07,
+    "end": 1228.42,
+    "text": "Why would we want to stop this transaction?"
+  },
+  {
+    "start": 1228.42,
+    "end": 1231.02,
+    "text": "What are the counter-arguments to that?"
+  },
+  {
+    "start": 1231.02,
+    "end": 1231.95,
+    "text": "Let's raise our hands."
+  },
+  {
+    "start": 1231.95,
+    "end": 1233.17,
+    "text": "Yeah."
+  },
+  {
+    "start": 1233.17,
+    "end": 1235.4,
+    "text": "AUDIENCE: Potentially, I think maybe the issue is"
+  },
+  {
+    "start": 1235.4,
+    "end": 1237.85,
+    "text": "because on eBay, there's no way to regulate it"
+  },
+  {
+    "start": 1237.85,
+    "end": 1239.81,
+    "text": "or you don't necessarily know."
+  },
+  {
+    "start": 1239.81,
+    "end": 1241.94,
+    "text": "People could be like selling fake kidneys, per se."
+  },
+  {
+    "start": 1241.94,
+    "end": 1242.9,
+    "text": "JONATHAN GRUBER: Right."
+  },
+  {
+    "start": 1242.9,
+    "end": 1245.03,
+    "text": "So the first type of problem comes out"
+  },
+  {
+    "start": 1245.03,
+    "end": 1248.0,
+    "text": "of the category we call \"market failures.\""
+  },
+  {
+    "start": 1252.46,
+    "end": 1255.73,
+    "text": "Market failures are reasons why the market doesn't"
+  },
+  {
+    "start": 1255.73,
+    "end": 1257.26,
+    "text": "work in the wonderful way economists"
+  },
+  {
+    "start": 1257.26,
+    "end": 1259.37,
+    "text": "like to think it should."
+  },
+  {
+    "start": 1259.37,
+    "end": 1261.71,
+    "text": "So for example, this answer puts up"
+  },
+  {
+    "start": 1261.71,
+    "end": 1264.57,
+    "text": "there could be the problem of fraud."
+  },
+  {
+    "start": 1268.04,
+    "end": 1270.89,
+    "text": "People might not be able to tell if they're"
+  },
+  {
+    "start": 1270.89,
+    "end": 1274.01,
+    "text": "getting a legit kidney or not."
+  },
+  {
+    "start": 1274.01,
+    "end": 1277.09,
+    "text": "There could be the example of imperfect information."
+  },
+  {
+    "start": 1279.75,
+    "end": 1281.64,
+    "text": "Do you know what the odds are that you"
+  },
+  {
+    "start": 1281.64,
+    "end": 1284.27,
+    "text": "can spend the rest of your life with only one kidney?"
+  },
+  {
+    "start": 1284.27,
+    "end": 1286.37,
+    "text": "I don't either."
+  },
+  {
+    "start": 1286.37,
+    "end": 1290.08,
+    "text": "We ought to know that before we start selling our kidneys."
+  },
+  {
+    "start": 1290.08,
+    "end": 1291.82,
+    "text": "There could be imperfect information."
+  },
+  {
+    "start": 1294.59,
+    "end": 1298.78,
+    "text": "This is one type of problem, which is the market,"
+  },
+  {
+    "start": 1298.78,
+    "end": 1302.39,
+    "text": "maybe the market may fail."
+  },
+  {
+    "start": 1302.39,
+    "end": 1302.94,
+    "text": "Yeah."
+  },
+  {
+    "start": 1302.94,
+    "end": 1305.51,
+    "text": "AUDIENCE: Well, the current system also"
+  },
+  {
+    "start": 1305.51,
+    "end": 1309.59,
+    "text": "holds people who are poor and have a failed kidney--"
+  },
+  {
+    "start": 1309.59,
+    "end": 1313.59,
+    "text": "and which are people who would be completely screwed otherwise"
+  },
+  {
+    "start": 1313.59,
+    "end": 1315.29,
+    "text": "in the [INAUDIBLE] system."
+  },
+  {
+    "start": 1315.29,
+    "end": 1317.03,
+    "text": "JONATHAN GRUBER: A second problem"
+  },
+  {
+    "start": 1317.03,
+    "end": 1319.85,
+    "text": "is what we call \"equity\" or \"fairness.\""
+  },
+  {
+    "start": 1322.73,
+    "end": 1327.44,
+    "text": "Equity or fairness, which is we would end up with a world"
+  },
+  {
+    "start": 1327.44,
+    "end": 1330.47,
+    "text": "where only rich people would get kidneys."
+  },
+  {
+    "start": 1330.47,
+    "end": 1333.56,
+    "text": "Currently, there's a bunch of voluntary donors and people"
+  },
+  {
+    "start": 1333.56,
+    "end": 1336.8,
+    "text": "who are in accidents who have kidneys left over."
+  },
+  {
+    "start": 1336.8,
+    "end": 1338.75,
+    "text": "And those go to people on the basis of where"
+  },
+  {
+    "start": 1338.75,
+    "end": 1339.44,
+    "text": "they are on a waiting list."
+  },
+  {
+    "start": 1339.44,
+    "end": 1340.4,
+    "text": "It's actually a prioritized waiting list."
+  },
+  {
+    "start": 1340.4,
+    "end": 1341.48,
+    "text": "It's kind of a cool--"
+  },
+  {
+    "start": 1341.48,
+    "end": 1344.48,
+    "text": "one of my colleagues, Nikhil Agarwal, if you think about--"
+  },
+  {
+    "start": 1344.48,
+    "end": 1347.39,
+    "text": "I'll talk a lot this semester about the imperialistic view"
+  },
+  {
+    "start": 1347.39,
+    "end": 1349.88,
+    "text": "of economics, all the cool things we can study."
+  },
+  {
+    "start": 1349.88,
+    "end": 1352.28,
+    "text": "So he actually uses economic models"
+  },
+  {
+    "start": 1352.28,
+    "end": 1356.36,
+    "text": "to study the optimal way to allocate organs to individuals."
+  },
+  {
+    "start": 1356.36,
+    "end": 1359.6,
+    "text": "now it's just done based on a waiting list,"
+  },
+  {
+    "start": 1359.6,
+    "end": 1362.24,
+    "text": "but it may be that someone further down the waiting"
+  },
+  {
+    "start": 1362.24,
+    "end": 1364.01,
+    "text": "list needs it more than someone higher up the waiting list"
+  },
+  {
+    "start": 1364.01,
+    "end": 1365.22,
+    "text": "because they're more critical or whatever."
+  },
+  {
+    "start": 1365.22,
+    "end": 1367.05,
+    "text": "So there's various optimal ways to allocate."
+  },
+  {
+    "start": 1367.05,
+    "end": 1368.8,
+    "text": "But certainly, the optimal way to allocate"
+  },
+  {
+    "start": 1368.8,
+    "end": 1370.58,
+    "text": "wouldn't be the rich guy gets it first."
+  },
+  {
+    "start": 1370.58,
+    "end": 1373.61,
+    "text": "That would be unlikely to be what society would necessarily"
+  },
+  {
+    "start": 1373.61,
+    "end": 1374.41,
+    "text": "want."
+  },
+  {
+    "start": 1374.41,
+    "end": 1376.89,
+    "text": "So there's an equity concern with that."
+  },
+  {
+    "start": 1376.89,
+    "end": 1378.41,
+    "text": "What else?"
+  },
+  {
+    "start": 1378.41,
+    "end": 1380.1,
+    "text": "What other-- yeah."
+  },
+  {
+    "start": 1380.1,
+    "end": 1382.52,
+    "text": "AUDIENCE: In that situation, since you"
+  },
+  {
+    "start": 1382.52,
+    "end": 1384.68,
+    "text": "know you can make money off of selling kidneys,"
+  },
+  {
+    "start": 1384.68,
+    "end": 1387.42,
+    "text": "and you take advantage of people, it's very bad,"
+  },
+  {
+    "start": 1387.42,
+    "end": 1389.11,
+    "text": "the black market for kidneys."
+  },
+  {
+    "start": 1389.11,
+    "end": 1391.28,
+    "text": "JONATHAN GRUBER: Right, so there's sort of a third--"
+  },
+  {
+    "start": 1391.28,
+    "end": 1392.7,
+    "text": "it's related to fraud, but there's"
+  },
+  {
+    "start": 1392.7,
+    "end": 1394.49,
+    "text": "sort of a third class of failures"
+  },
+  {
+    "start": 1394.49,
+    "end": 1398.3,
+    "text": "that gets into the question about behavioral economics"
+  },
+  {
+    "start": 1398.3,
+    "end": 1403.68,
+    "text": "that was raised earlier, which we could just call behavioral--"
+  },
+  {
+    "start": 1403.68,
+    "end": 1405.14,
+    "text": "it's called \"behavioral economics,\""
+  },
+  {
+    "start": 1405.14,
+    "end": 1408.68,
+    "text": "for want of a better term, which is essentially,"
+  },
+  {
+    "start": 1408.68,
+    "end": 1411.2,
+    "text": "people don't always make decisions"
+  },
+  {
+    "start": 1411.2,
+    "end": 1413.9,
+    "text": "in the perfectly rational, logical way we will model them"
+  },
+  {
+    "start": 1413.9,
+    "end": 1416.14,
+    "text": "as doing so this semester."
+  },
+  {
+    "start": 1416.14,
+    "end": 1417.49,
+    "text": "People make mistakes."
+  },
+  {
+    "start": 1417.49,
+    "end": 1418.7,
+    "text": "That's a word we hate using in economics."
+  },
+  {
+    "start": 1418.7,
+    "end": 1419.78,
+    "text": "We hate saying \"mistakes.\""
+  },
+  {
+    "start": 1419.78,
+    "end": 1422.11,
+    "text": "Ooh, boo, mistakes-- nobody makes mistakes."
+  },
+  {
+    "start": 1422.11,
+    "end": 1423.61,
+    "text": "We're all perfectly economic beings."
+  },
+  {
+    "start": 1423.61,
+    "end": 1425.29,
+    "text": "But we know that's not true."
+  },
+  {
+    "start": 1425.29,
+    "end": 1427.72,
+    "text": "Increasingly over the past several decades,"
+  },
+  {
+    "start": 1427.72,
+    "end": 1429.64,
+    "text": "economists have started incorporating insights"
+  },
+  {
+    "start": 1429.64,
+    "end": 1433.81,
+    "text": "from psychology into our models, to not just say"
+  },
+  {
+    "start": 1433.81,
+    "end": 1435.77,
+    "text": "people make mistakes, that their lackadaisical,"
+  },
+  {
+    "start": 1435.77,
+    "end": 1439.19,
+    "text": "but to rigorously model the nature of those mistakes"
+  },
+  {
+    "start": 1439.19,
+    "end": 1442.07,
+    "text": "and understand how mistakes can actually"
+  },
+  {
+    "start": 1442.07,
+    "end": 1446.3,
+    "text": "happen due to various cognitive biases and other things."
+  },
+  {
+    "start": 1446.3,
+    "end": 1448.94,
+    "text": "In this world, you can imagine people could make mistakes."
+  },
+  {
+    "start": 1448.94,
+    "end": 1451.1,
+    "text": "They could not really sit down and quite"
+  },
+  {
+    "start": 1451.1,
+    "end": 1453.05,
+    "text": "understand what they're doing, and they"
+  },
+  {
+    "start": 1453.05,
+    "end": 1455.09,
+    "text": "could have sold their kidney when it's really not"
+  },
+  {
+    "start": 1455.09,
+    "end": 1456.3,
+    "text": "in their own long-term interest."
+  },
+  {
+    "start": 1456.3,
+    "end": 1456.88,
+    "text": "Yeah."
+  },
+  {
+    "start": 1456.88,
+    "end": 1458.67,
+    "text": "AUDIENCE: Would another example be"
+  },
+  {
+    "start": 1458.67,
+    "end": 1460.97,
+    "text": "if there's a family that is in extreme poverty,"
+  },
+  {
+    "start": 1460.97,
+    "end": 1462.55,
+    "text": "even though they only have one kidney,"
+  },
+  {
+    "start": 1462.55,
+    "end": 1464.06,
+    "text": "they might sell the other one, just to get more"
+  },
+  {
+    "start": 1464.06,
+    "end": 1465.65,
+    "text": "money for the family, per se?"
+  },
+  {
+    "start": 1465.65,
+    "end": 1467.97,
+    "text": "JONATHAN GRUBER: Well, in some sense that would be,"
+  },
+  {
+    "start": 1467.97,
+    "end": 1469.28,
+    "text": "once again--"
+  },
+  {
+    "start": 1469.28,
+    "end": 1473.7,
+    "text": "if we took this factor out, if the market works well"
+  },
+  {
+    "start": 1473.7,
+    "end": 1475.7,
+    "text": "with its behavioral effects, we'd say, you know,"
+  },
+  {
+    "start": 1475.7,
+    "end": 1477.35,
+    "text": "that's their decision."
+  },
+  {
+    "start": 1477.35,
+    "end": 1481.55,
+    "text": "If they otherwise they starve, who are you to say?"
+  },
+  {
+    "start": 1481.55,
+    "end": 1483.95,
+    "text": "But once you choose this, say, wait a second,"
+  },
+  {
+    "start": 1483.95,
+    "end": 1486.2,
+    "text": "maybe they're not evaluating the trade-offs correctly."
+  },
+  {
+    "start": 1486.2,
+    "end": 1488.84,
+    "text": "Even if there's no fraud, even if there's perfect information,"
+  },
+  {
+    "start": 1488.84,
+    "end": 1491.55,
+    "text": "they may not know how to process that information correctly."
+  },
+  {
+    "start": 1491.55,
+    "end": 1493.01,
+    "text": "But that is not standard economics."
+  },
+  {
+    "start": 1493.01,
+    "end": 1495.55,
+    "text": "That's not what we'll spend a lot of time on in the semester,"
+  },
+  {
+    "start": 1495.55,
+    "end": 1498.27,
+    "text": "but it's obviously realistic."
+  },
+  {
+    "start": 1498.27,
+    "end": 1500.75,
+    "text": "So those are a bunch of good comments, great comments."
+  },
+  {
+    "start": 1500.75,
+    "end": 1502.79,
+    "text": "And yeah."
+  },
+  {
+    "start": 1502.79,
+    "end": 1505.05,
+    "text": "AUDIENCE: Also, in inelastic demand,"
+  },
+  {
+    "start": 1505.05,
+    "end": 1507.04,
+    "text": "such that people always need kidneys--"
+  },
+  {
+    "start": 1507.04,
+    "end": 1509.25,
+    "text": "JONATHAN GRUBER: That won't turn out to be a problem."
+  },
+  {
+    "start": 1509.25,
+    "end": 1511.56,
+    "text": "That doesn't turn out to be a problem."
+  },
+  {
+    "start": 1511.56,
+    "end": 1513.27,
+    "text": "We'll come back-- that's a great comeback"
+  },
+  {
+    "start": 1513.27,
+    "end": 1515.01,
+    "text": "that we talk about the shape of demand curves."
+  },
+  {
+    "start": 1515.01,
+    "end": 1516.57,
+    "text": "We want to return to that question in a few lectures,"
+  },
+  {
+    "start": 1516.57,
+    "end": 1518.4,
+    "text": "but that doesn't actually cause a problem."
+  },
+  {
+    "start": 1518.4,
+    "end": 1520.11,
+    "text": "It's just that's more of a positive thing about why"
+  },
+  {
+    "start": 1520.11,
+    "end": 1522.57,
+    "text": "the price is so high, but it's not a normative issue about"
+  },
+  {
+    "start": 1522.57,
+    "end": 1525.24,
+    "text": "whether you should allow it or not."
+  },
+  {
+    "start": 1525.24,
+    "end": 1528.45,
+    "text": "So basically, these are exactly--"
+  },
+  {
+    "start": 1528.45,
+    "end": 1530.46,
+    "text": "to me, honestly, I spend my life thinking a lot"
+  },
+  {
+    "start": 1530.46,
+    "end": 1531.25,
+    "text": "about these things."
+  },
+  {
+    "start": 1531.25,
+    "end": 1533.11,
+    "text": "I think these are really interesting issues."
+  },
+  {
+    "start": 1533.11,
+    "end": 1534.99,
+    "text": "But you can't get to the normative issues"
+  },
+  {
+    "start": 1534.99,
+    "end": 1536.74,
+    "text": "without the positive analysis."
+  },
+  {
+    "start": 1536.74,
+    "end": 1538.89,
+    "text": "You do the positive analysis to understand"
+  },
+  {
+    "start": 1538.89,
+    "end": 1541.05,
+    "text": "the economic framework before you start"
+  },
+  {
+    "start": 1541.05,
+    "end": 1542.67,
+    "text": "jumping to drawing conclusions."
+  },
+  {
+    "start": 1542.67,
+    "end": 1543.39,
+    "text": "That's no fun."
+  },
+  {
+    "start": 1543.39,
+    "end": 1544.9,
+    "text": "We all want to jump to draw conclusions,"
+  },
+  {
+    "start": 1544.9,
+    "end": 1546.39,
+    "text": "saying this should happen, this shouldn't happen."
+  },
+  {
+    "start": 1546.39,
+    "end": 1547.14,
+    "text": "You can't do that."
+  },
+  {
+    "start": 1547.14,
+    "end": 1548.89,
+    "text": "We have to be disciplined."
+  },
+  {
+    "start": 1548.89,
+    "end": 1553.24,
+    "text": "We have to start with the fundamental economic framework."
+  },
+  {
+    "start": 1553.24,
+    "end": 1555.91,
+    "text": "And basically, the bottom line--"
+  },
+  {
+    "start": 1555.91,
+    "end": 1557.95,
+    "text": "I said I'll teach this course with a policy bent,"
+  },
+  {
+    "start": 1557.95,
+    "end": 1560.53,
+    "text": "but you have to recognize that economics at its core"
+  },
+  {
+    "start": 1560.53,
+    "end": 1562.63,
+    "text": "is a right-wing science."
+  },
+  {
+    "start": 1562.63,
+    "end": 1564.91,
+    "text": "Economics at its core is all about how"
+  },
+  {
+    "start": 1564.91,
+    "end": 1569.39,
+    "text": "the market knows best, and that basically governments only mess"
+  },
+  {
+    "start": 1569.39,
+    "end": 1571.49,
+    "text": "things up."
+  },
+  {
+    "start": 1571.49,
+    "end": 1573.5,
+    "text": "That's sort of the basic, a lot of what"
+  },
+  {
+    "start": 1573.5,
+    "end": 1574.58,
+    "text": "we'll learn this semester."
+  },
+  {
+    "start": 1574.58,
+    "end": 1576.04,
+    "text": "As the semester goes on, we'll talk"
+  },
+  {
+    "start": 1576.04,
+    "end": 1577.67,
+    "text": "about what's wrong with that view"
+  },
+  {
+    "start": 1577.67,
+    "end": 1578.9,
+    "text": "and how governments can improve things."
+  },
+  {
+    "start": 1578.9,
+    "end": 1581.07,
+    "text": "Indeed, I teach a whole course about the proper role"
+  },
+  {
+    "start": 1581.07,
+    "end": 1582.6,
+    "text": "of government the economy."
+  },
+  {
+    "start": 1582.6,
+    "end": 1586.46,
+    "text": "But the standard of economics is, \"the market knows best.\""
+  },
+  {
+    "start": 1586.46,
+    "end": 1589.67,
+    "text": "And that leads us to the last thing I want to talk about,"
+  },
+  {
+    "start": 1589.67,
+    "end": 1593.33,
+    "text": "which is basically, how freely should an economy function?"
+  },
+  {
+    "start": 1593.33,
+    "end": 1595.3,
+    "text": "Let's step back to the giant picture."
+  },
+  {
+    "start": 1595.31,
+    "end": 1596.93,
+    "text": "Let's step back from a market for roses"
+  },
+  {
+    "start": 1596.93,
+    "end": 1598.76,
+    "text": "to the entire economy."
+  },
+  {
+    "start": 1598.76,
+    "end": 1602.0,
+    "text": "How freely should a market, should an economy function?"
+  },
+  {
+    "start": 1602.0,
+    "end": 1605.74,
+    "text": "We have what's known as a \"capitalistic economy.\""
+  },
+  {
+    "start": 1605.74,
+    "end": 1608.77,
+    "text": "In a capitalistic economy, firms and individuals"
+  },
+  {
+    "start": 1608.77,
+    "end": 1611.08,
+    "text": "decide what to produce and consume,"
+  },
+  {
+    "start": 1611.08,
+    "end": 1614.09,
+    "text": "maybe subject to some rules of the road set by the government."
+  },
+  {
+    "start": 1614.09,
+    "end": 1615.73,
+    "text": "There's some minimum rules of the road"
+  },
+  {
+    "start": 1615.73,
+    "end": 1618.1,
+    "text": "to try to avoid fraud or misinformation,"
+  },
+  {
+    "start": 1618.1,
+    "end": 1620.11,
+    "text": "but otherwise, we let the dice roll."
+  },
+  {
+    "start": 1620.11,
+    "end": 1624.97,
+    "text": "Firms let consumers decide sort of what to do."
+  },
+  {
+    "start": 1624.97,
+    "end": 1628.77,
+    "text": "Now, this has led to tremendous growth."
+  },
+  {
+    "start": 1628.77,
+    "end": 1630.73,
+    "text": "America was not a wealthy nation,"
+  },
+  {
+    "start": 1630.73,
+    "end": 1632.66,
+    "text": "was not a very wealthy nation 100 years ago,"
+  },
+  {
+    "start": 1632.66,
+    "end": 1634.14,
+    "text": "or 150 years ago."
+  },
+  {
+    "start": 1634.14,
+    "end": 1636.21,
+    "text": "Led to tremendous growth, where we are now"
+  },
+  {
+    "start": 1636.21,
+    "end": 1638.59,
+    "text": "the most powerful, still the most powerful and wealthiest"
+  },
+  {
+    "start": 1638.59,
+    "end": 1644.16,
+    "text": "nation the world, largely driven by the capitalistic nature"
+  },
+  {
+    "start": 1644.16,
+    "end": 1646.02,
+    "text": "of our economy."
+  },
+  {
+    "start": 1646.02,
+    "end": 1648.12,
+    "text": "On the other hand, we are a nation"
+  },
+  {
+    "start": 1648.12,
+    "end": 1650.19,
+    "text": "with tremendous inequality."
+  },
+  {
+    "start": 1650.19,
+    "end": 1654.72,
+    "text": "We are by far the most unequal major nation in the world."
+  },
+  {
+    "start": 1654.72,
+    "end": 1659.46,
+    "text": "The top 1% of Americans has a much higher share of our income"
+  },
+  {
+    "start": 1659.46,
+    "end": 1662.5,
+    "text": "than in any other large country in the world,"
+  },
+  {
+    "start": 1662.5,
+    "end": 1664.83,
+    "text": "any other large developed country in the world."
+  },
+  {
+    "start": 1664.83,
+    "end": 1668.83,
+    "text": "The bottom 99% has less of our income corresponding"
+  },
+  {
+    "start": 1668.83,
+    "end": 1669.97,
+    "text": "with anywhere else."
+  },
+  {
+    "start": 1669.97,
+    "end": 1671.91,
+    "text": "So it's led to major inequality."
+  },
+  {
+    "start": 1671.91,
+    "end": 1673.42,
+    "text": "And it's led to other problems."
+  },
+  {
+    "start": 1673.42,
+    "end": 1674.97,
+    "text": "It turns out that the government can't appropriately"
+  },
+  {
+    "start": 1674.97,
+    "end": 1677.46,
+    "text": "set the rules of the road to avoid things like fraud, as we"
+  },
+  {
+    "start": 1677.46,
+    "end": 1679.89,
+    "text": "saw with Enron, if you remember back to that,"
+  },
+  {
+    "start": 1679.89,
+    "end": 1682.32,
+    "text": "or a lot of what happened in the financial meltdown."
+  },
+  {
+    "start": 1682.32,
+    "end": 1683.82,
+    "text": "It turns out it's hard to get people"
+  },
+  {
+    "start": 1683.82,
+    "end": 1685.39,
+    "text": "perfect information, et cetera."
+  },
+  {
+    "start": 1685.39,
+    "end": 1686.52,
+    "text": "So we've seen the problems."
+  },
+  {
+    "start": 1686.52,
+    "end": 1688.65,
+    "text": "We've grown very wealthy as a nation."
+  },
+  {
+    "start": 1688.65,
+    "end": 1692.23,
+    "text": "We've introduced a whole set of problems through this system."
+  },
+  {
+    "start": 1692.23,
+    "end": 1696.39,
+    "text": "Now, the other extreme is what's called the \"command economy.\""
+  },
+  {
+    "start": 1696.39,
+    "end": 1698.16,
+    "text": "Rather than a capitalist economy,"
+  },
+  {
+    "start": 1698.16,
+    "end": 1701.37,
+    "text": "it's what's called a \"command economy.\""
+  },
+  {
+    "start": 1701.37,
+    "end": 1704.82,
+    "text": "In this case, the government makes all the production"
+  },
+  {
+    "start": 1704.82,
+    "end": 1705.96,
+    "text": "and consumption decisions."
+  },
+  {
+    "start": 1705.96,
+    "end": 1708.21,
+    "text": "The government doesn't just set the rules of the road,"
+  },
+  {
+    "start": 1708.21,
+    "end": 1710.46,
+    "text": "the government owns the road."
+  },
+  {
+    "start": 1710.46,
+    "end": 1712.71,
+    "text": "The government says, we're going to use this many cars"
+  },
+  {
+    "start": 1712.71,
+    "end": 1715.2,
+    "text": "this year."
+  },
+  {
+    "start": 1715.2,
+    "end": 1716.77,
+    "text": "And people can get them in some way."
+  },
+  {
+    "start": 1716.77,
+    "end": 1718.77,
+    "text": "It could be a lottery, could be waiting in line."
+  },
+  {
+    "start": 1718.77,
+    "end": 1720.51,
+    "text": "How do we decide how to allocate them?"
+  },
+  {
+    "start": 1720.51,
+    "end": 1721.89,
+    "text": "We're not going to let the market allocate them."
+  },
+  {
+    "start": 1721.89,
+    "end": 1723.52,
+    "text": "We, the government, will allocate them."
+  },
+  {
+    "start": 1723.52,
+    "end": 1727.23,
+    "text": "We'll allocate how many get produced and who gets them."
+  },
+  {
+    "start": 1727.23,
+    "end": 1728.98,
+    "text": "And this was the model of the Soviet Union"
+  },
+  {
+    "start": 1728.98,
+    "end": 1730.63,
+    "text": "that I grew up with."
+  },
+  {
+    "start": 1730.63,
+    "end": 1735.67,
+    "text": "This was the pre-1989 Soviet Union."
+  },
+  {
+    "start": 1735.67,
+    "end": 1738.41,
+    "text": "The government decided how many shirts, cars, TVs, everything."
+  },
+  {
+    "start": 1738.41,
+    "end": 1740.24,
+    "text": "It's sort of bizarre to think that literally"
+  },
+  {
+    "start": 1740.24,
+    "end": 1743.36,
+    "text": "everything the government decided how much to produce."
+  },
+  {
+    "start": 1743.36,
+    "end": 1745.78,
+    "text": "And by and large, the government decided who got it partly"
+  },
+  {
+    "start": 1745.78,
+    "end": 1748.69,
+    "text": "through corruption-- that is, the party members,"
+  },
+  {
+    "start": 1748.69,
+    "end": 1750.13,
+    "text": "party leaders got it first--"
+  },
+  {
+    "start": 1750.13,
+    "end": 1752.95,
+    "text": "and often just through waiting in line for the remaining"
+  },
+  {
+    "start": 1752.95,
+    "end": 1754.87,
+    "text": "application."
+  },
+  {
+    "start": 1754.87,
+    "end": 1757.96,
+    "text": "Now in theory, this ensured equity"
+  },
+  {
+    "start": 1757.96,
+    "end": 1760.45,
+    "text": "by making sure that everybody had shot at things."
+  },
+  {
+    "start": 1760.45,
+    "end": 1762.79,
+    "text": "In practice, it didn't work well at all"
+  },
+  {
+    "start": 1762.79,
+    "end": 1764.47,
+    "text": "and actually was what dragged down"
+  },
+  {
+    "start": 1764.47,
+    "end": 1766.81,
+    "text": "the collapse of the old Soviet economy,"
+  },
+  {
+    "start": 1766.81,
+    "end": 1770.55,
+    "text": "was that the command model simply doesn't work."
+  },
+  {
+    "start": 1770.55,
+    "end": 1773.85,
+    "text": "Partly there's just too many opportunities for corruption."
+  },
+  {
+    "start": 1773.85,
+    "end": 1775.53,
+    "text": "When the government controls everything,"
+  },
+  {
+    "start": 1775.53,
+    "end": 1780.15,
+    "text": "that means there's no checks and balances on the opportunity"
+  },
+  {
+    "start": 1780.15,
+    "end": 1781.49,
+    "text": "for enormous corruption."
+  },
+  {
+    "start": 1781.49,
+    "end": 1783.99,
+    "text": "The capitalist economy puts some natural checks and balances"
+  },
+  {
+    "start": 1783.99,
+    "end": 1785.56,
+    "text": "on that."
+  },
+  {
+    "start": 1785.56,
+    "end": 1788.38,
+    "text": "And partly because it turns out that it's"
+  },
+  {
+    "start": 1788.38,
+    "end": 1790.15,
+    "text": "hard to control human nature."
+  },
+  {
+    "start": 1790.15,
+    "end": 1791.98,
+    "text": "And Adam Smith had it right."
+  },
+  {
+    "start": 1791.98,
+    "end": 1794.68,
+    "text": "Adam Smith talks about the \"invisible hand\""
+  },
+  {
+    "start": 1794.68,
+    "end": 1796.15,
+    "text": "of the capitalist economy."
+  },
+  {
+    "start": 1796.15,
+    "end": 1799.12,
+    "text": "The invisible hand is basically the notion"
+  },
+  {
+    "start": 1799.12,
+    "end": 1800.74,
+    "text": "that the capitalist economy will manage"
+  },
+  {
+    "start": 1800.74,
+    "end": 1805.51,
+    "text": "to distribute things roughly in proportion to what people want."
+  },
+  {
+    "start": 1805.51,
+    "end": 1807.91,
+    "text": "And that's where folks want to be."
+  },
+  {
+    "start": 1807.91,
+    "end": 1809.47,
+    "text": "Folks who want a certain kind of car"
+  },
+  {
+    "start": 1809.47,
+    "end": 1811.12,
+    "text": "are going to want to get to that kind of car,"
+  },
+  {
+    "start": 1811.12,
+    "end": 1812.68,
+    "text": "and if the government has it wrong,"
+  },
+  {
+    "start": 1812.68,
+    "end": 1813.81,
+    "text": "they're going to get upset."
+  },
+  {
+    "start": 1813.81,
+    "end": 1817.85,
+    "text": "And it's going to lead to a less functional economy."
+  },
+  {
+    "start": 1817.85,
+    "end": 1822.59,
+    "text": "So basically, Adam Smith's view is that--"
+  },
+  {
+    "start": 1822.59,
+    "end": 1826.25,
+    "text": "the invisible hand view is that consumers and firms serving"
+  },
+  {
+    "start": 1826.25,
+    "end": 1831.08,
+    "text": "their own best interest will do what is best for society."
+  },
+  {
+    "start": 1831.08,
+    "end": 1833.51,
+    "text": "So the fundamental core of the capitalistic view"
+  },
+  {
+    "start": 1833.51,
+    "end": 1837.77,
+    "text": "is that consumers and firms serving their own best interest"
+  },
+  {
+    "start": 1837.77,
+    "end": 1840.21,
+    "text": "will do what ends up being best for society."
+  },
+  {
+    "start": 1840.21,
+    "end": 1841.79,
+    "text": "And that's essentially the model we'll"
+  },
+  {
+    "start": 1841.79,
+    "end": 1843.94,
+    "text": "learn to start in this course."
+  },
+  {
+    "start": 1843.94,
+    "end": 1845.89,
+    "text": "Yeah."
+  },
+  {
+    "start": 1845.89,
+    "end": 1847.39,
+    "text": "AUDIENCE: In that definition, are we"
+  },
+  {
+    "start": 1847.39,
+    "end": 1851.68,
+    "text": "defining the best for society as in everybody"
+  },
+  {
+    "start": 1851.68,
+    "end": 1853.12,
+    "text": "has the most money?"
+  },
+  {
+    "start": 1853.12,
+    "end": 1856.89,
+    "text": "Or everyone has the best health or the best standard of living?"
+  },
+  {
+    "start": 1856.89,
+    "end": 1858.1,
+    "text": "What is the best [INAUDIBLE]?"
+  },
+  {
+    "start": 1858.1,
+    "end": 1858.83,
+    "text": "JONATHAN GRUBER: Great question."
+  },
+  {
+    "start": 1858.83,
+    "end": 1860.17,
+    "text": "We're going to spend a lot of the semester talking"
+  },
+  {
+    "start": 1860.17,
+    "end": 1861.1,
+    "text": "about that."
+  },
+  {
+    "start": 1861.1,
+    "end": 1863.65,
+    "text": "For now, we're going to define \"best for society\""
+  },
+  {
+    "start": 1863.65,
+    "end": 1867.06,
+    "text": "as the most stuff gets produced and consumed."
+  },
+  {
+    "start": 1867.06,
+    "end": 1868.52,
+    "text": "That's how we're going to find it--"
+  },
+  {
+    "start": 1868.52,
+    "end": 1870.31,
+    "text": "obviously raises a set of issues about what"
+  },
+  {
+    "start": 1870.31,
+    "end": 1873.12,
+    "text": "about pollution, what about health, et cetera."
+  },
+  {
+    "start": 1873.12,
+    "end": 1875.63,
+    "text": "We're going to come to those, but for the first two-thirds"
+  },
+  {
+    "start": 1875.63,
+    "end": 1878.63,
+    "text": "of the course \"best for society\" means"
+  },
+  {
+    "start": 1878.63,
+    "end": 1881.27,
+    "text": "what we're going to call \"maximum surplus,\" which"
+  },
+  {
+    "start": 1881.27,
+    "end": 1885.23,
+    "text": "is the most stuff gets produced that people value."
+  },
+  {
+    "start": 1885.23,
+    "end": 1886.73,
+    "text": "So that's how we're going to do it."
+  },
+  {
+    "start": 1886.73,
+    "end": 1888.65,
+    "text": "And in his view, the invisible hand does that."
+  },
+  {
+    "start": 1888.65,
+    "end": 1895.73,
+    "text": "And by and large, it's a very helpful framework to turn to."
+  },
+  {
+    "start": 1895.73,
+    "end": 1897.89,
+    "text": "However, at least it can lead to outcomes"
+  },
+  {
+    "start": 1897.89,
+    "end": 1899.73,
+    "text": "that are not very fair."
+  },
+  {
+    "start": 1899.73,
+    "end": 1902.06,
+    "text": "So the way we're going to proceed in this course"
+  },
+  {
+    "start": 1902.06,
+    "end": 1904.55,
+    "text": "is we're going to start by talking about how"
+  },
+  {
+    "start": 1904.55,
+    "end": 1906.29,
+    "text": "Adam Smith's magic works."
+  },
+  {
+    "start": 1906.29,
+    "end": 1907.88,
+    "text": "How does the magic happen?"
+  },
+  {
+    "start": 1907.88,
+    "end": 1909.8,
+    "text": "How does individuals and firms acting"
+  },
+  {
+    "start": 1909.8,
+    "end": 1912.95,
+    "text": "in their own self-interest, without caring about anybody"
+  },
+  {
+    "start": 1912.95,
+    "end": 1918.53,
+    "text": "else, end up yielding the largest possible"
+  },
+  {
+    "start": 1918.53,
+    "end": 1920.75,
+    "text": "productive economy?"
+  },
+  {
+    "start": 1920.75,
+    "end": 1922.44,
+    "text": "How does that happen?"
+  },
+  {
+    "start": 1922.44,
+    "end": 1923.9,
+    "text": "And we're going to talk about that."
+  },
+  {
+    "start": 1923.9,
+    "end": 1925.94,
+    "text": "We'll start with demand, which is"
+  },
+  {
+    "start": 1925.94,
+    "end": 1927.56,
+    "text": "how do consumers decide what they"
+  },
+  {
+    "start": 1927.56,
+    "end": 1930.12,
+    "text": "want given their resources."
+  },
+  {
+    "start": 1930.12,
+    "end": 1932.8,
+    "text": "We'll talk about the principle of utility maximization,"
+  },
+  {
+    "start": 1932.81,
+    "end": 1934.43,
+    "text": "the idea that I have a utility function"
+  },
+  {
+    "start": 1934.43,
+    "end": 1938.3,
+    "text": "that I can mathematically write down what I want."
+  },
+  {
+    "start": 1938.3,
+    "end": 1940.94,
+    "text": "I'll have a budget constraint, which is the resources I have,"
+  },
+  {
+    "start": 1940.94,
+    "end": 1942.95,
+    "text": "and those two constrain optimization."
+  },
+  {
+    "start": 1942.95,
+    "end": 1945.26,
+    "text": "We'll say given what I want and the resource I have,"
+  },
+  {
+    "start": 1945.26,
+    "end": 1946.3,
+    "text": "what decisions do I make?"
+  },
+  {
+    "start": 1946.3,
+    "end": 1948.28,
+    "text": "Boom, we get the demand curve."
+  },
+  {
+    "start": 1948.28,
+    "end": 1951.28,
+    "text": "Then we'll turn to supply, and we'll talk about how do firms"
+  },
+  {
+    "start": 1951.28,
+    "end": 1953.37,
+    "text": "decide what to produce."
+  },
+  {
+    "start": 1953.37,
+    "end": 1955.16,
+    "text": "That's much more complicated, because firms"
+  },
+  {
+    "start": 1955.16,
+    "end": 1958.03,
+    "text": "have to decide what inputs to use"
+  },
+  {
+    "start": 1958.03,
+    "end": 1960.56,
+    "text": "and what outputs to produce."
+  },
+  {
+    "start": 1960.56,
+    "end": 1962.51,
+    "text": "And we'll talk about how firms can operate"
+  },
+  {
+    "start": 1962.51,
+    "end": 1964.23,
+    "text": "in very different markets."
+  },
+  {
+    "start": 1964.23,
+    "end": 1966.71,
+    "text": "There is a competitive market that Adam Smith envisioned,"
+  },
+  {
+    "start": 1966.71,
+    "end": 1967.92,
+    "text": "but that doesn't always work."
+  },
+  {
+    "start": 1967.92,
+    "end": 1970.49,
+    "text": "Sometimes we get monopoly markets,"
+  },
+  {
+    "start": 1970.49,
+    "end": 1971.71,
+    "text": "where one firm dominates."
+  },
+  {
+    "start": 1971.71,
+    "end": 1973.13,
+    "text": "And you can actually have outcomes"
+  },
+  {
+    "start": 1973.13,
+    "end": 1975.08,
+    "text": "which aren't the best possible outcome, even"
+  },
+  {
+    "start": 1975.08,
+    "end": 1977.29,
+    "text": "with the invisible hand."
+  },
+  {
+    "start": 1977.29,
+    "end": 1979.86,
+    "text": "So we'll talk about different kinds of markets."
+  },
+  {
+    "start": 1979.86,
+    "end": 1982.83,
+    "text": "Then we'll put it together to get market equilibrium,"
+  },
+  {
+    "start": 1982.83,
+    "end": 1984.9,
+    "text": "and talk about Smith's principles."
+  },
+  {
+    "start": 1984.9,
+    "end": 1987.78,
+    "text": "And then from there, we'll talk about how it breaks down"
+  },
+  {
+    "start": 1987.78,
+    "end": 1989.94,
+    "text": "in reality, different change in reality,"
+  },
+  {
+    "start": 1989.94,
+    "end": 1992.31,
+    "text": "how there are various market failures that"
+  },
+  {
+    "start": 1992.31,
+    "end": 1994.71,
+    "text": "can get in the way, why we have to care about equity"
+  },
+  {
+    "start": 1994.71,
+    "end": 1997.83,
+    "text": "and what implications that has, about behavioral economics,"
+  },
+  {
+    "start": 1997.83,
+    "end": 2000.26,
+    "text": "about a set of other factors."
+  },
+  {
+    "start": 2000.26,
+    "end": 2003.93,
+    "text": "So that's basically how we're going to proceed this semester."
+  },
+  {
+    "start": 2003.93,
+    "end": 2005.96,
+    "text": "As I said, the lectures are important,"
+  },
+  {
+    "start": 2005.96,
+    "end": 2008.06,
+    "text": "but the recitations are as well."
+  },
+  {
+    "start": 2008.06,
+    "end": 2009.95,
+    "text": "Once we're sort of in steady state,"
+  },
+  {
+    "start": 2009.95,
+    "end": 2014.69,
+    "text": "the recitations will be about half new material and half"
+  },
+  {
+    "start": 2014.69,
+    "end": 2016.76,
+    "text": "working through problems to help you prepare"
+  },
+  {
+    "start": 2016.76,
+    "end": 2017.86,
+    "text": "for that next problem set."
+  },
+  {
+    "start": 2017.86,
+    "end": 2019.73,
+    "text": "So the way the problem sets are going to work"
+  },
+  {
+    "start": 2019.73,
+    "end": 2021.67,
+    "text": "is the problem set that's assigned"
+  },
+  {
+    "start": 2021.67,
+    "end": 2024.66,
+    "text": "will cover material that's taught up to that date."
+  },
+  {
+    "start": 2024.66,
+    "end": 2026.33,
+    "text": "So for example, problem set one is going"
+  },
+  {
+    "start": 2026.33,
+    "end": 2027.89,
+    "text": "to be assigned next Friday."
+  },
+  {
+    "start": 2027.89,
+    "end": 2029.72,
+    "text": "That will cover everything you've learned up"
+  },
+  {
+    "start": 2029.72,
+    "end": 2032.69,
+    "text": "through next Wednesday."
+  },
+  {
+    "start": 2032.69,
+    "end": 2034.34,
+    "text": "Therefore, in section on next Friday,"
+  },
+  {
+    "start": 2034.34,
+    "end": 2037.31,
+    "text": "we'll do a practice problem which you should understand"
+  },
+  {
+    "start": 2037.31,
+    "end": 2039.52,
+    "text": "because it'll cover things that were taught in class,"
+  },
+  {
+    "start": 2039.52,
+    "end": 2041.1,
+    "text": "and help prepare you for the problems."
+  },
+  {
+    "start": 2041.1,
+    "end": 2042.46,
+    "text": "And we'll do that every week."
+  },
+  {
+    "start": 2042.46,
+    "end": 2043.77,
+    "text": "That's about half the section."
+  },
+  {
+    "start": 2043.77,
+    "end": 2046.28,
+    "text": "The other half of the section will be new material."
+  },
+  {
+    "start": 2046.28,
+    "end": 2048.85,
+    "text": "This Friday, the section on Friday is all new material."
+  },
+  {
+    "start": 2048.85,
+    "end": 2051.17,
+    "text": "What we do on Friday is cover the mathematics."
+  },
+  {
+    "start": 2051.17,
+    "end": 2052.62,
+    "text": "I don't like doing math."
+  },
+  {
+    "start": 2052.62,
+    "end": 2054.05,
+    "text": "I always get it wrong."
+  },
+  {
+    "start": 2054.05,
+    "end": 2057.11,
+    "text": "So I leave math for the TAs, who are smarter than I am."
+  },
+  {
+    "start": 2057.11,
+    "end": 2059.63,
+    "text": "So this Friday, we'll be doing the mathematics of supply"
+  },
+  {
+    "start": 2059.63,
+    "end": 2062.02,
+    "text": "and demand, and how you take the intuition here"
+  },
+  {
+    "start": 2062.02,
+    "end": 2063.56,
+    "text": "and the simple graphics, and actually"
+  },
+  {
+    "start": 2063.56,
+    "end": 2066.38,
+    "text": "turn it into mathematical representations, which is what"
+  },
+  {
+    "start": 2066.38,
+    "end": 2067.79,
+    "text": "you need for the problem sets."
+  },
+  {
+    "start": 2067.79,
+    "end": 2068.78,
+    "text": "That's this Friday."
+  },
+  {
+    "start": 2068.78,
+    "end": 2070.45,
+    "text": "Then we'll come back on Monday and start"
+  },
+  {
+    "start": 2070.45,
+    "end": 2072.89,
+    "text": "talking about what's underneath the demand curve."
+  },
+  {
+    "start": 2072.89,
+    "end": 2076.01,
+    "text": "All right, any other questions?"
+  },
+  {
+    "start": 2076.01,
+    "end": 2077.86,
+    "text": "I'll see you on Monday."
+  }
+]

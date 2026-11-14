@@ -1,0 +1,1112 @@
+[
+  {
+    "concept": "The Astonishing Hypothesis",
+    "start": 13.0,
+    "end": 84.0,
+    "summary": "Francis Crick's Astonishing Hypothesis is that your joys, sorrows, memories, ambitions, sense of identity and free will are no more than the behavior of a vast assembly of nerve cells and their molecules. Bloom calls it an odd and unnatural view that most people don't believe at first.",
+    "questions": [
+      {
+        "q": "A friend says, \"My love for my family is just neurons firing.\" Which idea is this friend expressing?",
+        "options": [
+          "The Astonishing Hypothesis",
+          "The method of doubt",
+          "Reincarnation",
+          "Dualism"
+        ],
+        "answer": 0,
+        "explanation": "Crick's Astonishing Hypothesis says everything about you, including your joys and sorrows, is the behavior of nerve cells: \"you're nothing but a pack of neurons.\""
+      },
+      {
+        "q": "Why does Bloom call Crick's hypothesis \"astonishing\"?",
+        "options": [
+          "Because it is an odd, unnatural view that most people don't believe",
+          "Because it says animals have souls",
+          "Because Crick won a Nobel Prize for it",
+          "Because it was proven only recently by brain scans"
+        ],
+        "answer": 0,
+        "explanation": "Bloom says it is fair to call it astonishing: it is odd and unnatural, and most people don't believe it."
+      }
+    ]
+  },
+  {
+    "concept": "Dualism and Descartes",
+    "start": 84.0,
+    "end": 166.2,
+    "summary": "Most people are dualists, a doctrine found in every religion and most philosophies, and best defended by Descartes. Descartes argued that animals are \"beast machines\" but humans are immaterial souls that possess physical bodies, so there are two separate things: material bodies and immaterial minds.",
+    "questions": [
+      {
+        "q": "According to Descartes, how does a dog differ from a person?",
+        "options": [
+          "The person is merely a machine, while the dog has a soul",
+          "Both have immaterial souls",
+          "Both are pure machines",
+          "The dog is merely a machine, while the person is an immaterial soul with a physical body"
+        ],
+        "answer": 3,
+        "explanation": "Descartes called animals \"beast machines\" but said humans are immaterial souls that possess physical bodies."
+      },
+      {
+        "q": "Why is the doctrine called \"dualism\"?",
+        "options": [
+          "Because it says humans consist of two separate things: a material body and an immaterial mind",
+          "Because it says there are two kinds of animals",
+          "Because it says people have two brains",
+          "Because it was defended by two philosophers"
+        ],
+        "answer": 0,
+        "explanation": "Bloom says it is called dualism because, for humans, there are two separate things: our material bodies and our immaterial minds."
+      }
+    ]
+  },
+  {
+    "concept": "Descartes' argument from creative human action",
+    "start": 166.2,
+    "end": 270.9,
+    "summary": "Descartes saw hydraulic robots in the French Royal Gardens that responded to certain actions, and agreed that bodies can work like that, as in a knee reflex. But he argued humans are not mere machines because they do coordinated, creative, spontaneous things, such as choosing what to say, which machines can't.",
+    "questions": [
+      {
+        "q": "Someone asks \"How are you?\" and you reply with an unexpected joke you just made up. How would Descartes use this?",
+        "options": [
+          "As evidence that language is a reflex",
+          "As evidence that animals can talk",
+          "As evidence that humans can act creatively and by choice, which machines cannot",
+          "As evidence that humans are reflex machines"
+        ],
+        "answer": 2,
+        "explanation": "Descartes argued language can be chosen and creative, not just reflexive, and that machines are incapable of that choice."
+      },
+      {
+        "q": "Which observation did Descartes accept as machine-like in humans?",
+        "options": [
+          "Feeling love",
+          "Choosing what to say",
+          "The leg jumping when the knee is tapped",
+          "Doubting one's own existence"
+        ],
+        "answer": 2,
+        "explanation": "He agreed the body has reflexes like the garden robots, such as the knee jerk, but said humans are not limited to reflexive action."
+      }
+    ]
+  },
+  {
+    "concept": "Descartes' method of doubt",
+    "start": 270.9,
+    "end": 351.6,
+    "summary": "Using the method of doubt, Descartes asked what he could be sure of, and found he could doubt God, his country, his friends and family, since an evil demon might be deceiving him, the idea behind The Matrix. He could even doubt he had a body, since madmen misjudge their bodies and he might be crazy or dreaming.",
+    "questions": [
+      {
+        "q": "The plot of The Matrix is that people's experiences are fed to them by machines. Which idea of Descartes is this built on?",
+        "options": [
+          "Beast machines",
+          "The pineal gland",
+          "The worry that an evil demon could be deceiving him about everything",
+          "The knee reflex"
+        ],
+        "answer": 2,
+        "explanation": "Bloom says The Matrix is explicitly built on Descartes' worry that an evil demon could trick him into having experiences that aren't real."
+      },
+      {
+        "q": "Why did Descartes think he could doubt even having a body?",
+        "options": [
+          "Because bodies are made of water",
+          "Because madmen are wrong about their bodies and he couldn't be sure he wasn't crazy or dreaming",
+          "Because he had lost a limb",
+          "Because the church told him so"
+        ],
+        "answer": 1,
+        "explanation": "He noted madmen believe they have extra limbs, and crazy people don't think they're crazy, so he couldn't rule out being crazy or dreaming."
+      }
+    ]
+  },
+  {
+    "concept": "I think: why the mind seemed separate from the body",
+    "start": 351.6,
+    "end": 403.5,
+    "summary": "The one thing Descartes could not doubt was that he himself was thinking, since doubting it would be self-refuting. He used this difference between an uncertain body and a certain mind to support dualism, concluding that the soul is a thinking substance entirely distinct from the body.",
+    "questions": [
+      {
+        "q": "Why can't you doubt that you are thinking, according to Descartes?",
+        "options": [
+          "Because the brain proves it",
+          "Because thinking is a reflex",
+          "Because God guarantees it",
+          "Because doubting is itself thinking, so the doubt would refute itself"
+        ],
+        "answer": 3,
+        "explanation": "Bloom says doubting that you are thinking would be self-refuting."
+      },
+      {
+        "q": "How did Descartes use the method of doubt to support dualism?",
+        "options": [
+          "The mind can be doubted, so only the body is real",
+          "Doubt shows animals have minds",
+          "The body can be doubted but the thinking mind cannot, so they must be different things",
+          "Both body and mind can be doubted, so neither exists"
+        ],
+        "answer": 2,
+        "explanation": "He contrasted the always-uncertain body with the certainty of thinking, and concluded the soul is entirely distinct from the body."
+      }
+    ]
+  },
+  {
+    "concept": "Dualism in everyday language and body-swap stories",
+    "start": 403.5,
+    "end": 481.4,
+    "summary": "Dualism is common sense and shows up in language, since we talk about \"my body\" and \"my brain\" as if we were separate from them. It also shows up in intuitions about personal identity: we easily follow a movie where a teenager goes to sleep and wakes up in an adult's body.",
+    "questions": [
+      {
+        "q": "Which everyday phrase does Bloom treat as a sign of common-sense dualism?",
+        "options": [
+          "\"We won the game\"",
+          "\"My brain hurts\"",
+          "\"It is raining\"",
+          "\"I am tired\""
+        ],
+        "answer": 1,
+        "explanation": "He says we talk about owning our brains and bodies (\"my body\", \"my brain\") as if we were separate from them."
+      },
+      {
+        "q": "Why does Bloom think audiences have no trouble following a body-swap movie?",
+        "options": [
+          "Because they believe it is a documentary",
+          "Because the movie explains the science",
+          "Because children don't understand bodies",
+          "Because common sense says a person can stay the same even if the body changes radically"
+        ],
+        "answer": 3,
+        "explanation": "He says nobody leaves conceptually confused: common sense lets someone be the same person despite profound bodily change."
+      }
+    ]
+  },
+  {
+    "concept": "Imagining transformations: Kafka and Homer",
+    "start": 481.4,
+    "end": 571.2,
+    "summary": "We can imagine profound transformations such as reincarnation, Kafka's Gregor Samsa waking up as a giant insect, or Odysseus' companions stuck in the bodies of pigs with their minds unchanged. Being able to imagine this shows that we think of what we are as separate from the body we reside in.",
+    "questions": [
+      {
+        "q": "What does our ability to imagine waking up in an insect's body show, according to Bloom?",
+        "options": [
+          "That Kafka was a dualist philosopher",
+          "That reincarnation is real",
+          "That we intuitively think of ourselves as separate from our bodies",
+          "That insects have minds"
+        ],
+        "answer": 2,
+        "explanation": "Bloom says if you can imagine this, it is because you imagine what you are as separate from the body you reside in."
+      },
+      {
+        "q": "Why does Bloom say the witch did something \"worse\" than turning Odysseus' companions into pigs?",
+        "options": [
+          "She killed them",
+          "She turned them into insects",
+          "She put them in pig bodies while their human minds stayed unchanged",
+          "She made them forget who they were"
+        ],
+        "answer": 2,
+        "explanation": "They had the bodies of swine but their minds remained as before, so they were penned there weeping."
+      }
+    ]
+  },
+  {
+    "concept": "Many minds in one body: multiple personality and possession",
+    "start": 571.2,
+    "end": 625.8,
+    "summary": "Common sense also allows many people to occupy one body, as in the movie All of Me and in one analysis of multiple personality disorder as several people fighting for control. Many belief systems also explain evil or irrational behaviour as something else taking over a person's body, as in exorcisms.",
+    "questions": [
+      {
+        "q": "A belief system says a person's violent outburst happened because a spirit took over their body. Which common-sense idea does this reflect?",
+        "options": [
+          "More than one person or mind can occupy a single body",
+          "The mind is what the brain does",
+          "Animals are machines",
+          "Neurons are all or nothing"
+        ],
+        "answer": 0,
+        "explanation": "Bloom gives exorcism as an example of the common-sense view that something else can take over a person's body."
+      },
+      {
+        "q": "What is Bloom's point about multiple personality disorder in this lecture?",
+        "options": [
+          "Not how it really works, but that common sense lets us think of several people in one body",
+          "That it proves dualism is true",
+          "That it is always faked",
+          "That it is caused by alcohol"
+        ],
+        "answer": 0,
+        "explanation": "He says the reality is more complicated, but his point is how we think about it: common sense allows more than one person in a body."
+      }
+    ]
+  },
+  {
+    "concept": "Belief in surviving the death of the body",
+    "start": 625.8,
+    "end": 729.2,
+    "summary": "Most religions and most people believe a person can survive the destruction of the body, whether in Heaven, Hell, another body or a spirit world. In a Chicago survey, most Christians, most Jewish participants and even most people with no religion said they would go to Heaven when they die.",
+    "questions": [
+      {
+        "q": "What do beliefs in Heaven, reincarnation and a spirit world have in common, according to Bloom?",
+        "options": [
+          "They all deny that the soul exists",
+          "They all come from Christianity",
+          "They all are scientific theories",
+          "They all hold that what you are is separable from your body"
+        ],
+        "answer": 3,
+        "explanation": "Bloom says cultures differ on the soul's fate, but share the idea that what you are is separable from the physical thing you carry around."
+      },
+      {
+        "q": "What was surprising about the non-religious people in the Chicago survey?",
+        "options": [
+          "They believed in reincarnation",
+          "They all said nothing happens after death",
+          "They refused to answer",
+          "Most of them still said they would go to Heaven"
+        ],
+        "answer": 3,
+        "explanation": "Even people who said they had no religion mostly answered that they would go to Heaven, showing how deep dualism runs."
+      }
+    ]
+  },
+  {
+    "concept": "Why science rejects dualism: the mind is what the brain does",
+    "start": 729.2,
+    "end": 837.4,
+    "summary": "The scientific consensus is that dualism is wrong: there is no you separate from your brain, and the mind is what the brain does, like computation reflects the workings of a computer. Dualism is unscientific because it explains nothing, and Descartes could not explain how an immaterial soul connects to a body that obeys commands, feels pain and is affected by alcohol.",
+    "questions": [
+      {
+        "q": "Drinking alcohol changes how you reason. Why is this a problem for a dualist like Descartes?",
+        "options": [
+          "He couldn't explain how a physical substance connects to and affects an immaterial mind",
+          "It proves animals have souls",
+          "It isn't: alcohol only affects the body",
+          "It shows the mind is outside the body"
+        ],
+        "answer": 0,
+        "explanation": "Bloom says Descartes knew there is a connection (pain, commands, alcohol) but could only wave his hands about how the physical connects to the immaterial."
+      },
+      {
+        "q": "What does \"the mind is what the brain does\" mean in Bloom's analogy?",
+        "options": [
+          "The mind is a separate soul inside the brain",
+          "The brain only controls reflexes",
+          "The brain is controlled by the mind",
+          "The mind reflects the workings of the brain, as computation reflects the workings of a computer"
+        ],
+        "answer": 3,
+        "explanation": "He compares the mind to computation: it is what the physical brain does."
+      }
+    ]
+  },
+  {
+    "concept": "Machines as an existence proof",
+    "start": 837.4,
+    "end": 913.1,
+    "summary": "In his time Descartes could reasonably conclude that a physical object could never play chess, so he needed an immaterial soul. Today machines can play chess, manipulate symbols and reason to some extent, an existence proof that physical things can do complicated things, which makes it possible that humans are physical things, namely brains.",
+    "questions": [
+      {
+        "q": "Why does a chess-playing computer weaken Descartes' argument?",
+        "options": [
+          "Because computers have souls",
+          "Because it shows a merely physical object can do something Descartes thought required a soul",
+          "Because chess is a reflex",
+          "Because humans no longer play chess"
+        ],
+        "answer": 1,
+        "explanation": "Bloom calls such machines an existence proof: physical things can do complicated things, so you can't say \"physical things just can't do that.\""
+      },
+      {
+        "q": "What exactly does the existence proof establish, according to Bloom?",
+        "options": [
+          "That humans are definitely computers",
+          "That it is at least possible that humans are physical machines",
+          "That dualism is proven",
+          "That machines are conscious"
+        ],
+        "answer": 1,
+        "explanation": "He says this makes it at least possible that we are such machines, in particular that humans are brains."
+      }
+    ]
+  },
+  {
+    "concept": "Evidence linking brain and mind: injuries and brain imaging",
+    "start": 913.1,
+    "end": 1033.8,
+    "summary": "It has long been known that a blow to the head, diseases like syphilis, and chemicals like caffeine and alcohol change mental life, and now severe mental losses show up correspondingly in the brain. Imaging such as CAT, PET and fMRI shows different brain parts active during different mental activities, which fits the brain view but is very hard to explain for a dualist.",
+    "questions": [
+      {
+        "q": "An fMRI shows different brain areas active when someone reads words versus hears words. Why does this support the brain view of the mind?",
+        "options": [
+          "Because it shows the brain doesn't matter for language",
+          "Because it proves the soul is in the visual cortex",
+          "Because mental activities correspond to specific brain activity, which is expected if the mind is the brain",
+          "Because it shows reading and hearing are the same"
+        ],
+        "answer": 2,
+        "explanation": "Bloom says different parts of the brain are active during different parts of mental life, which is no surprise if we are our brains but hard for dualists to explain."
+      },
+      {
+        "q": "Which old observation already suggested the brain is involved in mental life?",
+        "options": [
+          "Animals respond to hydraulic robots",
+          "People dream at night",
+          "Getting hit on the head can change your mental faculties",
+          "Children learn language"
+        ],
+        "answer": 2,
+        "explanation": "Bloom lists getting smacked in the head, syphilis, and chemicals like caffeine and alcohol as long-known effects on the mind."
+      }
+    ]
+  },
+  {
+    "concept": "How can a lump of meat give rise to the mind?",
+    "start": 1033.8,
+    "end": 1145.9,
+    "summary": "The scientific consensus is that all mental life, including consciousness, emotions, choice and morality, comes from brain activity, yet the brain looks like an old meat loaf, gray outside the head and red inside. The goal of neuroscience is to make this less ridiculous by explaining how the brain can give rise to thought.",
+    "questions": [
+      {
+        "q": "Why does Bloom say we should have some sympathy for Descartes when we look at a real brain?",
+        "options": [
+          "Because it is hard to believe a gray, meat-loaf-like organ is responsible for love and consciousness",
+          "Because brains are tiny",
+          "Because the brain is glowing and complex-looking",
+          "Because Descartes studied brains himself"
+        ],
+        "answer": 0,
+        "explanation": "He says the brain looks like an old meat loaf, and the idea that it produces free will and love can seem ridiculous."
+      },
+      {
+        "q": "What is the goal of neuroscience, as Bloom describes it?",
+        "options": [
+          "To find the soul in the brain",
+          "To explain how the brain gives rise to thought, making the brain view less ridiculous",
+          "To replace psychology with chemistry",
+          "To prove dualism"
+        ],
+        "answer": 1,
+        "explanation": "He says the goal is to make it less ridiculous by explaining how the brain works and gives rise to thought."
+      }
+    ]
+  },
+  {
+    "concept": "Neuron structure: dendrites, cell body and axon",
+    "start": 1168.9,
+    "end": 1266.8,
+    "summary": "The basic unit of the brain is the neuron, whose dendrites receive excitatory or inhibitory signals from other neurons, and whose cell body sums them up like pluses and minuses. If the sum reaches a certain level the neuron fires along its axon, which can be many feet long and is surrounded by a myelin sheath that insulates it and makes firing quicker.",
+    "questions": [
+      {
+        "q": "A neuron receives many inhibitory signals and only a few excitatory ones. What is most likely?",
+        "options": [
+          "It does not reach its threshold and does not fire",
+          "It fires faster",
+          "Its axon grows longer",
+          "It turns into a motor neuron"
+        ],
+        "answer": 0,
+        "explanation": "The cell body adds excitatory signals as pluses and inhibitory ones as minuses; it fires only if the total reaches a certain level."
+      },
+      {
+        "q": "What would happen if the myelin sheath around an axon were damaged?",
+        "options": [
+          "The neuron would fire twice as hard",
+          "The neuron would stop receiving signals",
+          "Signals along the axon would travel less quickly, since myelin is insulation that speeds firing",
+          "Dendrites would take over the axon's job"
+        ],
+        "answer": 2,
+        "explanation": "Bloom describes myelin as insulation that helps the firing work quicker."
+      }
+    ]
+  },
+  {
+    "concept": "Types of neurons: sensory, motor and interneurons",
+    "start": 1266.8,
+    "end": 1337.9,
+    "summary": "There are about a thousand billion neurons, each connected to thousands or tens of thousands of others, making the brain an extraordinarily complicated computing device. Sensory neurons take in information from the world, motor neurons tell muscles what to do, interneurons connect the two and do the thinking, and contrary to old belief some neurons can regrow.",
+    "questions": [
+      {
+        "q": "You see a ball coming and decide to raise your hand to catch it. Which neurons carry the command to your arm muscles?",
+        "options": [
+          "Sensory neurons",
+          "Interneurons",
+          "Myelin neurons",
+          "Motor neurons"
+        ],
+        "answer": 3,
+        "explanation": "Bloom says when you decide to raise your hand, motor neurons tell the muscles what to do."
+      },
+      {
+        "q": "Which neurons does Bloom say \"do the thinking\"?",
+        "options": [
+          "Interneurons, which connect sensation and action",
+          "Neurons that have regrown",
+          "Sensory neurons in the retina",
+          "Motor neurons in the spinal cord"
+        ],
+        "answer": 0,
+        "explanation": "Interneurons connect sensory and motor neurons and make the connection between sensation and action."
+      }
+    ]
+  },
+  {
+    "concept": "All-or-nothing firing and how neurons code intensity",
+    "start": 1337.9,
+    "end": 1420.5,
+    "summary": "A neuron is like a gun: it either fires or it doesn't, and squeezing harder doesn't make it fire harder. Graded sensations like pressure or heat are coded in two ways: by the number of neurons firing and by the frequency of firing.",
+    "questions": [
+      {
+        "q": "Someone presses your hand gently, then hard. If each neuron is all or nothing, how does your brain register the difference?",
+        "options": [
+          "Each neuron fires with more force",
+          "The myelin sheath gets thicker",
+          "More neurons fire, and they fire more frequently",
+          "The axon gets longer"
+        ],
+        "answer": 2,
+        "explanation": "Bloom gives two ways to code intensity: the number of neurons firing and the frequency of firing."
+      },
+      {
+        "q": "What does Bloom's gun analogy for neurons mean?",
+        "options": [
+          "A neuron either fires or it doesn't; firing isn't stronger if the input is stronger",
+          "Neurons fire only once in a lifetime",
+          "Neurons can damage other neurons",
+          "Neurons can be loaded with chemicals"
+        ],
+        "answer": 0,
+        "explanation": "Like squeezing a trigger harder doesn't make a gun fire harder, a neuron's firing is all or nothing."
+      }
+    ]
+  },
+  {
+    "concept": "Synapses and neurotransmitters",
+    "start": 1420.5,
+    "end": 1486.3,
+    "summary": "Neurons are not wired together like a computer; between the axon of one neuron and the dendrite of the next there is a tiny gap called the synapse. When a neuron fires, the axon sends chemicals called neurotransmitters across the gap, which either excite or inhibit the next neuron.",
+    "questions": [
+      {
+        "q": "How does a signal get from one neuron to the next?",
+        "options": [
+          "Through a direct wire connection between axon and dendrite",
+          "Through the blood",
+          "Neurotransmitter chemicals cross a tiny gap, the synapse",
+          "Through the myelin sheath"
+        ],
+        "answer": 2,
+        "explanation": "Bloom says neurons communicate chemically: the axon sends neurotransmitters across the synapse to the dendrites."
+      },
+      {
+        "q": "A neurotransmitter lowers the chance that the receiving neuron will fire. What kind of effect is this?",
+        "options": [
+          "Topographic",
+          "Excitatory",
+          "Inhibitory",
+          "Sensory"
+        ],
+        "answer": 2,
+        "explanation": "Neurotransmitters can excite the next neuron, raising its chance of firing, or inhibit it, lowering it."
+      }
+    ]
+  },
+  {
+    "concept": "Agonists and antagonists",
+    "start": 1486.3,
+    "end": 1556.2,
+    "summary": "Much psychopharmacology, medical and recreational, works by fiddling with neurotransmitters. Agonists increase their effect by making more, stopping their cleanup or mimicking them, while antagonists reduce it by destroying them, blocking their production or covering the receiving dendrite.",
+    "questions": [
+      {
+        "q": "A drug stops the cleanup of a neurotransmitter so more of it stays active. What kind of drug is it?",
+        "options": [
+          "An antagonist",
+          "An interneuron",
+          "An agonist",
+          "A myelin blocker"
+        ],
+        "answer": 2,
+        "explanation": "Bloom lists stopping the cleanup of neurotransmitters as one way an agonist increases their effect."
+      },
+      {
+        "q": "A drug coats the receiving dendrite so neurotransmitters can't connect. What is it?",
+        "options": [
+          "An agonist",
+          "A sensory neuron",
+          "An antagonist",
+          "A neurotransmitter"
+        ],
+        "answer": 2,
+        "explanation": "Antagonists reduce neurotransmitter effects, in some cases by putting a paste over the dendrite."
+      }
+    ]
+  },
+  {
+    "concept": "Curare and alcohol: how drugs act on neurons",
+    "start": 1556.2,
+    "end": 1657.5,
+    "summary": "Curare is an antagonist that blocks motor neurons from affecting muscles, causing paralysis and then death because breathing depends on motor neurons. Alcohol is inhibitory: it first inhibits the inhibitory parts of the brain, largely in the frontal lobes, which is why people lose their inhibitions, and in larger amounts it inhibits the excitatory parts and people pass out.",
+    "questions": [
+      {
+        "q": "If alcohol is inhibitory, why do people become less restrained after a few drinks?",
+        "options": [
+          "Alcohol blocks motor neurons",
+          "Alcohol increases norepinephrine",
+          "Alcohol inhibits the brain parts that normally inhibit behaviour",
+          "Alcohol excites the whole brain"
+        ],
+        "answer": 2,
+        "explanation": "Bloom says alcohol inhibits the inhibitory parts of the brain, largely in the frontal lobes, that tell you to behave."
+      },
+      {
+        "q": "Why is curare deadly?",
+        "options": [
+          "It increases serotonin",
+          "It destroys the frontal lobes",
+          "It causes neurons to fire constantly",
+          "It blocks motor neurons from affecting muscles, including those used for breathing"
+        ],
+        "answer": 3,
+        "explanation": "Curare is an antagonist that stops motor neurons affecting muscle fibers; since breathing works through motor neurons, you die."
+      }
+    ]
+  },
+  {
+    "concept": "Neurotransmitters in drugs and disease: amphetamines, Prozac, L-DOPA",
+    "start": 1657.5,
+    "end": 1737.8,
+    "summary": "Amphetamines such as speed and coke increase norepinephrine, a neurotransmitter for general arousal, and Prozac makes serotonin more prevalent, which may help with depression linked to too little serotonin. Parkinson's disease, a loss of motor control, involves too little dopamine, and the drug L-DOPA increases dopamine to temporarily relieve the symptoms.",
+    "questions": [
+      {
+        "q": "A disease causes difficulty moving and is linked to too little dopamine. Which treatment from the lecture fits?",
+        "options": [
+          "Prozac",
+          "L-DOPA",
+          "Alcohol",
+          "Curare"
+        ],
+        "answer": 1,
+        "explanation": "Bloom says L-DOPA increases the supply of dopamine and can temporarily alleviate Parkinson's symptoms."
+      },
+      {
+        "q": "Why might Prozac help with depression, according to the lecture?",
+        "options": [
+          "It inhibits the frontal lobes",
+          "It increases arousal through norepinephrine",
+          "It makes serotonin more prevalent, and depression involves too little serotonin",
+          "It blocks dopamine"
+        ],
+        "answer": 2,
+        "explanation": "Bloom says one problem in depression is too little serotonin, and Prozac makes serotonin more prevalent."
+      }
+    ]
+  },
+  {
+    "concept": "Brain vs. computer: damage resistance, speed and parallel processing",
+    "start": 1737.8,
+    "end": 1852.5,
+    "summary": "The brain can't be wired like a PC because it is much more resistant to damage, with other parts able to take over, and because it is extremely fast even though tissue is very slow. Wired like a PC, it would take four hours to recognize a face, so the brain must use massively parallel distributed processing.",
+    "questions": [
+      {
+        "q": "Neural tissue is slow, yet you recognize a friend's face almost instantly. How does Bloom resolve this?",
+        "options": [
+          "Face recognition is a reflex that skips the brain",
+          "The brain uses faster electricity than computers",
+          "The myelin sheath makes the brain faster than a PC",
+          "The brain works by massively parallel distributed processing"
+        ],
+        "answer": 3,
+        "explanation": "He says a serially wired brain would take four hours to recognize a face, so it must use massively parallel processing."
+      },
+      {
+        "q": "Snipping a wire almost anywhere in a laptop breaks it, but a brain survives a lot of damage. What does Bloom conclude?",
+        "options": [
+          "The brain has no important parts",
+          "Brain damage never affects the mind",
+          "The brain is not wired like a PC; it has built-in damage resistance",
+          "Laptops are more advanced than brains"
+        ],
+        "answer": 2,
+        "explanation": "He says the brain is more resilient, with damage resistance that lets other parts take over, so it can't be wired like a computer."
+      }
+    ]
+  },
+  {
+    "concept": "Neural networks",
+    "start": 1852.5,
+    "end": 1963.6,
+    "summary": "Researchers in psychology, engineering and computer science build neural networks, massively distributed networks of neuron-like components, to make machines do brain-like things. It is a young field, and no machine yet recognizes faces or understands sentences like a two-year-old, partly because the real brain is wired in a far more complicated way.",
+    "questions": [
+      {
+        "q": "What idea do neural network researchers borrow from the brain?",
+        "options": [
+          "Using chemical neurotransmitters",
+          "Using one very fast processor",
+          "Connecting many neuron-like components in a massively distributed network",
+          "Copying the shape of the cortex"
+        ],
+        "answer": 2,
+        "explanation": "Bloom says they take a hint from nature and build massively distributed networks from components that look like neurons."
+      },
+      {
+        "q": "According to the lecture, why can't machines yet match a two-year-old at recognizing faces?",
+        "options": [
+          "Because faces are a reflex",
+          "Because the human brain is wired in a far more complicated way than any simple neural network",
+          "Because computers are too slow",
+          "Because nobody has tried"
+        ],
+        "answer": 1,
+        "explanation": "He says the field is young, and the brain is wired in an extraordinarily more complicated way than simple neural networks."
+      }
+    ]
+  },
+  {
+    "concept": "Reflexes that don't need the brain",
+    "start": 1979.1,
+    "end": 2068.3,
+    "summary": "Some things don't need the brain, as gruesome studies of decapitated people in France showed: newborn sucking, withdrawing a limb from pain, erection and vomiting. In a class demonstration, a volunteer's hand bounced back automatically when hit, an instinctive response that does not require the brain.",
+    "questions": [
+      {
+        "q": "You touch a hot pan and pull your hand back before you think about it. What does the lecture say about such responses?",
+        "options": [
+          "They are controlled by the hypothalamus",
+          "They require the cortex",
+          "They are learned in childhood",
+          "They are automatic and don't need the brain"
+        ],
+        "answer": 3,
+        "explanation": "Bloom lists limb withdrawal from pain among the things you don't need your brain for."
+      },
+      {
+        "q": "What did the volunteer demonstration show?",
+        "options": [
+          "That pain is imaginary",
+          "That the cortex controls hand movements",
+          "That the volunteer had fast reflexes because of practice",
+          "That some responses are automatic and instinctive and do not require the brain"
+        ],
+        "answer": 3,
+        "explanation": "The hand going back up after the hit was automatic and instinctive, showing the brain isn't needed for everything."
+      }
+    ]
+  },
+  {
+    "concept": "Subcortical structures: medulla, cerebellum, hypothalamus",
+    "start": 2068.3,
+    "end": 2155.2,
+    "summary": "Some brain functions involve low-level subcortical structures below the cortex: the medulla controls heart rate and respiration, the cerebellum, with about 30 billion neurons, controls balance and coordination, and the hypothalamus controls feeding, hunger, thirst and to some extent sleep. These parts are essential, but where the action is, is the cortex.",
+    "questions": [
+      {
+        "q": "After an injury, a patient has trouble keeping their balance and coordinating movements. Which structure is most likely affected?",
+        "options": [
+          "Occipital lobe",
+          "Cerebellum",
+          "Medulla",
+          "Hypothalamus"
+        ],
+        "answer": 1,
+        "explanation": "Bloom says the cerebellum is responsible for body balance and muscular coordination."
+      },
+      {
+        "q": "Why is damage to the medulla especially dangerous?",
+        "options": [
+          "It controls heart rate and respiration",
+          "It stores memories",
+          "It controls thirst",
+          "It controls language"
+        ],
+        "answer": 0,
+        "explanation": "The medulla is responsible for heart rate and respiration, so damage to it is likely fatal."
+      }
+    ]
+  },
+  {
+    "concept": "The cortex and its four lobes",
+    "start": 2155.2,
+    "end": 2240.9,
+    "summary": "The cortex is the crumpled outer layer of the brain, about two feet square if flattened, and it is where the neat stuff takes place: fish have none, primates a lot, and in humans it is about 80% of brain volume. It is divided into frontal, parietal, occipital and temporal lobes, duplicated with subtle differences in the left and right halves.",
+    "questions": [
+      {
+        "q": "Why does the brain look wrinkled?",
+        "options": [
+          "Because the cortex, about two feet square, is crumpled up to fit in the skull",
+          "Because it shrinks with age",
+          "Because of the blood vessels",
+          "Because the lobes are separated by bone"
+        ],
+        "answer": 0,
+        "explanation": "Bloom says the wrinkles come from the crumpled cortex, which would be about two feet square if flattened."
+      },
+      {
+        "q": "Based on the lecture, which animal would you expect to have the richest mental life?",
+        "options": [
+          "All the same, because cortex doesn't matter",
+          "A reptile, with a little cortex",
+          "A primate, with a lot of cortex",
+          "A fish, with no cortex"
+        ],
+        "answer": 2,
+        "explanation": "Bloom says the cortex is where the neat stuff happens: fish have none, reptiles and birds a little, primates a lot."
+      }
+    ]
+  },
+  {
+    "concept": "Penfield and the maps of the body in the brain",
+    "start": 2240.9,
+    "end": 2341.1,
+    "summary": "Physiologists who electrically stimulated a dog's brain made its leg kick, and Penfield at McGill did the same during surgery on conscious patients, who moved body parts, saw colors, heard sounds or felt touch. This showed there are maps of the body in the brain, in the motor cortex and the sensory cortex.",
+    "questions": [
+      {
+        "q": "Why could Penfield stimulate patients' brains while they were fully conscious?",
+        "options": [
+          "Because the stimulation was very weak",
+          "Because he only stimulated the medulla",
+          "Because the brain itself has no sense organs, so it doesn't feel the stimulation",
+          "Because they were given curare"
+        ],
+        "answer": 2,
+        "explanation": "Bloom says brain surgery can be done while fully conscious because the brain itself has no sense organs."
+      },
+      {
+        "q": "Stimulating one spot makes a patient's hand twitch; another spot makes them feel touch on the hand. What do these results reveal?",
+        "options": [
+          "That the hand has its own brain",
+          "That all brain areas do the same thing",
+          "That the motor and sensory cortex contain maps of the body",
+          "That the soul is in the hand"
+        ],
+        "answer": 2,
+        "explanation": "Penfield's work showed there are body maps in the motor cortex and the sensory cortex."
+      }
+    ]
+  },
+  {
+    "concept": "Topographic body maps and the sensory homunculus",
+    "start": 2341.1,
+    "end": 2428.6,
+    "summary": "The brain's body maps are topographical: body parts that are close together, like the tongue and jaw, are close together in the motor and somatosensory cortex. The size of a part on the map depends on how much motor command or sensory control there is, not on its real size, so the tongue and face are huge while the shoulder barely appears.",
+    "questions": [
+      {
+        "q": "On the somatosensory map, the lips take up much more space than the back. Why?",
+        "options": [
+          "The back is controlled by the cerebellum",
+          "The lips have far more sensory receptors, and map size reflects sensory control, not physical size",
+          "The lips are bigger than the back",
+          "The map is random"
+        ],
+        "answer": 1,
+        "explanation": "Bloom says map size depends on the extent of motor or sensory control; the tongue and face are big, the shoulder barely shows."
+      },
+      {
+        "q": "What does it mean that the body maps are \"topographical\"?",
+        "options": [
+          "Bigger body parts get bigger areas",
+          "Parts that are close together on the body are close together in the brain",
+          "They are drawn on the skull",
+          "Each map shows the whole world"
+        ],
+        "answer": 1,
+        "explanation": "Topographical means neighbours on the body are neighbours on the brain, like tongue and jaw."
+      }
+    ]
+  },
+  {
+    "concept": "How we find out what brain areas do: projection areas and imaging",
+    "start": 2428.6,
+    "end": 2505.5,
+    "summary": "Less than a quarter of the cortex contains body maps or projection areas, while the rest handles language, reasoning and moral thought, and from rat to cat to monkey to human less of it is devoted to projection. To find what other parts do, researchers use imaging such as CAT, PET and fMRI, for example scanning someone during a language task to see what is active.",
+    "questions": [
+      {
+        "q": "A researcher wants to know which brain areas are used for language. Which method from the lecture fits?",
+        "options": [
+          "Measuring the size of the skull",
+          "Tapping the knee",
+          "Scanning the person with fMRI while they do a language task",
+          "Counting neurons in the spinal cord"
+        ],
+        "answer": 2,
+        "explanation": "Bloom describes putting someone in a scanner during a linguistic task and seeing which brain parts are active."
+      },
+      {
+        "q": "Comparing rats, cats, monkeys and humans, what changes about the cortex?",
+        "options": [
+          "Less of it is devoted to projection areas and more to other things like language and reasoning",
+          "It gets smaller",
+          "More of it is devoted to body maps",
+          "It loses its lobes"
+        ],
+        "answer": 0,
+        "explanation": "He says as you go from rat to cat to monkey to human, less is devoted to projection and more to other things."
+      }
+    ]
+  },
+  {
+    "concept": "Learning from brain damage: apraxia",
+    "start": 2505.5,
+    "end": 2583.7,
+    "summary": "Another way to learn what brain parts do is to study people with lesions, tumors, strokes or injuries: if damage to one area leaves someone unable to recognize faces, that area is likely related to face recognition. Apraxia, for example, is not paralysis: people can make simple movements but can't coordinate them to wave goodbye or light a cigarette.",
+    "questions": [
+      {
+        "q": "A stroke patient can move each finger normally but can't coordinate the movements to button a shirt. Which disorder fits best?",
+        "options": [
+          "Agnosia",
+          "Paralysis",
+          "Apraxia",
+          "Aphasia"
+        ],
+        "answer": 2,
+        "explanation": "Bloom says apraxia isn't paralysis: simple movements are fine, but the person can't coordinate them."
+      },
+      {
+        "q": "What is the logic of studying brain damage to learn what brain areas do?",
+        "options": [
+          "Only healthy brains can be scanned",
+          "If damage to an area causes the loss of an ability, that area is likely related to the ability",
+          "Damage shows where the soul is",
+          "Damaged brains work the same as healthy ones"
+        ],
+        "answer": 1,
+        "explanation": "He explains that if damage to one part leaves someone unable to recognize faces, that part is probably related to face recognition."
+      }
+    ]
+  },
+  {
+    "concept": "Agnosia, prosopagnosia and sensory neglect",
+    "start": 2583.7,
+    "end": 2639.0,
+    "summary": "Agnosia is not blindness: the eyes work, but the person loses the ability to recognize certain things, such as objects in visual agnosia or faces in prosopagnosia, sometimes called psychic blindness. In sensory neglect, again not paralysis or blindness, brain damage can make a person lose the idea that there is a left side of their body or of the world.",
+    "questions": [
+      {
+        "q": "A patient sees perfectly well but can't recognize his own wife's face. What is the condition?",
+        "options": [
+          "Apraxia",
+          "Prosopagnosia",
+          "Receptive aphasia",
+          "Blindness"
+        ],
+        "answer": 1,
+        "explanation": "Prosopagnosia is a form of agnosia in which the person loses the ability to recognize faces while vision itself is intact."
+      },
+      {
+        "q": "A patient eats only the food on the right side of her plate and ignores the left side. Which disorder does this suggest?",
+        "options": [
+          "Broca's aphasia",
+          "Sensory neglect",
+          "Apraxia",
+          "Paralysis"
+        ],
+        "answer": 1,
+        "explanation": "Bloom says in sensory neglect a person may lose the idea that there is a left side of the body or of the world."
+      }
+    ]
+  },
+  {
+    "concept": "Aphasia and acquired psychopathy",
+    "start": 2639.0,
+    "end": 2686.4,
+    "summary": "Aphasia is a disorder of language: Broca's classic 1861 patient could say only the word \"tan,\" while in receptive aphasia a person speaks fluently but the words make no sense and they can't understand others. In acquired psychopathy, damage particularly to the frontal lobes robs people of the ability to tell right from wrong.",
+    "questions": [
+      {
+        "q": "A patient speaks in fluent sentences that make no sense and doesn't understand questions. Which disorder fits?",
+        "options": [
+          "Prosopagnosia",
+          "Broca's patient \"Tan\"",
+          "Apraxia",
+          "Receptive aphasia"
+        ],
+        "answer": 3,
+        "explanation": "Bloom describes receptive aphasia as fluent speech whose words don't make sense, with no understanding of others."
+      },
+      {
+        "q": "After frontal lobe damage, a previously law-abiding man can no longer tell right from wrong. What is this called?",
+        "options": [
+          "Acquired psychopathy",
+          "Sensory neglect",
+          "Apraxia",
+          "Agnosia"
+        ],
+        "answer": 0,
+        "explanation": "Acquired psychopathy is damage, particularly to the frontal lobes, that robs a person of the ability to tell right from wrong."
+      }
+    ]
+  },
+  {
+    "concept": "Handedness and language in the left hemisphere",
+    "start": 2686.4,
+    "end": 2790.9,
+    "summary": "The brain looks symmetrical but there are real differences between the hemispheres: right-handed people, about nine in ten, have language in the left hemisphere, while left-handers are more varied. Many things are duplicated so one half can do a lot alone, but some functions are more prevalent and powerful on one side.",
+    "questions": [
+      {
+        "q": "A right-handed patient has a stroke in the left hemisphere. Which ability is most at risk, according to the lecture?",
+        "options": [
+          "Language",
+          "Balance",
+          "Heart rate",
+          "Music"
+        ],
+        "answer": 0,
+        "explanation": "Bloom says right-handed people, about nine in ten, have language in the left hemisphere."
+      },
+      {
+        "q": "Why is it harder to predict where language is for a left-handed person?",
+        "options": [
+          "Left-handers always have language on the right",
+          "Handedness has nothing to do with the brain",
+          "Some left-handers have language on the right, some on the left, and some elsewhere",
+          "Left-handers have no language area"
+        ],
+        "answer": 2,
+        "explanation": "He says left-handers are more complicated: some have language in the right hemisphere, some in the left."
+      }
+    ]
+  },
+  {
+    "concept": "Split brain: crossover and the corpus callosum",
+    "start": 2790.9,
+    "end": 2892.4,
+    "summary": "In right-handers language is usually on the left and math and music on the right, and there is a crossover: the left visual field goes to the right hemisphere, the right visual field to the left, and each hemisphere controls the opposite side of the body. The two halves are connected by the corpus callosum, and studying a man whose hemispheres were surgically separated shows how unusual cases help us understand normal functioning.",
+    "questions": [
+      {
+        "q": "A word is flashed only in a person's left visual field. Which hemisphere receives it first?",
+        "options": [
+          "The right hemisphere",
+          "Neither: it goes to the cerebellum",
+          "The left hemisphere",
+          "Both equally"
+        ],
+        "answer": 0,
+        "explanation": "Bloom explains the crossover: everything in the left visual field goes to the right side of the brain."
+      },
+      {
+        "q": "In a split-brain patient, what has been cut?",
+        "options": [
+          "The optic nerve",
+          "The spinal cord",
+          "The corpus callosum connecting the two hemispheres",
+          "The medulla"
+        ],
+        "answer": 2,
+        "explanation": "The two halves are connected by the corpus callosum; the man in the film had his brain bisected so the hemispheres don't communicate."
+      }
+    ]
+  },
+  {
+    "concept": "The mind as an information processor",
+    "start": 2912.1,
+    "end": 2965.1,
+    "summary": "Much of neuroscience and cognitive psychology treats the mind as an information processor, an elaborate computer, studying problems like recognizing faces, language, motor control or logic. The strategy is to work out what sort of program could solve a problem and then ask how it could be instantiated in the physical brain.",
+    "questions": [
+      {
+        "q": "A psychologist first designs a program that could recognize faces, then looks for how the brain could implement it. Which approach is this?",
+        "options": [
+          "Dualism",
+          "Treating the mind as an information processor",
+          "Studying reflexes",
+          "The method of doubt"
+        ],
+        "answer": 1,
+        "explanation": "Bloom describes this strategy: figure out what program solves the problem, then ask how it is instantiated in the brain."
+      },
+      {
+        "q": "Bloom says we study people \"much as we'd study a computer from an alien planet.\" What does he mean?",
+        "options": [
+          "Humans are aliens",
+          "We try to work out what programs the brain runs to solve problems, as we would for an unknown computer",
+          "We should study computers instead of people",
+          "Computers can't be understood"
+        ],
+        "answer": 1,
+        "explanation": "The information-processing approach treats the mind as an elaborate computer whose programs we try to figure out."
+      }
+    ]
+  },
+  {
+    "concept": "The hard problem of consciousness",
+    "start": 2965.1,
+    "end": 3055.9,
+    "summary": "The hard problem of consciousness is subjective experience: a computer can play chess, recognize numbers and do math, maybe the same way we do, but it doesn't have feelings in the same sense. How a lump of nervous tissue gives rise to consciousness remains a deep puzzle, which Huxley compared to the genie appearing when Aladdin rubs his lamp.",
+    "questions": [
+      {
+        "q": "A robot can recognize faces and play chess as well as a person. What would still be left unexplained by the hard problem?",
+        "options": [
+          "How it processes information",
+          "Which program it runs",
+          "Whether it has subjective experience, what it feels like from the inside",
+          "How fast it is"
+        ],
+        "answer": 2,
+        "explanation": "Bloom says the hard problem is subjective experience: his computer does chess and math but doesn't have feelings in the same sense."
+      },
+      {
+        "q": "What is the point of Huxley's comparison to Aladdin's lamp?",
+        "options": [
+          "That psychologists have solved consciousness",
+          "That how consciousness arises from nervous tissue is as unaccountable as a genie appearing",
+          "That the brain works like a lamp",
+          "That consciousness is magic and can't exist"
+        ],
+        "answer": 1,
+        "explanation": "Huxley says consciousness arising from irritating nervous tissue is as unaccountable as the genie appearing; Bloom says most researchers think we have far to go."
+      }
+    ]
+  },
+  {
+    "concept": "Mechanistic view of the mind vs. free will and responsibility",
+    "start": 3055.9,
+    "end": 3141.7,
+    "summary": "The course presents a mechanistic conception of mental life, trying to explain things like decisions, loving our children and falling in love rather than celebrating their mystery. This can be hard to mesh with humanist values such as free will and responsibility, the intrinsic value of people and their spiritual value.",
+    "questions": [
+      {
+        "q": "A driver cuts you off and you blame them for choosing to do it. Why might the mechanistic view make this blame seem puzzling?",
+        "options": [
+          "Because if all actions result from neurochemical processes, it is hard to fit the idea that they freely chose",
+          "Because traffic is a reflex",
+          "Because blame is a neurotransmitter",
+          "Because drivers have no brains"
+        ],
+        "answer": 0,
+        "explanation": "Bloom says free will and responsibility are hard to mesh with a view in which all actions result from neurochemical physical processes."
+      },
+      {
+        "q": "What does Bloom mean by a \"mechanistic conception of mental life\"?",
+        "options": [
+          "Believing the soul controls the brain",
+          "Studying machines instead of people",
+          "Trying to explain mental life, like decisions and love, as physical processes",
+          "Treating the mind as mysterious and beautiful"
+        ],
+        "answer": 2,
+        "explanation": "He says he won't dwell on how mysterious it is; he'll try to explain fundamental aspects of ourselves."
+      }
+    ]
+  },
+  {
+    "concept": "Three responses to the tension between science and humanist values",
+    "start": 3141.7,
+    "end": 3195.8,
+    "summary": "Faced with this tension, you can reject the scientific conception of mind and embrace dualism, or embrace science and reject free will, responsibility and spiritual value as illusions. Or you can try to reconcile the scientific view of the mind with the humanist values you want to preserve, an issue the course returns to throughout.",
+    "questions": [
+      {
+        "q": "A philosopher argues that neuroscience is right and that free will is simply a pre-scientific illusion. Which of Bloom's three responses is this?",
+        "options": [
+          "Embrace the scientific view and reject humanist values",
+          "Reject science and embrace dualism",
+          "None of them",
+          "Reconcile science with humanist values"
+        ],
+        "answer": 0,
+        "explanation": "Bloom describes philosophers and psychologists who claim free will and responsibility are illusions washed away by science."
+      },
+      {
+        "q": "Someone accepts that the mind is the brain but still wants to keep moral responsibility. Which response are they attempting?",
+        "options": [
+          "Rejecting humanist values",
+          "Rejecting science",
+          "Embracing dualism",
+          "Reconciling the scientific view with humanist values"
+        ],
+        "answer": 3,
+        "explanation": "The third option is to try to mesh the scientific view of the mind with the humanist values you want to preserve."
+      }
+    ]
+  }
+]

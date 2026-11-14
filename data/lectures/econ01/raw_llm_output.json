@@ -1,0 +1,572 @@
+[
+  {
+    "concept": "What is microeconomics",
+    "start": 204.8,
+    "end": 268.7,
+    "summary": "Microeconomics is the study of how individuals and firms make decisions in a world of scarcity, and scarcity is what drives it. It is a series of constrained optimization exercises in which firms or individuals try to make themselves as well off as possible given their constraints.",
+    "questions": [
+      {
+        "q": "A student has 10 hours this week and must split them between studying and a part-time job to do as well as possible. Why is this a microeconomics problem?",
+        "options": [
+          "Because it affects the whole economy's output",
+          "Because the student is behaving irrationally",
+          "Because it is an individual making the best decision given a constraint",
+          "Because it involves money from the job"
+        ],
+        "answer": 2,
+        "explanation": "Gruber defines microeconomics as constrained optimization: individuals or firms making themselves as well off as possible given their constraints."
+      },
+      {
+        "q": "Why does Gruber say the course will cover irrational behaviour only a little at first?",
+        "options": [
+          "Because economists have shown people never make mistakes",
+          "Because irrational behaviour cannot be modelled at all",
+          "Because irrationality only matters in macroeconomics",
+          "Because it is best to get the basics down before worrying about the deviations"
+        ],
+        "answer": 3,
+        "explanation": "He says it is better to climb the tree before going out on the branches: learn the basic model first, then the deviations, which a separate behavioral economics course covers in depth."
+      }
+    ]
+  },
+  {
+    "concept": "Opportunity cost",
+    "start": 268.7,
+    "end": 361.3,
+    "summary": "The course is about trade-offs, and behind them is opportunity cost: every action or inaction has a cost because you could have been doing something else instead, the next best alternative. Economics is called the dismal science because its point is that nothing is free and there is always a trade-off.",
+    "questions": [
+      {
+        "q": "You spend Saturday evening watching TV instead of working a shift that pays $80. In Gruber's terms, what is the opportunity cost of watching TV?",
+        "options": [
+          "Nothing, because watching TV is free",
+          "The price of your TV subscription",
+          "The time you will need to catch up on sleep",
+          "The $80 shift you could have worked instead"
+        ],
+        "answer": 3,
+        "explanation": "Opportunity cost is the next best alternative you could have done instead; Gruber's own example is staying home watching TV when you could have been out working."
+      },
+      {
+        "q": "Why, according to Gruber, is economics called the \"dismal science\"?",
+        "options": [
+          "Because it relies on difficult mathematics",
+          "Because it studies recessions and unemployment",
+          "Because its central point is that nothing is free: every choice gives something up",
+          "Because economic predictions are usually wrong"
+        ],
+        "answer": 2,
+        "explanation": "He says it is called dismal because the whole point is that nothing is free: there is always a trade-off and an opportunity cost."
+      }
+    ]
+  },
+  {
+    "concept": "Microeconomics as constrained optimization, like engineering",
+    "start": 361.3,
+    "end": 451.8,
+    "summary": "Gruber compares microeconomics to MIT engineering, which is all about constrained optimization, like the 2.007 contest where you build a robot from a limited set of materials. Microeconomics applies the same principles to people's lives and businesses, and modern economics was developed at MIT by Paul Samuelson in the 1940s and '50s.",
+    "questions": [
+      {
+        "q": "What do the 2.007 robot contest and a household's spending decisions have in common, according to Gruber?",
+        "options": [
+          "Both are governed by exact physical laws",
+          "Both are examples of market failure",
+          "Both are mainly about money",
+          "Both involve doing the best possible with limited resources"
+        ],
+        "answer": 3,
+        "explanation": "He says the robot contest is constrained optimization with limited materials, and microeconomics applies the same principles to people's lives."
+      },
+      {
+        "q": "What is the main point of Gruber's engineering analogy?",
+        "options": [
+          "Engineering problems have nothing in common with economics",
+          "Microeconomics uses engineering's principles of constrained optimization, applied to people's decisions",
+          "Robots can replace firms in economic models",
+          "Economists should study engineering before economics"
+        ],
+        "answer": 1,
+        "explanation": "He describes microeconomics as engineering principles applied in different contexts: instead of a robot, you understand the decisions of people and businesses."
+      }
+    ]
+  },
+  {
+    "concept": "Economic models and simplifying assumptions",
+    "start": 459.6,
+    "end": 560.9,
+    "summary": "A model describes the relationship between two or more variables, but unlike laws such as E = mc squared, economic models are never 100% true, only pretty true. Models make a trade-off: a set of simplifying assumptions that capture broad real-world phenomena in as tractable a way as possible.",
+    "questions": [
+      {
+        "q": "A model predicts that people buy fewer roses when prices rise, and it holds most of the time but not always. How would Gruber describe it?",
+        "options": [
+          "A normative statement about how people should behave",
+          "A law, like E = mc squared",
+          "A typical economic model: never 100% true, but pretty true",
+          "A failed model, because it is not 100% true"
+        ],
+        "answer": 2,
+        "explanation": "He says economic models are never 100% true but always pretty true, unlike the laws in other sciences."
+      },
+      {
+        "q": "What trade-off does an economic model make, according to the lecture?",
+        "options": [
+          "Between accuracy and political neutrality",
+          "Between supply and demand",
+          "Between math and graphs",
+          "Between capturing real-world phenomena and being tractable with a few simplifying assumptions"
+        ],
+        "answer": 3,
+        "explanation": "Gruber says we want a model that captures the real world as well as possible but in the most tractable way, using simplifying assumptions."
+      }
+    ]
+  },
+  {
+    "concept": "All models are wrong, but some are useful",
+    "start": 560.9,
+    "end": 621.2,
+    "summary": "Economics resolves the trade-off by erring on the side of tractability, which is why the whole field of microeconomics can be taught in a semester with many simplifying assumptions. These simple models explain a huge variety of phenomena, never perfectly but generally pretty well, as in George Box's line that all models are wrong, but some are useful.",
+    "questions": [
+      {
+        "q": "Why can Gruber teach all of microeconomics in one semester?",
+        "options": [
+          "Because microeconomics has very few topics",
+          "Because economics errs on the side of tractability, using many simplifying assumptions",
+          "Because macroeconomics covers the hard parts",
+          "Because the math is left out entirely"
+        ],
+        "answer": 1,
+        "explanation": "He says economics errs on the side of tractability and makes a huge set of simplifying assumptions, which is what makes a one-semester course possible."
+      },
+      {
+        "q": "A classmate says a supply and demand model is useless because it doesn't predict prices exactly. How would Gruber respond?",
+        "options": [
+          "Agree, and replace it with an exact law",
+          "Say only the mathematical version of the model is useful",
+          "Say all models are wrong, but some are useful: it explains a lot pretty well",
+          "Say the model is always exactly right if used correctly"
+        ],
+        "answer": 2,
+        "explanation": "He quotes George Box, \"all models are wrong, but some are useful,\" and says the models explain many phenomena never perfectly but generally pretty well."
+      }
+    ]
+  },
+  {
+    "concept": "Three levels of understanding a model: intuitive, graphical, mathematical",
+    "start": 621.2,
+    "end": 674.2,
+    "summary": "Gruber wants every model understood at three levels: intuitive, graphical and mathematical. The intuitive level is the most important and means passing the \"Mom Test\" of explaining it at home, while the mathematical level is the least important but the easiest to test.",
+    "questions": [
+      {
+        "q": "You can solve the supply and demand equations but can't explain in plain words why the price settles where it does. Which level of understanding is missing?",
+        "options": [
+          "The mathematical level",
+          "The intuitive level, the one Gruber calls most important",
+          "None, solving the equations is enough",
+          "The graphical level"
+        ],
+        "answer": 1,
+        "explanation": "The intuitive level, passing the Mom Test, is the one he calls the first and most important."
+      },
+      {
+        "q": "Why does Gruber say the mathematical level still matters even though it is the least important?",
+        "options": [
+          "Because intuition is often wrong",
+          "Because graphs are not used in economics",
+          "Because it is the easiest to test you on",
+          "Because the Mom Test requires math"
+        ],
+        "answer": 2,
+        "explanation": "He says the mathematical level is probably the least important but the easiest to test, so students need it too."
+      }
+    ]
+  },
+  {
+    "concept": "Water-diamond paradox",
+    "start": 674.2,
+    "end": 781.1,
+    "summary": "Adam Smith asked why water, which is essential to life, is free while diamonds, which are frivolous, are super expensive. His answer is that demand alone can't explain it: the supply of water is almost infinite while the supply of diamonds is limited, so supply and demand must be put together like scissors.",
+    "questions": [
+      {
+        "q": "Using Smith's reasoning, why is water cheap even though everyone needs it?",
+        "options": [
+          "Because the government sets the price of water",
+          "Because water is a frivolous good",
+          "Because people don't really value water",
+          "Because high demand is matched by an almost infinite supply"
+        ],
+        "answer": 3,
+        "explanation": "Smith's answer is that we demand lots of water, but its supply is almost infinite; the price comes from demand and supply together."
+      },
+      {
+        "q": "What does the \"supply and demand scissors\" image mean?",
+        "options": [
+          "You can't explain prices with supply or demand alone; you need both together",
+          "Prices are cut when supply is high",
+          "Demand and supply always move in opposite directions",
+          "Supply always matters more than demand"
+        ],
+        "answer": 0,
+        "explanation": "Gruber says you can't think of supply or demand in isolation; you have to put them together to explain things like cheap water and expensive diamonds."
+      }
+    ]
+  },
+  {
+    "concept": "Demand curve",
+    "start": 781.1,
+    "end": 860.8,
+    "summary": "In the market for roses, the graph has the quantity of roses on the x-axis and the price on the y-axis, and the demand curve is the downward-sloping line. The demand curve represents the relationship between the price of a good and how much people want it, so at higher prices people want fewer roses.",
+    "questions": [
+      {
+        "q": "The price of roses rises from $2 to $4. What does the demand curve predict?",
+        "options": [
+          "The quantity demanded stays the same",
+          "People want fewer roses",
+          "Firms produce fewer roses",
+          "People want more roses"
+        ],
+        "answer": 1,
+        "explanation": "The demand curve slopes downward: at higher prices people want less of the good."
+      },
+      {
+        "q": "A florist finds that at $1 customers want 900 roses and at $5 only 200. With quantity on the x-axis and price on the y-axis, what shape does this demand curve have?",
+        "options": [
+          "Downward-sloping",
+          "Vertical",
+          "Flat",
+          "Upward-sloping"
+        ],
+        "answer": 0,
+        "explanation": "Gruber says the demand curve relates price to how much people want, and is downward sloping because at higher prices people want less."
+      }
+    ]
+  },
+  {
+    "concept": "Supply curve and market equilibrium",
+    "start": 860.8,
+    "end": 979.9,
+    "summary": "The supply curve shows how much firms are willing to supply at each price and slopes upward, because a higher price means firms make more money and want to produce more. Where supply and demand meet is the market equilibrium, here $3 and 600 roses, the one point where both consumers and producers are happy to make the transaction.",
+    "questions": [
+      {
+        "q": "At $3, consumers want 600 roses and producers want to sell 600 roses. Why is this the equilibrium?",
+        "options": [
+          "Because it is the one point on both curves where consumers and producers are both happy to transact",
+          "Because the government chose $3",
+          "Because producers make the most profit at $3",
+          "Because $3 is the lowest possible price"
+        ],
+        "answer": 0,
+        "explanation": "Gruber says equilibrium is the point that lies on both the demand and the supply curve, where both sides are satisfied with the transaction."
+      },
+      {
+        "q": "Why does the supply curve slope upward?",
+        "options": [
+          "Because supply is fixed",
+          "Because at a higher price firms make more money, so they want to produce more",
+          "Because consumers want more at higher prices",
+          "Because costs fall as firms produce more"
+        ],
+        "answer": 1,
+        "explanation": "His intuition is that if you can sell something for a higher price, you want to make more of it."
+      }
+    ]
+  },
+  {
+    "concept": "Positive vs. normative analysis",
+    "start": 984.9,
+    "end": 1062.5,
+    "summary": "Positive analysis is the study of the way things are, while normative analysis is the study of the way things should be. eBay auctions are a textbook competitive market: bidders form a demand curve, the units for sale are the supply, and bidding continues until they meet at the market equilibrium.",
+    "questions": [
+      {
+        "q": "Which of these is a normative question?",
+        "options": [
+          "How many units were sold at $3?",
+          "Should the government cap the price of insulin?",
+          "What happens to rose prices on Valentine's Day?",
+          "Why did the auction price climb so high?"
+        ],
+        "answer": 1,
+        "explanation": "Normative analysis is about the way things should be; asking whether a cap should exist is a \"should\" question."
+      },
+      {
+        "q": "In an eBay auction, what plays the role of the demand curve?",
+        "options": [
+          "eBay's fees",
+          "The starting price set by the seller",
+          "The number of units for sale",
+          "The bidders: the higher the price, the fewer people keep bidding"
+        ],
+        "answer": 3,
+        "explanation": "Gruber says demand is the people bidding: those who want it more bid more, and the higher the price, the fewer people bid."
+      }
+    ]
+  },
+  {
+    "concept": "Kidney auction on eBay",
+    "start": 1062.5,
+    "end": 1146.2,
+    "summary": "Someone once put a kidney up for auction on eBay, and bidding went from $25,000 to $5 million before eBay shut it down. Why the price went so high is the positive question, answered by low supply and high demand, while whether you should be allowed to sell a kidney is the normative question.",
+    "questions": [
+      {
+        "q": "Why did the kidney auction price reach $5 million, in positive terms?",
+        "options": [
+          "Because kidneys are costly to produce",
+          "Because selling kidneys is unethical",
+          "Because eBay raised the price",
+          "Because demand was very high and supply was very low"
+        ],
+        "answer": 3,
+        "explanation": "Gruber's positive answer is low supply, high demand: Adam Smith at work."
+      },
+      {
+        "q": "Which question about the kidney auction is normative?",
+        "options": [
+          "How many bidders took part?",
+          "How high did the bidding go?",
+          "Should people be allowed to sell kidneys on eBay?",
+          "Why did the price rise so fast?"
+        ],
+        "answer": 2,
+        "explanation": "He contrasts the positive question (what happens if you do) with the normative one (should you)."
+      }
+    ]
+  },
+  {
+    "concept": "The economic case for selling kidneys",
+    "start": 1146.2,
+    "end": 1223.7,
+    "summary": "The standard economics answer is that kidney sales should be allowed: thousands die each year on the transplant waiting list, while hundreds of millions of people, many of them poor, have two kidneys and need only one. Economists see it as a transaction that makes both parties better off, since the buyer stays alive and the seller most likely stays fine and gets a life-changing payment.",
+    "questions": [
+      {
+        "q": "Why does standard economics start by saying kidney sales should be allowed?",
+        "options": [
+          "Because it raises tax revenue",
+          "Because kidneys are not scarce",
+          "Because the waiting list is fair to everyone",
+          "Because the trade makes both buyer and seller better off"
+        ],
+        "answer": 3,
+        "explanation": "Gruber says economists see a transaction that makes both parties better off: the buyer survives and the seller gets a life-changing payment."
+      },
+      {
+        "q": "In the standard argument, who gains from the sale?",
+        "options": [
+          "Both: the buyer stays alive and the seller gets a large payment while most likely staying fine",
+          "Neither, since the price is too high",
+          "Only the buyer, who stays alive",
+          "Only the seller, who gets the money"
+        ],
+        "answer": 0,
+        "explanation": "He describes both sides gaining: survival for the buyer, and a life-changing payment for a seller who can almost certainly live fine with one kidney."
+      }
+    ]
+  },
+  {
+    "concept": "Market failures: fraud and imperfect information",
+    "start": 1223.7,
+    "end": 1315.3,
+    "summary": "One counter-argument comes from market failures, reasons why the market doesn't work the way economists think it should. In the kidney case there could be fraud, where buyers can't tell if a kidney is legit, and imperfect information, since sellers may not know the odds of living the rest of their life with one kidney.",
+    "questions": [
+      {
+        "q": "A seller agrees to sell a kidney without knowing the health risk of living with one. Which problem does this illustrate?",
+        "options": [
+          "Equity",
+          "Imperfect information",
+          "Low demand",
+          "Command economy"
+        ],
+        "answer": 1,
+        "explanation": "Gruber gives exactly this as imperfect information: you ought to know the odds of living with one kidney before selling."
+      },
+      {
+        "q": "What is a market failure, as Gruber defines it?",
+        "options": [
+          "A reason the market doesn't work in the way economists think it should",
+          "A market where prices go very high",
+          "A business that goes bankrupt",
+          "A government ban on a market"
+        ],
+        "answer": 0,
+        "explanation": "He defines market failures as reasons why the market doesn't work in the wonderful way economists like to think it should."
+      }
+    ]
+  },
+  {
+    "concept": "Equity and fairness in allocating kidneys",
+    "start": 1315.3,
+    "end": 1376.9,
+    "summary": "A second problem is equity or fairness: with a market for kidneys, only rich people would get them. Today donated kidneys go to people on a prioritized waiting list, and while there are various optimal ways to allocate them, letting the rich get them first is unlikely to be what society wants.",
+    "questions": [
+      {
+        "q": "Even if there were no fraud and everyone were perfectly informed, why might society still oppose kidney sales?",
+        "options": [
+          "Because supply would be too high",
+          "Because waiting lists are always optimal",
+          "Because only rich people would end up getting kidneys",
+          "Because the price would be too low"
+        ],
+        "answer": 2,
+        "explanation": "This is the equity or fairness concern Gruber raises: a market would give kidneys to the rich."
+      },
+      {
+        "q": "A patient who is more critically ill is lower on the kidney waiting list than a less sick patient. What does Gruber suggest about this?",
+        "options": [
+          "Kidneys should go to whoever pays most",
+          "There may be better ways to allocate, but giving them to the rich first is unlikely to be what society wants",
+          "Waiting lists should be replaced by a lottery",
+          "The list is already optimal, so nothing should change"
+        ],
+        "answer": 1,
+        "explanation": "He says someone lower on the list may need it more, there are various optimal ways to allocate, but the optimal way wouldn't be the rich getting it first."
+      }
+    ]
+  },
+  {
+    "concept": "Behavioral economics: people make mistakes",
+    "start": 1389.1,
+    "end": 1498.3,
+    "summary": "A third class of problems is behavioral: people don't always decide in the perfectly rational way they are modelled, and economists increasingly use psychology to model the nature of those mistakes and the cognitive biases behind them. Someone could sell a kidney when it isn't in their long-term interest, even with no fraud and perfect information, because they may not process the information correctly.",
+    "questions": [
+      {
+        "q": "A seller fully understands the risks but still sells a kidney on impulse, against their long-term interest. Which problem is this?",
+        "options": [
+          "Fraud",
+          "A behavioral problem: a mistake in processing the trade-off",
+          "Equity",
+          "Imperfect information"
+        ],
+        "answer": 1,
+        "explanation": "Gruber says even with no fraud and perfect information, people may not process the information correctly; that is the behavioral concern."
+      },
+      {
+        "q": "What does behavioral economics add to standard models, according to Gruber?",
+        "options": [
+          "It focuses on government decisions",
+          "It uses insights from psychology to model the nature of people's mistakes",
+          "It assumes people are perfectly rational",
+          "It replaces supply and demand"
+        ],
+        "answer": 1,
+        "explanation": "He says economists have started incorporating psychology to rigorously model mistakes and the cognitive biases behind them."
+      }
+    ]
+  },
+  {
+    "concept": "Positive analysis first; the market knows best",
+    "start": 1498.3,
+    "end": 1586.5,
+    "summary": "Inelastic demand for kidneys explains why the price is high, which is a positive point, not a normative issue about whether sales should be allowed. You can't get to normative conclusions without first doing the positive analysis, and at its core economics says the market knows best and governments mostly mess things up, a view the course will later question.",
+    "questions": [
+      {
+        "q": "A student says kidney sales should be banned because people always need kidneys. How does Gruber classify \"people always need kidneys\"?",
+        "options": [
+          "A normative argument for a ban",
+          "A positive point about why the price is high, not about whether sales should be allowed",
+          "A market failure",
+          "An equity concern"
+        ],
+        "answer": 1,
+        "explanation": "He says inelastic demand is a positive point about the high price, not a normative issue about whether to allow sales."
+      },
+      {
+        "q": "Why does Gruber insist on positive analysis before normative conclusions?",
+        "options": [
+          "Because normative questions don't matter",
+          "Because positive analysis is easier",
+          "Because economists don't make normative claims",
+          "Because you need to understand the economic framework before deciding what should happen"
+        ],
+        "answer": 3,
+        "explanation": "He says you can't get to normative issues without the positive analysis; you must be disciplined and start from the economic framework."
+      }
+    ]
+  },
+  {
+    "concept": "Capitalist economy",
+    "start": 1586.5,
+    "end": 1692.2,
+    "summary": "In a capitalistic economy, firms and individuals decide what to produce and consume, subject to some rules of the road set by the government. In the US this led to tremendous growth, but also to major inequality and to problems such as fraud and imperfect information, as with Enron and the financial meltdown.",
+    "questions": [
+      {
+        "q": "In a capitalistic economy, who decides how many cars get produced?",
+        "options": [
+          "A central planning committee",
+          "The government",
+          "Firms and individuals, within rules set by the government",
+          "Nobody: production is random"
+        ],
+        "answer": 2,
+        "explanation": "Gruber says in a capitalistic economy firms and individuals decide what to produce and consume, subject to some government rules of the road."
+      },
+      {
+        "q": "Which pair does Gruber give as the result of the US capitalistic economy?",
+        "options": [
+          "Low inequality and frequent shortages",
+          "Corruption and long queues",
+          "Slow growth and high equality",
+          "Tremendous growth, but also major inequality"
+        ],
+        "answer": 3,
+        "explanation": "He credits capitalism with tremendous growth but says the US is by far the most unequal major nation."
+      }
+    ]
+  },
+  {
+    "concept": "Command economy",
+    "start": 1692.2,
+    "end": 1790.2,
+    "summary": "In a command economy, the government makes all production and consumption decisions, as in the pre-1989 Soviet Union, and allocates goods through party privilege or waiting in line. In theory this ensured equity, but in practice it didn't work, because there are too many opportunities for corruption and it is hard to control human nature.",
+    "questions": [
+      {
+        "q": "A government decides how many TVs to make this year and hands them out to whoever waits in line. What kind of economy is this?",
+        "options": [
+          "A capitalistic economy",
+          "A competitive market",
+          "A command economy",
+          "An auction market"
+        ],
+        "answer": 2,
+        "explanation": "In a command economy the government makes all production and consumption decisions; Gruber mentions waiting in line as one allocation method."
+      },
+      {
+        "q": "According to Gruber, why did the Soviet command economy fail despite aiming for equity?",
+        "options": [
+          "Because it relied too much on markets",
+          "Because there were too many firms",
+          "Because prices were too high",
+          "Because of too many opportunities for corruption and the difficulty of controlling human nature"
+        ],
+        "answer": 3,
+        "explanation": "He cites corruption without checks and balances, and that it is hard to control human nature."
+      }
+    ]
+  },
+  {
+    "concept": "Adam Smith's invisible hand",
+    "start": 1790.2,
+    "end": 1899.7,
+    "summary": "Adam Smith's invisible hand is the idea that consumers and firms serving their own best interest will do what is best for society, distributing things roughly in proportion to what people want. For the first two-thirds of the course, \"best for society\" means maximum surplus, the most stuff produced that people value, although this can lead to outcomes that are not very fair.",
+    "questions": [
+      {
+        "q": "A bakery owner only wants profit, yet ends up baking the bread customers want. Which idea does this illustrate?",
+        "options": [
+          "Market failure",
+          "Opportunity cost",
+          "The invisible hand",
+          "The command economy"
+        ],
+        "answer": 2,
+        "explanation": "The invisible hand is the idea that firms serving their own interest end up doing what is best for society."
+      },
+      {
+        "q": "For most of the course, what does \"best for society\" mean?",
+        "options": [
+          "The government controls production",
+          "Maximum surplus: the most stuff produced that people value",
+          "Everyone has the same income",
+          "Everyone has the best health"
+        ],
+        "answer": 1,
+        "explanation": "Gruber says that for the first two-thirds of the course, best for society means maximum surplus."
+      }
+    ]
+  }
+]
