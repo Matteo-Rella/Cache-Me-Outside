@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rewind · Scan to ask</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="vendor/qrcode/qrcode.js"></script>
+  <style>
+    body.page-qr { background: #fff; background-image: radial-gradient(1200px 600px at 80% -10%, #eceeff 0%, rgba(236,238,255,0) 70%); }
+    .qr-page { flex: 1; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 6vw; padding: 5vh 7vw; min-height: 100vh; }
+    .qr-brand { display: flex; align-items: center; gap: 14px; }
+    .qr-brand .brand-mark { width: 56px; height: 56px; border-radius: 16px; }
+    .qr-brand .brand-mark svg { width: 30px; height: 30px; }
+    .qr-brand .name { font-weight: 700; font-size: 34px; letter-spacing: -.02em; }
+    .qr-brand .tag { font-family: var(--serif); font-style: italic; font-size: 30px; color: var(--muted); padding-left: 14px; border-left: 2px solid var(--line); }
+    .qr-title { font-family: var(--serif); font-weight: 400; font-size: clamp(44px, 5.8vw, 92px); line-height: .98; letter-spacing: -.02em; margin: 5vh 0 3vh; }
+    .qr-title em { color: var(--accent); }
+    .qr-steps { display: grid; gap: 14px; font-size: clamp(16px, 1.6vw, 22px); color: var(--ink-2); }
+    .qr-steps b { color: var(--ink); }
+    .qr-steps span { display: inline-flex; align-items: center; gap: 6px; } .qr-steps i { margin-right: 6px; }
+    .qr-steps i { font-style: normal; width: 30px; height: 30px; border-radius: 50%; background: var(--accent-soft); color: var(--accent); display: inline-grid; place-items: center; font-weight: 700; font-size: 15px; }
+    .qr-card { background: #fff; border-radius: 32px; padding: 28px; box-shadow: var(--shadow-lg); border: 1px solid var(--line); text-align: center; }
+    #qr { width: min(34vw, 60vh); aspect-ratio: 1; }
+    #qr svg { width: 100%; height: 100%; display: block; }
+    .qr-url { margin-top: 14px; font-size: 18px; font-weight: 600; color: var(--ink-2); word-break: break-all; }
+    .qr-edit { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; align-items: center; opacity: .25; transition: opacity .2s; background: #fff; border: 1px solid var(--line); padding: 6px; border-radius: 14px; }
+    .qr-edit:hover, .qr-edit:focus-within { opacity: 1; }
+    .qr-edit input { width: 380px; font: inherit; font-size: 14px; border: 0; outline: 0; padding: 6px 8px; }
+    .qr-warn { margin-top: 10px; font-size: 13px; color: #9a5b00; }
+    @media (max-width: 800px) { .qr-page { grid-template-columns: 1fr; } #qr { width: 70vw; } .qr-edit input { width: 60vw; } }
+  </style>
+</head>
+<body class="page-qr">
+  <main class="qr-page">
+    <section>
+      <div class="qr-brand">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M11 7 5 12l6 5V7Z"/><path d="M19 7l-6 5 6 5V7Z"/></svg></span>
+        <span class="name">Rewind</span>
+        <span class="tag">Ask your lecture.</span>
+      </div>
+      <h1 class="qr-title">Stuck on something from today? <em>Ask the lecture.</em></h1>
+      <div class="qr-steps">
+        <span><i>1</i><b>Scan</b> with your phone</span>
+        <span><i>2</i><b>Ask</b> in your own words</span>
+        <span><i>3</i><b>Watch</b> the exact moment</span>
+      </div>
+    </section>
+    <section class="qr-card">
+      <div id="qr" role="img" aria-label="QR code to the Rewind student page"></div>
+      <p id="qr-url" class="qr-url"></p>
+      <p id="qr-warn" class="qr-warn" hidden>Phones can't open “localhost”. Start the server with <code>--host 0.0.0.0</code> and put this laptop's Wi-Fi IP below.</p>
+    </section>
+  </main>
+  <form class="qr-edit" id="qr-form">
+    <input id="qr-input" aria-label="Student page URL" spellcheck="false">
+    <button class="btn btn-primary btn-sm" type="submit">Update</button>
+  </form>
+  <script>
+    const KEY = "rewind.qrUrl";
+    const input = document.getElementById("qr-input");
+    function defaultUrl() {
+      const u = new URL("./", location.href);
+      if (location.search.includes("mock=1")) u.search = "?mock=1";
+      return u.href;
+    }
+    function render(url) {
+      const qr = qrcode(0, "M");
+      qr.addData(url);
+      qr.make();
+      document.getElementById("qr").innerHTML = qr.createSvgTag({ cellSize: 8, margin: 0, scalable: true });
+      document.querySelector("#qr svg path, #qr svg rect:last-child")?.setAttribute("fill", "#15172b");
+      document.getElementById("qr-url").textContent = url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+      document.getElementById("qr-warn").hidden = !/\/\/(localhost|127\.0\.0\.1)/.test(url);
+      input.value = url;
+    }
+    let saved = null;
+    try { saved = localStorage.getItem(KEY); } catch {}
+    render(saved || defaultUrl());
+    document.getElementById("qr-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      let v = input.value.trim();
+      if (!v) v = defaultUrl();
+      if (!/^https?:\/\//.test(v)) v = "http://" + v;
+      try { localStorage.setItem(KEY, v); } catch {}
+      render(v);
+    });
+  </script>
+</body>
+</html>

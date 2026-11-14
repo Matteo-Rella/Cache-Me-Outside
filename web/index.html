@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rewind · Ask your lecture</title>
+  <meta name="description" content="Ask a question, get the exact moment your professor explains it.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-student">
+  <main class="wrap student-grid">
+    <section class="main-col">
+      <div class="hero">
+        <p class="eyebrow"><span class="dot"></span><span id="coverage">Your recorded lectures</span></p>
+        <h1 class="hero-title">What didn't you <em>get?</em></h1>
+        <p class="hero-sub">Ask in your own words. Rewind jumps to the moment your professor explains it, then checks you got it.</p>
+        <form id="ask-form" class="ask" autocomplete="off">
+          <span class="ask-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg></span>
+          <textarea id="q" rows="1" placeholder="Ask about the lecture…" aria-label="Your question"></textarea>
+          <button class="btn btn-primary ask-btn" type="submit" aria-label="Rewind">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M11 7 5 12l6 5V7Z"/><path d="M19 7l-6 5 6 5V7Z"/></svg>
+            Rewind
+          </button>
+        </form>
+        <div id="examples" class="chips" aria-label="Example questions"></div>
+      </div>
+      <div id="result" class="result"></div>
+    </section>
+
+    <aside class="side">
+      <section class="card side-card">
+        <h3 class="side-title">Rewatch before the exam <span id="rewatch-count" class="count"></span></h3>
+        <div id="rewatch" class="rw-list"></div>
+      </section>
+      <section class="card side-card how">
+        <h3 class="side-title">How it works</h3>
+        <ol class="how-list">
+          <li><span>1</span><div><strong>Ask</strong> what you didn't get.</div></li>
+          <li><span>2</span><div><strong>Watch</strong> the 1–2 minutes where your professor explains it.</div></li>
+          <li><span>3</span><div><strong>Check</strong> yourself with two quick questions.</div></li>
+        </ol>
+        <p class="muted small">Answers are always your professor's own words. Rewind never writes homework solutions.</p>
+      </section>
+    </aside>
+  </main>
+  <footer class="site-footer wrap"><span>Rewind · Ask your lecture.</span></footer>
+  <script type="module" src="js/student.js"></script>
+</body>
+</html>
