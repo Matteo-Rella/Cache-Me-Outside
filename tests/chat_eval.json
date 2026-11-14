@@ -1,0 +1,168 @@
+[
+  {
+    "id": "eval-01",
+    "lecture_id": "econ01",
+    "snippet_id": "econ01-001",
+    "category": "clarification",
+    "policy": "strict",
+    "question": "What does constrained optimization mean here?",
+    "expected": {"outside_materials": false, "homework": false, "needs_slide": false, "must_cite": true},
+    "mock_reply": "At [03:52], the professor defines constrained optimization as firms or individuals trying to make themselves as well off as possible given their constraints in a world of scarcity [03:24].\n<<META {\"outside\": false, \"homework\": false}>>"
+  },
+  {
+    "id": "eval-02",
+    "lecture_id": "econ01",
+    "snippet_id": "econ01-010",
+    "category": "clarification",
+    "policy": "strict",
+    "question": "Che differenza c'è tra analisi positiva e normativa?",
+    "expected": {"outside_materials": false, "homework": false, "needs_slide": false, "must_cite": true},
+    "mock_reply": "Come spiega il professore a [16:43], l'analisi positiva studia come stanno le cose, mentre quella normativa studia come dovrebbero essere [17:04].\n<<META {\"outside\": false, \"homework\": false}>>"
+  },
+  {
+    "id": "eval-03",
+    "lecture_id": "psych02",
+    "snippet_id": "psych02-016",
+    "category": "clarification",
+    "policy": "strict",
+    "question": "If neurons are all-or-nothing, how do we feel a harder push on our hand?",
+    "expected": {"outside_materials": false, "homework": false, "needs_slide": false, "must_cite": true},
+    "mock_reply": "At [22:56], he explains that intensity is coded in two ways: by the number of neurons firing and by their frequency of firing [23:18].\n<<META {\"outside\": false, \"homework\": false}>>"
+  },
+  {
+    "id": "eval-04",
+    "lecture_id": "econ01",
+    "snippet_id": "econ01-007",
+    "category": "why",
+    "policy": "strict",
+    "question": "Why is water cheap while diamonds are expensive?",
+    "expected": {"outside_materials": false, "homework": false, "needs_slide": false, "must_cite": true},
+    "mock_reply": "He explains at [12:21] that demand alone cannot explain it: we demand lots of water, yet its supply is almost infinite, whereas diamond supply is limited [12:38]. Supply and demand work together like scissors [12:56].\n<<META {\"outside\": false, \"homework\": false}>>"
+  },
+  {
+    "id": "eval-05",
+    "lecture_id": "psych02",
+    "snippet_id": "psych02-019",
+    "category": "why",
+    "policy": "strict",
+    "question": "Why do people lose their inhibitions when they drink alcohol if alcohol is inhibitory?",
+    "expected": {"outside_materials": false, "homework": false, "needs_slide": false, "must_cite": true},
+    "mock_reply": "At [26:37], he explains that alcohol first inhibits the inhibitory parts of the brain—largely in the frontal lobes—that normally tell you to restrain yourself [27:17].\n<<META {\"outside\": false, \"homework\": false}>>"
+  },
+  {
+    "id": "eval-06",
+    "lecture_id": "psych02",
+    "snippet_id": "psych02-021",
+    "category": "why",
+    "policy": "strict",
+    "question": "Why can't the brain be wired serially like a personal computer?",
+    "expected": {"outside_materials": false, "homework": false, "needs_slide": false, "must_cite": true},
+    "mock_reply": "He gives two reasons: the brain resists damage better than a laptop [29:30], and neural tissue is slow—wired like a PC it would take four hours to recognize a face, so it must use massively parallel processing [30:28] [30:44].\n<<META {\"outside\": false, \"homework\": false}>>"
+  },
+  {
+    "id": "eval-07",
+    "lecture_id": "econ01",
+    "snippet_id": "econ01-002",
+    "category": "example",
+    "policy": "strict",
+    "question": "Can you give me an example of opportunity cost?",
+    "expected": {"outside_materials": false, "homework": false, "needs_slide": false, "must_cite": true},
+    "mock_reply": "At [05:01], he gives two examples: if you buy a shirt you could have bought pants, and if you stay home watching TV you give up working [05:21].\n<<META {\"outside\": false, \"homework\": false}>>"
+  },
+  {
+    "id": "eval-08",
+    "lecture_id": "psych02",
+    "snippet_id": "psych02-007",
+    "category": "example",
+    "policy": "strict",
+    "question": "What story example does the professor use to show we imagine minds as separate from bodies?",
+    "expected": {"outside_materials": false, "homework": false, "needs_slide": false, "must_cite": true},
+    "mock_reply": "At [08:34], he cites Kafka's story of Gregor Samsa waking up in a giant insect's body and Homer's story of Odysseus' companions stuck inside pig bodies while keeping their human minds [08:51] [09:08].\n<<META {\"outside\": false, \"homework\": false}>>"
+  },
+  {
+    "id": "eval-09",
+    "lecture_id": "econ01",
+    "snippet_id": "econ01-008",
+    "category": "outside",
+    "policy": "strict",
+    "question": "What is price elasticity of demand and when is demand elastic versus inelastic?",
+    "expected": {"outside_materials": true, "homework": false, "needs_slide": false, "must_cite": false},
+    "mock_reply": "This isn't in your course materials. I've flagged it to your lecturer. The demand curve is introduced at [13:53] as showing how quantity wanted falls when price rises.\n<<META {\"outside\": true, \"homework\": false}>>"
+  },
+  {
+    "id": "eval-10",
+    "lecture_id": "econ01",
+    "snippet_id": "econ01-017",
+    "category": "outside",
+    "policy": "labelled",
+    "question": "How is Gross Domestic Product (GDP) measured in macroeconomics?",
+    "expected": {"outside_materials": true, "homework": false, "needs_slide": false, "must_cite": false},
+    "mock_reply": "Not from your course materials: GDP measures the total market value of final goods and services produced within a country over a given period. This lecture focuses on microeconomics and compares capitalist and command economies [26:42].\n<<META {\"outside\": true, \"homework\": false}>>"
+  },
+  {
+    "id": "eval-11",
+    "lecture_id": "psych02",
+    "snippet_id": "psych02-015",
+    "category": "outside",
+    "policy": "strict",
+    "question": "How does long-term memory consolidation work in the hippocampus during sleep?",
+    "expected": {"outside_materials": true, "homework": false, "needs_slide": false, "must_cite": false},
+    "mock_reply": "This isn't in your course materials. I've flagged it to your lecturer.\n<<META {\"outside\": true, \"homework\": false}>>"
+  },
+  {
+    "id": "eval-12",
+    "lecture_id": "econ01",
+    "snippet_id": "econ01-009",
+    "category": "homework",
+    "policy": "strict",
+    "question": "Solve: demand is Q = 1000 - 100P and supply is Q = 200P. Find the equilibrium price and quantity.",
+    "expected": {"outside_materials": false, "homework": true, "needs_slide": false, "must_cite": true},
+    "mock_reply": "I can't solve the problem for you, but at [15:19] the professor explains that market equilibrium is the single point on both the demand and supply curves where consumers and producers agree on the same quantity and price. If both equations equal Q at equilibrium, how could you relate 1000 - 100P and 200P?\n<<META {\"outside\": false, \"homework\": true}>>"
+  },
+  {
+    "id": "eval-13",
+    "lecture_id": "psych02",
+    "snippet_id": "psych02-018",
+    "category": "homework",
+    "policy": "strict",
+    "question": "Exercise 3: explain how an agonist differs from an antagonist and give one drug example of each.",
+    "expected": {"outside_materials": false, "homework": true, "needs_slide": false, "must_cite": true},
+    "mock_reply": "Look at [25:07], where he defines agonists as drugs that increase neurotransmitter effects and antagonists as drugs that slow or block them. Try contrasting those two mechanisms in your own words—which specific drugs does he mention right after in [25:56]?\n<<META {\"outside\": false, \"homework\": true}>>"
+  },
+  {
+    "id": "eval-14",
+    "lecture_id": "econ01",
+    "snippet_id": "econ01-009",
+    "category": "slide_only",
+    "policy": "strict",
+    "question": "According to the slides, what happens when the price is above the equilibrium price P*?",
+    "fixture_slides": [
+      {
+        "n": 4,
+        "title": "Market Equilibrium Condition",
+        "text": "Equilibrium: Qd(P*) = Qs(P*). Above P*, excess supply (a surplus) puts downward pressure on price. Below P*, excess demand (a shortage) puts upward pressure on price.",
+        "image": null
+      }
+    ],
+    "expected": {"outside_materials": false, "homework": false, "needs_slide": true, "must_cite": true},
+    "mock_reply": "According to [Slide 4], when the price is above P*, there is excess supply (a surplus), which puts downward pressure on the price.\n<<META {\"outside\": false, \"homework\": false}>>"
+  },
+  {
+    "id": "eval-15",
+    "lecture_id": "psych02",
+    "snippet_id": "psych02-017",
+    "category": "slide_only",
+    "policy": "strict",
+    "question": "According to the slides, which ion channels open at the axon terminal before neurotransmitters are released?",
+    "fixture_slides": [
+      {
+        "n": 6,
+        "title": "Steps of Synaptic Transmission",
+        "text": "1. Action potential reaches the axon terminal. 2. Voltage-gated calcium channels open. 3. Synaptic vesicles release neurotransmitters into the cleft. 4. Reuptake transporters clear excess neurotransmitter.",
+        "image": null
+      }
+    ],
+    "expected": {"outside_materials": false, "homework": false, "needs_slide": true, "must_cite": true},
+    "mock_reply": "As shown on [Slide 6], voltage-gated calcium channels open when the action potential reaches the axon terminal, triggering vesicles to release neurotransmitters.\n<<META {\"outside\": false, \"homework\": false}>>"
+  }
+]

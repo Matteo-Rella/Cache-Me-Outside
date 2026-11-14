@@ -27,6 +27,46 @@ async function load() {
   renderStuck(st.snippets);
   renderGaps(gaps);
   if (graph) renderGraph(graph);
+  renderSlides(ls);
+}
+
+async function renderSlides(ls) {
+  const card = $("#slides-card");
+  try { await api.settings(); }
+  catch (err) { if (err.status === 403 || err.status === 404) { card.hidden = true; return; } }
+  if (!ls.length) { card.hidden = true; return; }
+  card.hidden = false;
+  $("#slides-list").replaceChildren(...ls.map((l) => {
+    const status = h("span", { class: "muted small up-status" }, "Checking…");
+    const file = h("input", { type: "file", accept: ".pdf,.pptx,application/pdf", hidden: true });
+    const btn = h("button", { class: "btn btn-ghost btn-sm", type: "button", onclick: () => file.click() }, icon("send"), "Upload slides");
+    const setCount = (n) => {
+      status.classList.remove("is-err");
+      status.textContent = n ? `${n} slides` : "No slides yet";
+      btn.lastChild.textContent = n ? "Replace slides" : "Upload slides";
+    };
+    api.slides(l.lecture_id).then((s) => setCount(Array.isArray(s) ? s.length : 0)).catch(() => setCount(0));
+    file.addEventListener("change", async () => {
+      const f = file.files[0];
+      if (!f) return;
+      btn.disabled = true;
+      status.classList.remove("is-err");
+      status.replaceChildren(h("span", { class: "up-spin" }), ` Reading ${f.name}…`);
+      try {
+        const r = await api.uploadSlides(l.lecture_id, f);
+        setCount(r.count);
+        if (r.aligned != null) status.append(` · matched to ${r.aligned} clip${r.aligned === 1 ? "" : "s"}`);
+        toast(`${r.count} slides added to ${lectureName(l)}.`);
+      } catch (err) {
+        if (err.status === 403) { card.hidden = true; return; }
+        status.classList.add("is-err");
+        status.textContent = `Upload failed: ${err.message}`;
+      } finally { btn.disabled = false; file.value = ""; }
+    });
+    return h("div", { class: "up-row" },
+      h("div", { class: "up-main" }, h("p", { class: "up-name" }, lectureName(l)), h("p", { class: "muted small" }, l.title)),
+      status, btn, file);
+  }));
 }
 
 function renderMetrics(t) {
@@ -41,8 +81,21 @@ function renderMetrics(t) {
     card("Average fail rate", pct(fail), "on check-yourself questions", fail > UNCLEAR ? "is-bad" : ""));
 }
 
+let sortBy = "asked"; // "asked" | "followups"
+
 function renderStuck(rows) {
-  const sorted = [...rows].sort((a, b) => b.times_asked - a.times_asked || b.fail_rate - a.fail_rate);
+  const hasFollowups = rows.some((r) => r.followups != null);
+  if (!hasFollowups) sortBy = "asked";
+  const key = (r) => (sortBy === "followups" ? r.followups || 0 : r.times_asked);
+  const sorted = [...rows].sort((a, b) => key(b) - key(a) || b.times_asked - a.times_asked || b.fail_rate - a.fail_rate);
+  const sub = $("#stuck-sub");
+  if (hasFollowups) {
+    const seg = (id, label) => h("button", { class: `seg-btn ${sortBy === id ? "is-on" : ""}`, type: "button", "aria-pressed": sortBy === id ? "true" : "false",
+      onclick: () => { sortBy = id; renderStuck(rows); } }, label);
+    sub.replaceChildren(h("span", { class: "seg", role: "group", "aria-label": "Sort by" }, seg("asked", "Most asked"), seg("followups", "Most follow-ups")));
+  }
+  $("#stuck").classList.toggle("has-followups", hasFollowups);
+  const maxFollow = Math.max(1, ...rows.map((r) => r.followups || 0));
   if (!sorted.length) {
     $("#stuck").replaceChildren(h("p", { class: "empty muted" }, "No questions yet. Use “Load demo data” below to see an example."));
     return;
@@ -57,7 +110,8 @@ function renderStuck(rows) {
     : null;
   $("#stuck").replaceChildren(
     h("div", { class: "stuck-row stuck-headrow muted small" },
-      h("span", {}, ""), h("span", {}, "Moment"), h("span", {}, "Asked"), h("span", {}, "Fail rate")),
+      h("span", {}, ""), h("span", {}, "Moment"), h("span", {}, "Asked"),
+      hasFollowups ? h("span", {}, "Follow-ups") : null, h("span", {}, "Fail rate")),
     ...shown.map((r, i) => {
       const unclear = r.fail_rate > UNCLEAR;
       const lec = lectures[r.lecture_id];
@@ -71,6 +125,9 @@ function renderStuck(rows) {
         h("span", { class: "asked" },
           h("span", { class: "asked-num" }, String(r.times_asked)),
           h("span", { class: "asked-bar" }, h("i", { style: { width: `${(100 * r.times_asked) / maxAsked}%` } }))),
+        hasFollowups ? h("span", { class: "follow", title: "Follow-up questions in the chat about this clip" },
+          h("span", { class: "asked-num" }, String(r.followups || 0)),
+          h("span", { class: "asked-bar follow-bar" }, h("i", { style: { width: `${(100 * (r.followups || 0)) / maxFollow}%` } }))) : null,
         h("span", { class: "fail" },
           h("span", { class: "fail-bar" }, h("i", { style: { width: pct(r.fail_rate), background: failColor(r.fail_rate) } }),
             h("b", { class: "fail-mark", title: "40%" })),

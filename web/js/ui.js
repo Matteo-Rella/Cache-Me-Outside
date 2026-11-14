@@ -85,7 +85,9 @@ export function header(page, extra) {
         h("span", { class: "brand-name" }, "Rewind"),
         h("span", { class: "brand-tag" }, "Ask your lecture.")),
       tag,
-      h("nav", { class: "nav" }, link("index.html", "Student", "student"), link("lecturer.html", "Lecturer", "lecturer")),
+      h("nav", { class: "nav" }, link("index.html", "Student", "student"), link("lecturer.html", "Lecturer", "lecturer"),
+        // Lecturer-side only: students never see the settings link.
+        page !== "student" ? link("settings.html", "AI settings", "settings") : null),
       extra || ""));
 }
 

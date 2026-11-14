@@ -16,11 +16,13 @@ Settings live in data/settings.json (gitignored), override .env, and the key is 
 
 RULES (all terminals): one shared folder (Cache-Me-Outside), no worktrees, no commits. Do NOT run any git command. Only edit the files listed as yours; anything else goes in your NOTES file. Run only your own tests. Never kill processes you didn't start.
 
+AI COSTS: .env now holds a real OpenRouter key (LLM_PROVIDER=openai_compatible, LLM_BASE_URL=https://openrouter.ai/api/v1, LLM_MODEL=anthropic/claude-haiku-5.5) with a €10 budget for the whole project. Tests must always mock the LLM. Only make live AI calls where your task explicitly says so, never in loops over many items without a cap, and never print or log the key. Start order: T2 first (the others can start right away but their live calls only work after T2's OpenRouter support lands).
+
 ## Contract (shared by all four)
 
 Python:
-- rewind/settings.py (T2): load() -> dict, save(dict), public() -> dict with key masked. Fields: mode ("api" | "package" | "none"), provider ("anthropic" | "openai" | "gemini" | "openai_compatible"), model, api_key, base_url. Precedence: settings.json > .env > defaults.
-- rewind/llm.py (T2): ask_json reads rewind.settings; available() true only in api mode with key and model (base_url instead of key is fine for openai_compatible); test_connection() -> {ok, message, latency_ms}.
+- rewind/settings.py (T2): load() -> dict, save(dict), public() -> dict with key masked. Fields: mode ("api" | "package" | "none"), provider ("anthropic" | "openai" | "gemini" | "openai_compatible"), model, api_key, base_url. Precedence: settings.json > .env > defaults. .env variables: LLM_PROVIDER, LLM_API_KEY, LLM_MODEL, LLM_BASE_URL (plus the old ANTHROPIC_* fallbacks). On first load with no settings.json, mode is "api" if a key and model are set, else "none".
+- rewind/llm.py (T2): ask_json reads rewind.settings; available() true only in api mode with key and model (base_url instead of key is fine for openai_compatible); test_connection() -> {ok, message, latency_ms}. Presets: provider openai_compatible with a base_url containing openrouter.ai is shown as "OpenRouter" (public() returns a preset field: "openrouter" | "ollama" | "lmstudio" | null).
 - rewind/context_package.py (T4): build_package(lecture_id) -> bytes (zip); build_chat_prompt(lecture_id, part=None) -> list[str] (one paste-ready message per part); import_answer(lecture_id, raw_text) -> {ok, snippets_count, errors: [str], fix_message: str}. raw_text may be JSON or a chat reply with prose and code fences around the JSON.
 
 HTTP (T3), all local-only except where noted:
@@ -31,7 +33,7 @@ HTTP (T3), all local-only except where noted:
 - GET  /api/lectures/{id}/prompt -> {parts: [str]}
 - POST /api/lectures/{id}/import {raw_text} -> import_answer result; on ok, reindex the lecture
 - POST /api/lectures/{id}/generate -> runs the snippet maker with the API; {ok, snippets_count, error}
-- GET  /api/ai-status (public) -> {mode, provider, can_generate, coverage_check: bool} so the student page can show nothing broken
+- GET  /api/ai-status (public) -> {mode, provider, preset, model, can_generate, coverage_check: bool} so the student page can show nothing broken
 
 ---
 
@@ -62,11 +64,11 @@ Add the HTTP contract above, wrapping rewind.settings, rewind.llm and rewind.con
 
 ## T1 (Claude Code, Opus) – AI settings page
 
-Yours: web/, NOTES-web.md.
+Yours: web/ (except the existing rules in web/css/style.css: a designer is restyling it on another branch), NOTES-web.md. Put all new CSS in a section at the END of style.css headed with a comment for this round, use only the existing CSS variables, and don't edit or reorder existing rules. See docs/website-styling-guide.md.
 
 web/settings.html, linked from the lecturer page header ("AI settings"), same design as the rest.
 1. Three cards to choose the mode: "Use an API", "Use any AI chat or agent (no key needed)", "No AI".
-2. API card: provider dropdown (Anthropic, OpenAI, Gemini, OpenAI-compatible), model field with sensible suggestions per provider, key field (masked, "leave empty to keep current"), base URL field shown only for OpenAI-compatible with hints for Ollama (http://localhost:11434/v1) and LM Studio. "Test connection" button with a clear result. Save.
+2. API card: provider dropdown (OpenRouter, Anthropic, OpenAI, Gemini, Ollama (local), Other OpenAI-compatible). OpenRouter, Ollama and LM Studio are presets that fill the base URL. Model field with suggestions per provider (OpenRouter: anthropic/claude-haiku-5.5 as the default, it's what we use), key field (masked, "leave empty to keep current"), base URL field shown only for OpenAI-compatible with hints for Ollama (http://localhost:11434/v1) and LM Studio. "Test connection" button with a clear result. Save.
 3. Package card, per lecture: "Download package" (zip), "Copy prompt" buttons per part (with "part 1 of 3"), a big paste box plus file upload for the AI's answer, Import. On errors: list them and a "Copy fix message for your AI" button. On success: snippet count and "Open student page".
 4. Per lecture "Generate snippets" button when mode is API, with progress from the status endpoint.
 5. Student page: read /api/ai-status; if coverage_check is false, nothing changes visibly (no scary warnings for students).
@@ -78,6 +80,10 @@ Mock all new endpoints in web/js/mock.js. Screenshot every state at 1280×720 an
 
 T2: Raise SIMILARITY_THRESHOLD to 0.38 in config. Improve ranking with a light keyword boost: BM25 (rank-bm25, or a tiny own implementation) over concept + summary, combined with the embedding score (e.g. 0.8 × cosine + 0.2 × normalised BM25; tune it). Re-run the 12 demo questions in NOTES-lectures.md with search.search and report hit@1/hit@3 before and after. The known misses: "what happens vs. what should happen" (should find positive vs. normative), "mind vs. soul" (dualism), and "split brain" (a "Split brain" clip exists). Keep the threshold-only path working without a key.
 
-T3: In api.py, load the search model and indexes at startup (in a background thread, so the server starts instantly) so the first question isn't slow; /api/health reports "warming" until ready. Add an optional "hidden": true field to meta.json and skip hidden lectures in /api/lectures, /api/examples, search results shown to students and the graph; set it on data/lectures/demo01/meta.json (it's the test fixture, not demo content). Tests still use demo01 directly.
+T3: In api.py, load the search model and indexes at startup (in a background thread, so the server starts instantly) so the first question isn't slow; /api/health reports "warming" until ready. Add an optional "hidden": true field to meta.json and skip hidden lectures in /api/lectures, /api/examples, search results shown to students and the graph; set it on data/lectures/demo01/meta.json (it's the test fixture, not demo content). Tests still use demo01 directly. Also improve /api/examples: build natural questions (lower-case the concept unless it starts with a proper noun or acronym, add "the" where natural), at most one per lecture. Once T2 reports the OpenRouter key works, check that `python -c "import api"` reports real mode, start the server, and do one live /api/ask with a covered question and one with an uncovered one ("What is price elasticity?"); report both results.
 
-T1 and T4: nothing extra.
+T2 also, first of all (we now have an OpenRouter key in .env): make provider openai_compatible work from .env with LLM_PROVIDER=openai_compatible, LLM_BASE_URL, LLM_API_KEY, LLM_MODEL. Use the OpenAI SDK's chat.completions API with base_url (not the Responses API, which compatible servers often lack). Ask for response_format {"type": "json_object"} and if the server or model rejects it, retry once without it and rely on parse_json. For OpenRouter (base_url contains openrouter.ai) send the optional headers HTTP-Referer: http://localhost:8000 and X-Title: Rewind. Update .env.example with an OpenRouter example. Then test the real key: llm.ask_json('Reply with JSON {"ok": true}', 'ping', 50), and run python tools/eval_search.py with the LLM check and report the numbers. Never print the key.
+
+T4, once T2 reports the key works: regenerate econ01 with the real API into a new lecture id econ01-api (python -m rewind.snippet_maker --transcript data/lectures/econ01/transcript.json --video-url <econ01's video_url> --lecture-id econ01-api ...), compare it with your hand-written econ01 (cuts, concepts, question quality, answer spread) and write the comparison in NOTES-lectures.md. Keep whichever is better as econ01 and delete the other folder.
+
+T1: nothing extra.

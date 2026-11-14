@@ -4,6 +4,7 @@ from __future__ import annotations
 import copy
 import json
 import logging
+import re
 
 import pytest
 
@@ -199,12 +200,23 @@ def test_validate_snippet_keeps_only_valid_questions(caplog):
 # ---------------------------------------------------------------- end to end (LLM mocked)
 
 
+def _without_option_order(snippets):
+    """Snippets with each question reduced to (q, set of options, correct option text, explanation)."""
+    out = []
+    for s in snippets:
+        s = dict(s)
+        s["questions"] = [(q["q"], frozenset(q["options"]), q["options"][q["answer"]], q["explanation"])
+                          for q in s["questions"]]
+        out.append(s)
+    return out
+
+
 def test_make_snippets_reproduces_fixture(transcript, fixture_snippets):
-    """LLM output with the fixture's times and content -> exactly the fixture snippets."""
+    """LLM output with the fixture's times and content -> the fixture snippets (options may be reordered)."""
     llm_out = [{k: s[k] for k in ("concept", "start", "end", "summary", "questions")} for s in fixture_snippets]
     ask = fake_ask(llm_out)
-    out = sm.make_snippets(transcript, "demo01", ask=ask)
-    assert out == fixture_snippets
+    out = sm.make_snippets(transcript, "demo01", ask=ask, verify=False)
+    assert _without_option_order(out) == _without_option_order(fixture_snippets)
     assert len(ask.calls) == 1
     assert ask.calls[0]["system"] == sm.SNIPPET_PROMPT
     assert "[62.7] This is my plan." in ask.calls[0]["user"]
@@ -390,3 +402,238 @@ def test_warn_answer_skew(caplog):
     assert "option B in 9 of 10" in caplog.text
     assert not sm.warn_answer_skew([q(i % 4) for i in range(12)])
     assert not sm.warn_answer_skew([q(1)] * 3)  # too few to judge
+
+
+# ---------------------------------------------------------------- round 5: answer balance, purpose, verification
+
+
+def _snips(n, answer=1):
+    return [{"id": f"lec-{i:03d}", "concept": f"c{i}", "start": i * 60.0, "end": i * 60.0 + 60,
+             "summary": "A. B.", "text": f"excerpt {i}",
+             "questions": [q(answer, options=[f"o{i}{j}{k}" for k in range(4)]) for j in range(2)]}
+            for i in range(n)]
+
+
+def test_balance_answers_spreads_evenly_and_keeps_right_option():
+    snippets = _snips(20)
+    right = [[qq["options"][qq["answer"]] for qq in s["questions"]] for s in snippets]
+    sm.balance_answers(snippets)
+    counts = [sum(qq["answer"] == i for s in snippets for qq in s["questions"]) for i in range(4)]
+    assert counts == [10, 10, 10, 10]
+    assert [[qq["options"][qq["answer"]] for qq in s["questions"]] for s in snippets] == right
+    assert sm.balance_answers(copy.deepcopy(snippets)) == sm.balance_answers(snippets)  # deterministic
+
+
+def test_finalize_balances_answers(transcript, fixture_snippets):
+    raw_items = [{k: s[k] for k in ("concept", "start", "end", "summary", "questions")} for s in fixture_snippets]
+    for s in raw_items:
+        for qq in s["questions"]:
+            right = qq["options"].pop(qq["answer"])
+            qq["options"].insert(1, right)
+            qq["answer"] = 1
+    out = sm.finalize(raw_items, transcript, "demo01")
+    answers = [qq["answer"] for s in out for qq in s["questions"]]
+    assert max(answers.count(i) for i in range(4)) == 2 and len(set(answers)) == 4
+
+
+def test_call_passes_purpose_only_if_supported():
+    seen = []
+
+    def new_ask(system, user, max_tokens=0, purpose="runtime"):
+        seen.append(purpose)
+
+    def old_ask(system, user, max_tokens=0):
+        seen.append("none")
+
+    sm._call(new_ask, "s", "u", 10, "preprocess")
+    sm._call(old_ask, "s", "u", 10, "preprocess")
+    sm._call(lambda *a, **kw: seen.append(kw.get("purpose")), "s", "u", 10, "runtime")
+    assert seen == ["preprocess", "none", "runtime"]
+
+
+def test_prompt_has_round5_rules():
+    p = sm.SNIPPET_PROMPT
+    assert "hard limit" in p and "45-120 seconds" in p
+    assert 'never write "The\nprofessor says' in p
+    assert "No pure recall questions" in p and "No joke or absurd options" in p
+    assert "Spread the correct option" not in p  # handled in code now
+    assert sm.QUESTION_RULES.startswith("questions: exactly 2") and "LANGUAGE" not in sm.QUESTION_RULES
+    assert sm.QUESTION_RULES in sm.REGEN_PROMPT
+
+
+def test_quality_warnings():
+    s = {"id": "x-001", "concept": "c", "start": 0, "end": 42, "summary": "The professor says hi. Then more."}
+    w = sm.quality_warnings([s, {**s, "id": "x-002", "end": 60, "summary": "Opportunity cost is X. Y."}])
+    assert len(w) == 2 and "42 s" in w[0] and "framing" in w[1]
+
+
+class VerifyFake:
+    """Fake ask: answers verification and regeneration prompts from scripted tables.
+
+    picks/repicks: {question_id: letter or None}; missing ids answer with the key's letter.
+    """
+
+    def __init__(self, picks=None, regen=None, repicks=None, fail_verify=False):
+        self.picks, self.regen, self.repicks = picks or {}, regen or {}, repicks or {}
+        self.fail_verify = fail_verify
+        self.keys = {}
+        self.calls = []
+
+    def __call__(self, system, user, max_tokens=None, purpose=None):
+        self.calls.append({"system": system, "user": user, "purpose": purpose})
+        if system == sm.VERIFY_PROMPT:
+            if self.fail_verify:
+                raise RuntimeError("down")
+            first_excerpt = user.split("### Excerpt ")[1].split("\n")[0]
+            table = self.repicks if "_" in first_excerpt else self.picks
+            out = []
+            for qid, opts in re.findall(r"^Question (\S+): .*\n((?:[A-D]\) .*\n?){4})", user, flags=re.M):
+                out.append({"id": qid, "choice": table[qid] if qid in table else self.keys.get(qid)})
+            return {"answers": out}
+        if system == sm.REGEN_PROMPT:
+            ids = re.findall(r"^### Item (\S+)", user, flags=re.M)
+            return {"questions": [{"id": i, **self.regen[i]} for i in ids if i in self.regen]}
+        raise AssertionError("unexpected prompt")
+
+
+def _keys(snippets):
+    return {f"{s['id']}#{i}": "ABCD"[qq["answer"]] for s in snippets for i, qq in enumerate(s["questions"])}
+
+
+def test_verify_all_agree():
+    snippets = sm.balance_answers(_snips(3))
+    fake = VerifyFake()
+    fake.keys = _keys(snippets)
+    stats = sm.verify_and_repair(snippets, fake)
+    assert stats["questions"] == 6 and stats["agreed"] == 6 and stats["regenerated"] == 0
+    assert [c["purpose"] for c in fake.calls] == ["runtime"]
+    assert "### Excerpt lec-000\nexcerpt 0" in fake.calls[0]["user"]
+
+
+def test_verify_regenerates_fixes_and_drops():
+    snippets = sm.balance_answers(_snips(2))
+    keys = _keys(snippets)
+    wrong = "ABCD"[(snippets[0]["questions"][0]["answer"] + 1) % 4]
+    picks = {"lec-000#0": wrong, "lec-000#1": None, "lec-001#1": None}
+    regen = {"lec-000#0": q(2, options=["n0", "n1", "n2", "n3"]),
+             "lec-000#1": q(0, options=["m0", "m1", "m2", "m3"])}  # lec-001#1 gets no replacement
+    repicks = {"lec-000#0": "C", "lec-000#1": "B"}  # first replacement agrees with its key, second doesn't
+    fake = VerifyFake(picks, regen, repicks)
+    fake.keys = keys
+    stats = sm.verify_and_repair(snippets, fake)
+    assert stats["regenerated"] == 3 and stats["fixed"] == 1 and stats["dropped"] == 2 and stats["agreed"] == 1
+    assert len(snippets[0]["questions"]) == 1 and len(snippets[1]["questions"]) == 1
+    new = snippets[0]["questions"][0]
+    assert set(new["options"]) == {"n0", "n1", "n2", "n3"} and new["options"][new["answer"]] == "n2"
+    assert [c["purpose"] for c in fake.calls] == ["runtime", "preprocess", "runtime"]
+    assert "Key: " in fake.calls[1]["user"] and "could not answer" in fake.calls[1]["user"]
+    assert "1 regenerated and fixed, 2 dropped" in sm.format_verification(stats)
+
+
+def test_verify_warns_when_snippet_loses_all_questions(caplog):
+    snippets = sm.balance_answers(_snips(1))
+    with caplog.at_level(logging.WARNING):
+        stats = sm.verify_and_repair(snippets, VerifyFake({"lec-000#0": None, "lec-000#1": None}))
+    assert stats["no_questions"] == ["lec-000"] and snippets[0]["questions"] == []
+    assert "no questions left" in caplog.text
+
+
+def test_verify_call_failure_keeps_questions_unchecked():
+    snippets = sm.balance_answers(_snips(2))
+    stats = sm.verify_and_repair(snippets, VerifyFake(fail_verify=True))
+    assert stats["unchecked"] == 4 and stats["dropped"] == 0 and stats["verified"] is False
+    assert all(len(s["questions"]) == 2 for s in snippets)
+    summary = sm.format_verification(stats)
+    assert "unchecked" in summary and "NOT fully verified" in summary
+
+
+def test_verify_recheck_failure_drops_replacement_rather_than_reporting_verified():
+    snippets = sm.balance_answers(_snips(1))
+    fake = VerifyFake(
+        picks={"lec-000#0": None},
+        regen={"lec-000#0": q(2, options=["n0", "n1", "n2", "n3"])},
+        repicks={},  # missing from repicks -> stays unchecked on re-verify
+    )
+    fake.keys = _keys(snippets)
+    # Remove lec-000#0 from fake.keys after initial picks so re-verify returns None/unchecked.
+    orig_call = fake.__call__
+
+    def call(system, user, max_tokens=None, purpose=None):
+        if system == sm.VERIFY_PROMPT and "_" in user.split("### Excerpt ")[1].split("\n")[0]:
+            raise RuntimeError("re-verify failed")
+        return orig_call(system, user, max_tokens, purpose)
+
+    stats = sm.verify_and_repair(snippets, call)
+    assert stats["fixed"] == 0 and stats["dropped"] == 1
+    assert len(snippets[0]["questions"]) == 1
+
+
+def test_quality_warnings_flags_empty_questions_list():
+    s = {"id": "x-001", "concept": "c", "start": 0, "end": 60, "summary": "A. B.", "questions": []}
+    warnings = sm.quality_warnings([s])
+    assert len(warnings) == 1 and "no questions" in warnings[0]
+
+
+def test_verify_warns_format_lists_no_questions_ids():
+    snippets = sm.balance_answers(_snips(1))
+    stats = sm.verify_and_repair(snippets, VerifyFake({"lec-000#0": None, "lec-000#1": None}))
+    assert stats["verified"] is True
+    assert "Warning: no questions left for lec-000" in sm.format_verification(stats)
+
+
+def test_verify_batches_by_input_budget(monkeypatch):
+    snippets = sm.balance_answers(_snips(6))
+    for s in snippets:
+        s["text"] = "x" * 3000
+    monkeypatch.setattr(sm, "_budget", lambda: 8000)
+    fake = VerifyFake()
+    fake.keys = _keys(snippets)
+    stats = sm.verify_and_repair(snippets, fake)
+    assert stats["agreed"] == 12
+    assert len(fake.calls) >= 3 and all(len(c["user"]) <= 8000 for c in fake.calls)
+
+
+def test_make_snippets_uses_preprocess_then_verifies(transcript, fixture_snippets):
+    llm_out = [{k: s[k] for k in ("concept", "start", "end", "summary", "questions")} for s in fixture_snippets]
+    calls = []
+
+    def ask(system, user, max_tokens=None, purpose=None):
+        calls.append((system, purpose))
+        if system == sm.SNIPPET_PROMPT:
+            return copy.deepcopy(llm_out)
+        if system == sm.VERIFY_PROMPT:
+            return {"answers": [{"id": i, "choice": "A"} for i in re.findall(r"^Question (\S+):", user, flags=re.M)]}
+        return {"questions": []}  # regeneration produces nothing usable -> failures dropped
+
+    stats = {}
+    out = sm.make_snippets(transcript, "demo01", ask=ask, stats=stats)
+    assert calls[0] == (sm.SNIPPET_PROMPT, "preprocess") and calls[1] == (sm.VERIFY_PROMPT, "runtime")
+    assert stats["questions"] == 6 and stats["agreed"] + stats["regenerated"] == 6
+    assert sum(len(s["questions"]) for s in out) == stats["agreed"]
+
+
+def test_cli_prints_verification_summary(tmp_path, monkeypatch, capsys, fixture_snippets):
+    src = tmp_path / "in.json"
+    src.write_text(json.dumps(lectures.load_transcript("demo01")), encoding="utf-8")
+    monkeypatch.setattr(config, "LECTURES_DIR", tmp_path / "lectures")
+    llm_out = [{k: s[k] for k in ("concept", "start", "end", "summary", "questions")} for s in fixture_snippets]
+    fake = VerifyFake()
+
+    def ask(system, user, max_tokens=None, purpose=None):
+        if system == sm.SNIPPET_PROMPT:
+            out = copy.deepcopy(llm_out)
+            # keys after balancing aren't known yet; the verify fake answers with them via sm state
+            return out
+        return fake(system, user, max_tokens, purpose)
+
+    real_verify = sm.verify_and_repair
+
+    def verify_with_keys(snippets, a=None):
+        fake.keys = _keys(snippets)
+        return real_verify(snippets, a)
+
+    monkeypatch.setattr(sm, "verify_and_repair", verify_with_keys)
+    monkeypatch.setattr(sm, "ask_json", ask)
+    assert sm.main(["--transcript", str(src), "--video-url", "https://youtu.be/x", "--lecture-id", "lin01"]) == 0
+    out = capsys.readouterr().out
+    assert "Verification: 6 questions checked: 6 agreed with the key" in out

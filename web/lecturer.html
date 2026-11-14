@@ -23,7 +23,7 @@
       <section class="card">
         <div class="card-head">
           <h2 class="card-title">Where students get stuck</h2>
-          <span class="muted small">Ranked by times asked · click to play</span>
+          <span class="muted small" id="stuck-sub">Ranked by times asked · click to play</span>
         </div>
         <div id="stuck" class="stuck"></div>
       </section>
@@ -35,6 +35,14 @@
         <div id="gaps" class="gaps"></div>
       </section>
     </div>
+
+    <section class="card up-card" id="slides-card" hidden>
+      <div class="card-head">
+        <h2 class="card-title">Your slides</h2>
+        <span class="muted small">PDF or PowerPoint · students see the matching slide next to each clip</span>
+      </div>
+      <div id="slides-list" class="up-list"></div>
+    </section>
 
     <section class="card graph-card">
       <div class="card-head">

@@ -24,6 +24,7 @@ def corpus(tmp_path, monkeypatch):
     source = folder / "snippets.json"
     source.write_text(json.dumps(snippets), encoding="utf-8")
     monkeypatch.setattr(config, "LECTURES_DIR", tmp_path)
+    monkeypatch.setattr(retrieval.llm, "available", lambda: True)
     retrieval._get_model.cache_clear()
     retrieval._load_index.cache_clear()
 
@@ -153,7 +154,7 @@ def test_unrelated_question_rejected_before_llm(corpus, monkeypatch):
 def test_llm_rejects_related_but_unexplained_question(corpus, monkeypatch):
     monkeypatch.setattr(retrieval, "ask_json", lambda *a, **kw: {"best_index": None, "reason": "Not explained"})
     result = retrieval.answer("What does Ax=b mean?")
-    assert result == {"status": "not_covered", "best": None, "alternatives": [], "score": 1.0}
+    assert result == {"status": "not_covered", "best": None, "alternatives": [], "score": 1.0, "slides": []}
 
 
 def test_llm_can_choose_another_candidate(corpus, monkeypatch):
@@ -175,6 +176,7 @@ def test_llm_can_choose_another_candidate(corpus, monkeypatch):
     assert result == {
         "status": "found", "best": corpus.snippets[2],
         "alternatives": corpus.snippets[:2], "score": 0.7,
+        "slides": [],
     }
 
 
@@ -200,6 +202,7 @@ def test_empty_corpus_and_blank_questions_need_no_model(corpus):
     assert retrieval.search("question") == []
     assert retrieval.answer("question") == {
         "status": "not_covered", "best": None, "alternatives": [], "score": 0.0,
+        "slides": [],
     }
     corpus.source.unlink()
     assert retrieval.search("question") == []
@@ -230,3 +233,110 @@ def test_eval_skip_llm(corpus, monkeypatch, capsys, tmp_path):
     monkeypatch.setattr(retrieval, "answer", lambda *a: pytest.fail("--skip-llm called answer"))
     assert eval_search.main([str(path), "--skip-llm"]) == 0
     assert "With LLM" not in capsys.readouterr().out
+
+
+@pytest.fixture
+def slide_corpus(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "LECTURES_DIR", tmp_path)
+    monkeypatch.setattr(retrieval.llm, "available", lambda: False)
+    folder = tmp_path / "slides01"
+    directory = folder / "slides"
+    directory.mkdir(parents=True)
+    records = [{"n": i, "title": word, "text": word, "image": None}
+               for i, word in enumerate(["matrix", "neuron", "elasticity"], 1)]
+    source = directory / "slides.json"
+    source.write_text(json.dumps(records))
+    calls = []
+
+    def encode(texts):
+        calls.append(texts)
+        vectors = []
+        for text in texts:
+            index = next((i for i, word in enumerate(["matrix", "neuron", "elasticity"])
+                          if word in text.casefold()), None)
+            vectors.append(np.eye(3)[index] if index is not None else [-1, -1, -1])
+        return retrieval._normalize(np.asarray(vectors))
+
+    monkeypatch.setattr(retrieval, "_encode", encode)
+    retrieval._load_index.cache_clear()
+    retrieval._load_slide_index.cache_clear()
+    yield SimpleNamespace(folder=folder, directory=directory, source=source, records=records, calls=calls)
+    retrieval._load_index.cache_clear()
+    retrieval._load_slide_index.cache_clear()
+
+
+def test_slide_only_without_snippets_and_no_llm(slide_corpus, monkeypatch):
+    monkeypatch.setattr(retrieval, "ask_json", lambda *a, **kw: pytest.fail("Slide-only path called LLM"))
+    result = retrieval.answer("elasticity")
+    assert result == {"status": "slide_only", "best": None, "alternatives": [], "score": 1.0,
+                      "slides": [{"lecture_id": "slides01", "n": 3, "score": 1.0}]}
+    assert not (slide_corpus.folder / "snippets.json").exists()
+    assert not (slide_corpus.folder / "embeddings.npy").exists()
+
+
+def test_slide_embeddings_are_cached_and_index_all_includes_slide_only(slide_corpus, monkeypatch):
+    retrieval.index_all()
+    load = retrieval.np.load
+    reads = []
+
+    def spy(*args, **kwargs):
+        reads.append(args[0])
+        return load(*args, **kwargs)
+
+    monkeypatch.setattr(retrieval.np, "load", spy)
+    assert retrieval.search_slides("matrix")[0]["n"] == 1
+    assert retrieval.search_slides("neuron")[0]["n"] == 2
+    assert len(reads) == 1
+    assert len(slide_corpus.calls) == 3  # One indexing batch, two queries.
+
+
+def test_slide_source_changes_and_deletions_invalidate_results(slide_corpus):
+    assert retrieval.answer("elasticity")["status"] == "slide_only"
+    slide_corpus.records.pop()
+    slide_corpus.source.write_text(json.dumps(slide_corpus.records))
+    assert retrieval.answer("elasticity")["status"] == "not_covered"
+    manifest = json.loads((slide_corpus.directory / "embeddings.ids.json").read_text())
+    assert manifest["slide_numbers"] == [1, 2]
+    slide_corpus.source.unlink()
+    assert retrieval.search_slides("matrix") == []
+
+
+@pytest.mark.parametrize("damage", ["array", "ids", "dimension", "model"])
+def test_damaged_slide_indexes_rebuild(slide_corpus, monkeypatch, damage):
+    retrieval.index_lecture("slides01")
+    if damage == "array":
+        (slide_corpus.directory / "embeddings.npy").write_bytes(b"bad array")
+    elif damage == "ids":
+        (slide_corpus.directory / "embeddings.ids.json").unlink()
+    elif damage == "dimension":
+        np.save(slide_corpus.directory / "embeddings.npy", np.ones((3, 1)), allow_pickle=False)
+    else:
+        monkeypatch.setattr(config, "EMBEDDING_MODEL", "new-model")
+    assert retrieval.search_slides("elasticity")[0]["n"] == 3
+    assert len(slide_corpus.calls) == 3  # Initial corpus, rebuilt corpus, question.
+
+
+def test_clip_answer_stays_plain_with_matched_slides(slide_corpus):
+    snippet = {"id": "slides01-001", "lecture_id": "slides01", "concept": "matrix",
+               "summary": "matrix", "text": "matrix", "start": 0, "end": 60, "questions": []}
+    (slide_corpus.folder / "snippets.json").write_text(json.dumps([snippet]))
+    result = retrieval.answer("matrix")
+    assert result["status"] == "found" and result["best"] == snippet
+    assert result["slides"] == [{"lecture_id": "slides01", "n": 1, "score": 1.0}]
+
+
+def test_coverage_rejects_clip_but_slide_still_answers(slide_corpus, monkeypatch):
+    (slide_corpus.folder / "snippets.json").write_text(json.dumps([
+        {"id": "slides01-001", "concept": "elasticity", "summary": "elasticity", "text": "elasticity"},
+    ]))
+    monkeypatch.setattr(retrieval.llm, "available", lambda: True)
+    monkeypatch.setattr(retrieval, "ask_json", lambda *a, **kw: {"best_index": None, "reason": "Only related"})
+    assert retrieval.answer("elasticity")["status"] == "slide_only"
+
+
+def test_blank_slide_text_is_not_searchable_and_needs_no_model(slide_corpus):
+    for record in slide_corpus.records:
+        record["text"] = ""
+    slide_corpus.source.write_text(json.dumps(slide_corpus.records))
+    assert retrieval.answer("elasticity")["status"] == "not_covered"
+    assert not slide_corpus.calls

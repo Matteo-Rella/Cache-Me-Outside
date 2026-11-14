@@ -13,3 +13,5 @@ httpx
 playwright  # dev only: screenshot checks of web/
 openai
 google-genai
+PyMuPDF
+python-pptx

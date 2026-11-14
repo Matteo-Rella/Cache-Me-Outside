@@ -1,6 +1,12 @@
-# Round 5 prompts: student chat + professor's slides
+# Round 5 prompts: student chat + professor's slides (+ better snippets)
 
-Start after round 4 has finished.
+T1, T3 and T4 can start as soon as they're free; T2 starts when its round 4 work is done (it owns llm.py, settings.py and search.py).
+
+## Lessons from round 4 (read first)
+
+- Claude Haiku 5.5 made econ01 snippets with a wrong answer key, recall questions, cuts outside 45–120 s, "The professor says…" summaries and a skewed answer spread. Fix: use a stronger model only for preprocessing (one-time, about $0.10–0.15 per lecture with anthropic/claude-sonnet-5 on OpenRouter at $2 in / $10 out per million tokens) and keep Haiku for the cheap per-question calls (coverage check, homework check, chat). .env now has LLM_MODEL_PREPROCESS=anthropic/claude-sonnet-5.
+- Never trust an answer key blindly: add a verification pass (T4 below).
+- llm.estimate: T3 already calls llm.estimate(requests) where each request is {system, user, max_tokens}. T2 must use exactly that signature.
 
 ## The feature
 
@@ -19,6 +25,8 @@ Chat needs a live AI, so it only shows in API mode (including local Ollama). In 
 
 RULES (all terminals): one shared folder (Cache-Me-Outside), no worktrees, no commits. Do NOT run any git command. Only edit the files listed as yours; anything else goes in your NOTES file. Run only your own tests. Never kill processes you didn't start.
 
+AI COSTS: .env holds a real OpenRouter key with a €10 budget for the whole project. Tests always mock the LLM. Live AI calls only where your task says so, never in uncapped loops, and never print or log the key. Delete any test rows your live checks write to data/rewind.db.
+
 ## Contract
 
 Data:
@@ -29,7 +37,8 @@ Python:
 - rewind/slides.py (T2): ingest_slides(lecture_id, path) -> count. PDF with PyMuPDF (text + PNG per page at ~1280 px wide). PPTX with python-pptx for text; for images, convert to PDF with LibreOffice (soffice --headless --convert-to pdf) if installed, else text only and tell the user to export a PDF. Then align(lecture_id): embed slides and snippets with the search model, set each snippet's "slides" to the top 1–2 slides above a threshold, save. load_slides(lecture_id) -> list.
 - rewind/search.py (T2): index slides too. answer(question) keeps its shape and adds "slides": [{"lecture_id", "n", "score"}] (top 2 over threshold). New status "slide_only" when no clip passes but a slide does (best None).
 - rewind/llm.py (T2): chat(system, messages, max_tokens=800, stream=False) -> str, or an iterator of text chunks if stream=True. All providers. llm.available() unchanged.
-- rewind/settings.py (T2): add chat_policy ("strict" | "labelled", default "strict").
+- rewind/settings.py (T2): add chat_policy ("strict" | "labelled", default "strict") and preprocess_model (from .env LLM_MODEL_PREPROCESS; empty = use model).
+- rewind/llm.py (T2): ask_json and chat get an optional purpose="runtime" | "preprocess" (default runtime); preprocess uses preprocess_model. estimate(requests) with requests = [{system, user, max_tokens}], priced by the model that purpose would use; price table includes anthropic/claude-sonnet-5 ($2/$10) and anthropic/claude-haiku-5.5 ($0.10/$0.50).
 - rewind/chat.py (T4): respond(student_id, snippet_id, messages) -> iterator of events: {"type": "text", "text": "..."} chunks, then {"type": "done", "citations": [{"kind": "time", "lecture_id", "t"} | {"kind": "slide", "lecture_id", "n"}], "outside_materials": bool, "homework": bool}. Citations appear in the text as [mm:ss] and [Slide N].
 - rewind/store.py (T3): chat_messages(id, student_id, snippet_id, role, content, outside_materials, created_at); log_chat(...); lecturer_stats gains "followups" per snippet.
 
@@ -49,7 +58,16 @@ HTTP (T3):
 Yours: rewind/slides.py, rewind/search.py, rewind/llm.py, rewind/settings.py, tests/test_slides.py, tests/test_search.py, tests/test_llm.py, NOTES-search.md.
 Implement the Python contract parts marked T2. Append PyMuPDF and python-pptx to requirements.txt. Streaming for each provider with its SDK's streaming API; mocked in tests. For the test PDF, generate a 3-page PDF in the test itself. Also find the official slides or lecture notes PDF for MIT 14.01 lecture 1 (econ01) on MIT OpenCourseWare, download it into data/lectures/econ01/source/ (gitignore note in NOTES), run ingest_slides + align, and report which clips got which slides. Stop.
 
-## T4 (Claude Code, Opus) – the chat brain
+## T4 (Claude Code, Opus) – better snippets first, then the chat brain
+
+Part 0, snippet quality (yours this round also: rewind/snippet_maker.py, tests/test_snippet_maker.py, data/lectures/):
+1. Call the LLM with purpose="preprocess" (until T2's change lands, pass it via getattr/try so nothing breaks).
+2. Answer spread in code, not in the prompt: after validation, shuffle each question's options with a seed from the snippet id and update the answer index, then balance so each of A–D is right roughly a quarter of the time.
+3. Verification pass: for each question, one cheap runtime call (Haiku) gets only the snippet text and the question with options, and must pick an answer or say "not answerable from this excerpt". If it disagrees with the key or can't answer, regenerate that question once with the preprocess model, re-verify, and drop it if it still fails (a snippet keeps at least 1 question; warn if 0). Batch all questions of a lecture into as few calls as possible. Print a summary.
+4. Prompt rules: no summaries starting "The professor says/explains"; no pure recall questions; no joke distractors; 45–120 s hard limit (post-processing already enforces it, also tell the model).
+5. Live run (cap: 2 generations total, about $0.30): regenerate econ01 with Sonnet + verification into econ01-api, compare it to the hand-written econ01 like last time, keep the better one as econ01 and delete the other. Report the cost from llm.estimate.
+
+Then the chat brain:
 
 Yours: rewind/chat.py, tests/test_chat.py, tests/chat_eval.json, tools/eval_chat.py, NOTES-lectures.md.
 Build respond() per the contract, using llm.chat with stream=True.
@@ -66,11 +84,11 @@ Eval: 15 follow-ups on econ01 and psych02 (clarifications, "why" questions, an e
 ## T3 (Claude Code, Sonnet) – chat API, slide endpoints, store
 
 Yours: api.py, rewind/store.py, rewind/ingest.py, tests/test_api.py, tests/test_store.py, tests/test_ingest.py, NOTES-store.md.
-Implement the HTTP contract and the store parts. Chat uses Server-Sent Events (StreamingResponse, media type text/event-stream); log the student message before streaming and the full assistant message when done. Upload endpoint is local-only and saves the file to data/lectures/<id>/source/ before ingesting. Add followups to lecturer_stats and to /api/lecturer/stats. Extend seed_demo_data with ~30 chat messages so the lecturer view shows follow-ups. Mock rewind.chat and rewind.slides in tests. Stop.
+Implement the HTTP contract and the store parts. Generate (from round 4) must pass purpose="preprocess" once llm supports it, and the estimate must reflect that. Chat uses Server-Sent Events (StreamingResponse, media type text/event-stream); log the student message before streaming and the full assistant message when done. Upload endpoint is local-only and saves the file to data/lectures/<id>/source/ before ingesting. Add followups to lecturer_stats and to /api/lecturer/stats. Extend seed_demo_data with ~30 chat messages so the lecturer view shows follow-ups. Mock rewind.chat and rewind.slides in tests. Stop.
 
 ## T1 (Claude Code, Opus) – chat panel + slides in the UI
 
-Yours: web/, NOTES-web.md.
+Yours: web/ (except the existing rules in web/css/style.css: a designer is restyling it on another branch), NOTES-web.md. Put all new CSS in a section at the END of style.css headed with a comment for this round, use only the existing CSS variables, and don't edit or reorder existing rules. See docs/website-styling-guide.md.
 1. Answer view: the matched slide next to the clip (side by side at 1280 px, stacked on phones), click to enlarge. "slide_only" status: show the slide(s) with "Covered in the slides, not in the recording".
 2. Chat panel under the clip ("Ask a follow-up"), only if /api/ai-status says chat_available. Streams the reply token by token (fetch + ReadableStream reading the SSE events). Render [mm:ss] as chips that seek the player and play from there, [Slide N] as chips that open the slide. Show "Not from your course materials" replies with a distinct muted style, and a small "Sent to your lecturer" note when flagged. Keep history per clip in memory; send the last 10 messages.
 3. Keep the order: clip → chat → "Check yourself". The quiz stays visible; chatting doesn't reset it.

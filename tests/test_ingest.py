@@ -183,3 +183,74 @@ def test_guards(env):
         ingest.run(_args(env), transcriber=lambda v: env.transcript, indexer=_indexer([]))
     assert ingest.run(_args(env, "--force"), transcriber=lambda v: env.transcript,
                       ask=lambda *a, **k: env.raw, indexer=_indexer([])) == 0
+
+
+def test_transcript_and_optional_slides_use_contract_without_transcriber(env, monkeypatch):
+    from rewind import slides
+
+    transcript = env.tmp / "teammate.json"
+    transcript.write_text(json.dumps(env.transcript), encoding="utf-8")
+    pdf = env.tmp / "Lecture Slides.PDF"
+    pdf.write_bytes(b"fake PDF")
+    seen = []
+    def extract(lid, path):
+        assert path.read_bytes() == b"fake PDF"
+        seen.append((lid, path.name))
+        return 3
+    def align(lid):
+        snippets = lectures.load_snippets(lid)
+        for snippet in snippets:
+            snippet["slides"] = [1]
+        lectures.save_snippets(lid, snippets)
+        seen.append("aligned")
+    monkeypatch.setattr(slides, "ingest_slides", extract, raising=False)
+    monkeypatch.setattr(slides, "align", align, raising=False)
+    def no_transcription(*args):
+        raise AssertionError("--transcript must bypass transcription")
+    result = ingest.run(_args(env, "--transcript", str(transcript), "--slides", str(pdf)),
+                        transcriber=no_transcription, ask=lambda *a, **k: env.raw,
+                        indexer=lambda lid: seen.append("indexed"))
+    assert result == 0
+    assert seen == [("ai01", "Lecture-Slides.pdf"), "aligned", "indexed"]
+    assert lectures.load_transcript("ai01") == env.transcript
+    assert lectures.load_snippets("ai01")[0]["slides"] == [1]
+
+
+def test_preprocessing_provider_typeerror_is_never_retried(env, monkeypatch):
+    from rewind import llm
+
+    calls = []
+    def fail(system, user, max_tokens=16000, purpose="runtime"):
+        calls.append(purpose)
+        raise TypeError("SDK failure after request")
+    monkeypatch.setattr(llm, "ask_json", fail)
+    monkeypatch.setattr(llm, "available", lambda: True, raising=False)
+    with pytest.raises(TypeError, match="SDK failure"):
+        ingest.make_lecture_snippets("ai01", env.transcript, "Intro", None)
+    assert calls == ["preprocess"]
+
+
+@pytest.mark.parametrize("name,expected", [("../../slides.PDF", "slides.pdf"),
+                                          ("..\\..\\slides.pptx", "slides.pptx"),
+                                          ("résumé.pdf", "r-sum.pdf")])
+def test_source_filenames_are_plain(env, name, expected):
+    path = ingest.save_source("ai01", name, b"source")
+    assert path == env.lec_dir / "ai01" / "source" / expected
+    assert path.read_bytes() == b"source"
+
+
+def test_source_rejects_invalid_lecture_id(env):
+    with pytest.raises(ingest.IngestError, match="lecture ID"):
+        ingest.save_source("../elsewhere", "s.pdf", b"x")
+
+
+def test_bad_slide_extraction_is_actionable(env, monkeypatch):
+    from rewind import slides
+
+    pdf = env.tmp / "broken.pdf"
+    pdf.write_bytes(b"not a PDF")
+    def fail(*args):
+        raise ValueError("corrupt data")
+    monkeypatch.setattr(slides, "ingest_slides", fail, raising=False)
+    with pytest.raises(ingest.IngestError, match="Export a PDF"):
+        ingest.ingest_slides("ai01", pdf)

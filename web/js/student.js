@@ -2,11 +2,17 @@
 import { api } from "./api.js";
 import { ClipPlayer } from "./player.js";
 import { fmt, h, header, icon, lectureLine, modal, subjectName } from "./ui.js";
+import { chatPanel } from "./chat.js";
+import { openSlide, slideAside, slideOnlyCard } from "./slides.js";
+
+// Round 5: chat shows only when the server says it can (API mode).
+const aiStatusP = api.aiStatus().catch(() => ({}));
 
 const NAME_KEY = "rewind.studentName";
 const $ = (s) => document.querySelector(s);
 let player = null;
 let askToken = 0;
+let abortActiveChat = null;
 
 const getName = () => { try { return localStorage.getItem(NAME_KEY) || ""; } catch { return ""; } };
 const setName = (n) => { try { localStorage.setItem(NAME_KEY, n); } catch {} };
@@ -85,6 +91,7 @@ async function ask(text) {
   q.value = text;
   requestAnimationFrame(fitQ);
   setTimeout(fitQ, 500); // again once the hero has collapsed
+  abortActiveChat?.(); abortActiveChat = null;
   player?.destroy(); player = null;
   const out = $("#result");
   out.replaceChildren(loadingCard());
@@ -99,6 +106,7 @@ async function ask(text) {
   }
   if (token !== askToken) return;
   if (res.status === "found" && res.snippet) out.replaceChildren(...foundView(res, text));
+  else if (res.status === "slide_only" && res.slides?.length) out.replaceChildren(slideOnlyCard(res, text));
   else out.replaceChildren(notCoveredCard(text));
 }
 
@@ -138,12 +146,21 @@ function notCoveredCard(text) {
 function foundView(res, text) {
   const { snippet, lecture, homework, alternatives = [] } = res;
   const playerMount = h("div", { class: "player-mount" });
+  const slideBox = h("div", { class: "clip-slide" });
+  const media = h("div", { class: "clip-media" }, playerMount, slideBox);
+  const jumpBar = h("div", { class: "ct-jump", hidden: true });
+  let current = { snip: snippet, lec: lecture };
   const clipHead = h("div", { class: "clip-head" });
   const clipInfo = h("div", { class: "clip-info" });
 
   const showClip = (snip, lec, label) => {
     player?.destroy();
     player = new ClipPlayer(playerMount, { lecture: lec, start: snip.start, end: snip.end });
+    current = { snip, lec };
+    jumpBar.hidden = true;
+    media.classList.remove("has-slide");
+    const refs = snip === snippet ? res.slides || [] : [];
+    slideBox.replaceChildren(slideAside(lec, refs, snip.slides || []));
     clipHead.replaceChildren(...[
       h("span", { class: "badge badge-accent" }, icon("quote"), "Your professor's own words"),
       label ? h("span", { class: "badge" }, label) : null,
@@ -158,13 +175,52 @@ function foundView(res, text) {
   const clipCard = h("article", { class: "card result-card appear" },
     homework ? h("div", { class: "hw-note" }, icon("bulb"),
       h("span", {}, h("strong", {}, "Here's where the method is explained. "), "Try it yourself, then check below.")) : null,
-    clipHead, playerMount, clipInfo);
+    clipHead, jumpBar, media, clipInfo);
+
+  // [mm:ss] chips in the chat: seek inside the clip, or play that part of the lecture.
+  const onTimeFor = (snip, lec, t) => {
+    if (!player || current.snip.id !== snip.id) return;
+    if (t >= snip.start && t < snip.end) {
+      if (player.start !== snip.start || player.end !== snip.end) player.setRange(snip.start, snip.end);
+      player.seek(t); player.play();
+      jumpBar.hidden = true;
+    } else {
+      player.setRange(t, t + 75);
+      jumpBar.replaceChildren(icon("clock"), h("span", {}, `Playing ${fmt(t)} from ${lectureLine(lec, { start: t, end: t + 75 }).split(" · ").slice(0, -1).join(" · ")}`),
+        h("button", { class: "btn btn-ghost btn-sm", type: "button", onclick: () => { player.setRange(snip.start, snip.end); jumpBar.hidden = true; } }, icon("replay"), "Back to the clip"));
+      jumpBar.hidden = false;
+    }
+    media.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+  const chatSlot = h("div", { class: "ct-slot" });
+  let chatEl = null;
+  const mountChat = (snip, lec) => {
+    chatEl?.abortChat?.();
+    chatEl = null;
+    chatSlot.replaceChildren();
+    aiStatusP.then((s) => {
+      if (!chatSlot.isConnected || current.snip.id !== snip.id) return;
+      if (s && s.chat_available) {
+        chatEl = chatPanel({
+          snippet: snip,
+          lecture: lec,
+          studentId,
+          onTime: (t) => onTimeFor(snip, lec, t),
+          onSlide: (n) => openSlide(lec, n),
+        });
+        abortActiveChat = () => chatEl?.abortChat?.();
+        chatSlot.replaceChildren(chatEl);
+      }
+    });
+  };
+  mountChat(snippet, lecture);
 
   const quiz = quizCard(snippet, alternatives, (alt) => {
     showClip(alt.snippet, alt.lecture, "Explained another way");
+    mountChat(alt.snippet, alt.lecture);
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-  return [clipCard, quiz];
+  return [clipCard, chatSlot, quiz];
 }
 
 // ------------------------------------------------------------------ quiz
@@ -267,6 +323,8 @@ async function loadRewatch() {
 }
 
 function openClip(snippet, lecture) {
+  ++askToken;
+  abortActiveChat?.(); abortActiveChat = null;
   document.body.classList.add("has-result");
   player?.destroy();
   const out = $("#result");
@@ -278,3 +336,10 @@ function openClip(snippet, lecture) {
 
 loadRewatch();
 if (!getName()) askName(false);
+
+// AI status (round 4): read quietly. Without AI the student page looks exactly the same;
+// the mode is only recorded on <body> for styling or debugging.
+aiStatusP.then((s) => {
+  document.body.dataset.aiMode = s.mode || "none";
+  document.body.dataset.coverageCheck = s.coverage_check ? "1" : "0";
+}).catch(() => {});

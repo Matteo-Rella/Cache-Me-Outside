@@ -1,19 +1,25 @@
 """One command from a lecture video file to a searchable lecture.
 
     python -m rewind.ingest --video C:\\path\\lecture.mp4 --lecture-id ai01 --title "..." \\
-        --course "..." --lecture-number 1 [--transcript transcript.json] [--raw raw_llm_output.json]
+        --course "..." --lecture-number 1 [--transcript transcript.json] [--raw raw_llm_output.json] \\
+        [--slides slides.pdf]
 
-Inputs: a local video file, lecture metadata, optionally a transcript.json (contract in AGENTS.md)
-and optionally the raw JSON an LLM returned for the snippet prompt.
+Inputs: a local video file, lecture metadata, optionally a transcript.json (contract in AGENTS.md),
+optionally the raw JSON an LLM returned for the snippet prompt, and optionally the lecture's
+slides (PDF or PPTX).
 Outputs in data/lectures/<lecture_id>/: video.<ext>, meta.json (video_url "media/<id>/video.<ext>"),
-transcript.json, snippets.json, embeddings.npy. Prints a summary.
+transcript.json, snippets.json, embeddings.npy, source/<slides file>, slides/ (slides.json +
+images, via rewind.slides). Prints a summary.
 
 Steps:
 1. Copy the video and write meta.json.
 2. Transcript: --transcript (validated), else faster-whisper "small" (CUDA if available), else stop.
-3. Snippets: LLM via the snippet maker if available; else --raw through the snippet maker's
-   import path; else write snippet_prompt.md for a manual run and stop.
-4. Index with search.index_lecture.
+3. Slides (--slides): copy to source/, then slides.ingest_slides.
+4. Snippets: LLM via the snippet maker (preprocess model) if available; else --raw through the
+   snippet maker's import path; else write snippet_prompt.md for a manual run and stop.
+5. Align slides to snippets (slides.align), then index with search.index_lecture.
+
+Also used by api.py: save_source(), ingest_slides(), align_slides(), preprocess_kwargs().
 """
 from __future__ import annotations
 
@@ -34,8 +40,110 @@ _LECTURE_ID = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]*$")
 PROMPT_FILE = "snippet_prompt.md"
 
 
+SLIDE_EXTENSIONS = {".pdf", ".pptx"}
+SOURCE_DIR = "source"
+_SAFE_FILE = re.compile(r"[^A-Za-z0-9._-]+")
+
+
 class IngestError(Exception):
     """A problem the user can fix; printed without a traceback."""
+
+
+# ---------------------------------------------------------------- slides
+
+
+def safe_filename(name: str, allowed: set[str] | None = None) -> str:
+    """A plain file name (no folders) with only letters, digits, '.', '_' and '-'."""
+    base = Path(name.replace("\\", "/")).name
+    stem, ext = Path(base).stem, Path(base).suffix.lower()
+    if allowed is not None and ext not in allowed:
+        raise IngestError(f"Unsupported file type {ext or '(none)'!r}; use one of {sorted(allowed)}")
+    stem = _SAFE_FILE.sub("-", stem).strip("-._") or "upload"
+    return f"{stem[:80]}{ext}"
+
+
+def save_source(lecture_id: str, filename: str, data: bytes | None = None, src: Path | None = None) -> Path:
+    """Save an uploaded or local file to data/lectures/<id>/source/ and return its path."""
+    if not _LECTURE_ID.fullmatch(lecture_id):
+        raise IngestError("Invalid lecture ID.")
+    base = lectures.config.LECTURES_DIR.resolve()
+    folder = lectures.lecture_dir(lecture_id).resolve()
+    dest_dir = folder / SOURCE_DIR
+    if not folder.is_relative_to(base) or not dest_dir.resolve().is_relative_to(folder):
+        raise IngestError("Source folder must stay inside the lecture folder.")
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    dest = dest_dir / safe_filename(filename)
+    if not dest.resolve().is_relative_to(dest_dir.resolve()):
+        raise IngestError("Source file must stay inside the source folder.")
+    if src is not None:
+        if Path(src).resolve() != dest.resolve():
+            shutil.copyfile(src, dest)
+    else:
+        dest.write_bytes(data or b"")
+    return dest
+
+
+def _slides_fn(name: str) -> Callable:
+    try:
+        from rewind import slides
+    except ImportError:
+        raise IngestError("Slide support (rewind/slides.py) isn't installed yet.") from None
+    fn = getattr(slides, name, None)
+    if not callable(fn):
+        raise IngestError(f"rewind.slides.{name}() isn't available yet.")
+    return fn
+
+
+def ingest_slides(lecture_id: str, path: Path) -> int:
+    """Copy the slides into source/ and extract text + images with rewind.slides. Returns the count."""
+    path = Path(path)
+    if not path.is_file():
+        raise IngestError(f"Slides not found: {path}")
+    safe_filename(path.name, SLIDE_EXTENSIONS)  # validates the type
+    saved = save_source(lecture_id, path.name, src=path)
+    print(f"Reading slides from {saved} ...", flush=True)
+    try:
+        return int(_slides_fn("ingest_slides")(lecture_id, saved))
+    except IngestError:
+        raise
+    except Exception as exc:
+        raise IngestError(f"Couldn't read slides ({type(exc).__name__}). Export a PDF and retry.") from exc
+
+
+def align_slides(lecture_id: str) -> bool:
+    """Match slides to snippets (slides.align). True if it ran."""
+    try:
+        _slides_fn("align")(lecture_id)
+    except IngestError:
+        raise
+    except Exception as exc:
+        raise IngestError(f"Slide alignment failed ({type(exc).__name__}).") from exc
+    return True
+
+
+def preprocess_kwargs() -> dict:
+    """Extra kwargs for snippet_maker.make_snippets so snippet making uses the preprocess model.
+
+    - make_snippets(purpose=...) supported: pass purpose="preprocess".
+    - only llm.ask_json(purpose=...) supported: pass an `ask` that adds purpose="preprocess".
+    - neither: nothing (the runtime model is used, as before).
+    """
+    import functools
+    import inspect
+
+    from rewind import llm, snippet_maker as sm
+
+    try:
+        if "purpose" in inspect.signature(sm.make_snippets).parameters:
+            return {"purpose": "preprocess"}
+    except (TypeError, ValueError):
+        pass
+    try:
+        if "purpose" in inspect.signature(llm.ask_json).parameters:
+            return {"ask": functools.partial(llm.ask_json, purpose="preprocess")}
+    except (TypeError, ValueError):
+        pass
+    return {}
 
 
 # ---------------------------------------------------------------- step 1: video + meta
@@ -199,7 +307,8 @@ def make_lecture_snippets(lecture_id: str, segments: list[dict], title: str | No
         snippets = import_raw_snippets(raw, segments, lecture_id)
     elif ask is not None or llm_available():
         print("Making snippets with the LLM ...", flush=True)
-        snippets = sm.make_snippets(segments, lecture_id, title=title, ask=ask)
+        kwargs = {"ask": ask} if ask is not None else preprocess_kwargs()
+        snippets = sm.make_snippets(segments, lecture_id, title=title, **kwargs)
     else:
         return None
     if not snippets:
@@ -230,6 +339,10 @@ def run(args: argparse.Namespace, transcriber=None, ask=None, indexer=None) -> i
     write_meta(lecture_id, video, args.title, args.course, args.lecture_number)
     segments = get_transcript(lecture_id, Path(args.video),
                               Path(args.transcript) if args.transcript else None, transcriber)
+    slide_count = None
+    if getattr(args, "slides", None):
+        slide_count = ingest_slides(lecture_id, Path(args.slides))
+        print(f"  {slide_count} slides")
 
     snippets = make_lecture_snippets(lecture_id, segments, args.title,
                                      Path(args.raw) if args.raw else None, ask=ask)
@@ -237,7 +350,7 @@ def run(args: argparse.Namespace, transcriber=None, ask=None, indexer=None) -> i
         prompt = export_prompt(lecture_id, segments, args.title)
         transcript_path = folder / "transcript.json"
         print(
-            "\nNo LLM available (no ANTHROPIC_API_KEY/ANTHROPIC_MODEL), and no --raw given.\n"
+            "\nNo LLM available in the current AI settings, and no --raw given.\n"
             f"1. Open {prompt} and paste it into Claude (each part separately if there are several).\n"
             "2. Save Claude's JSON reply (all parts combined into one JSON array) as e.g. raw.json.\n"
             "3. Rerun, reusing the transcript so there's no new transcription:\n"
@@ -246,8 +359,21 @@ def run(args: argparse.Namespace, transcriber=None, ask=None, indexer=None) -> i
             + (f" --title \"{args.title}\"" if args.title else "")
             + (f" --course \"{args.course}\"" if args.course else "")
             + (f" --lecture-number {args.lecture_number}" if args.lecture_number is not None else "")
+            + (" (slides are already in; they'll be matched to clips on the rerun, no need to pass --slides)"
+               if slide_count is not None else "")
         )
         return 2
+
+    aligned = None
+    if slide_count is not None or (lectures.lecture_dir(lecture_id) / "slides" / "slides.json").exists():
+        print("Matching slides to clips ...", flush=True)
+        try:
+            aligned = align_slides(lecture_id)
+        except IngestError as err:
+            print(f"  skipped: {err}")
+            aligned = False
+        if aligned:
+            snippets = lectures.load_snippets(lecture_id)  # align adds "slides" to each snippet
 
     print("Indexing for search ...", flush=True)
     if indexer is None:
@@ -262,7 +388,10 @@ def run(args: argparse.Namespace, transcriber=None, ask=None, indexer=None) -> i
         f"  duration  {_fmt(segments[-1]['end'])} (speech {_fmt(duration)})\n"
         f"  segments  {len(segments)}\n"
         f"  snippets  {len(snippets)}\n"
-        f"  video     {video}\n"
+        + (f"  slides    {slide_count}" if slide_count is not None else "")
+        + (f" (on {sum(1 for s in snippets if s.get('slides'))} clips)" if aligned else "")
+        + ("\n" if slide_count is not None else "")
+        + f"  video     {video}\n"
         f"Open {APP_URL}  (start the server with: uvicorn api:app --port 8000)"
     )
     return 0
@@ -277,6 +406,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--lecture-number", type=int)
     p.add_argument("--transcript", help="transcript.json following the contract (skips transcription)")
     p.add_argument("--raw", help="raw LLM output for the snippet prompt (skips the LLM call)")
+    p.add_argument("--slides", help="the lecture's slides (PDF, or PPTX) to show next to clips and search")
     p.add_argument("--force", action="store_true", help="rebuild a lecture that already has snippets")
     return p
 

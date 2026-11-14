@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rewind · AI settings</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-settings">
+  <main class="wrap settings">
+    <div class="page-head">
+      <div>
+        <p class="eyebrow"><span class="dot"></span>Lecturer · AI settings</p>
+        <h1 class="page-title">How Rewind gets its <em>AI</em></h1>
+        <p class="set-lead">AI only cuts your lectures into moments and writes the summaries and check questions. Students always see and hear your own words.</p>
+      </div>
+      <div id="current" class="set-current" aria-live="polite"></div>
+    </div>
+
+    <div id="locked" hidden></div>
+
+    <div id="body">
+      <section class="set-modes" id="modes" role="radiogroup" aria-label="How Rewind gets its AI"></section>
+      <section id="panel" class="card set-panel"></section>
+      <section id="chat-policy" class="card set-panel cp-card"></section>
+      <section id="lectures-wrap" class="set-lectures-wrap" hidden>
+        <div class="card-head">
+          <h2 class="card-title" id="lectures-title">Your lectures</h2>
+          <span class="muted small" id="lectures-sub"></span>
+        </div>
+        <div id="lectures" class="set-lectures"></div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer wrap"><span>Rewind · Ask your lecture.</span><span class="muted small">Settings are stored on this computer only.</span></footer>
+  <script type="module" src="js/settings.js"></script>
+</body>
+</html>

@@ -73,7 +73,7 @@ export class ClipPlayer {
         events: {
           onReady: () => {
             this.ready = true;
-            if (this.autoplay) this.play();
+            if (this.autoplay) { this.seek(this.start); this.play(); }
             resolve();
           },
           onStateChange: (e) => this.setPlaying(e.data === YT.PlayerState.PLAYING),
@@ -161,6 +161,17 @@ export class ClipPlayer {
     this.render(t);
   }
   replay() { this.ended = false; this.seek(this.start); this.play(); }
+
+  /** Play a different window of the same lecture (e.g. a [12:40] chip from the chat). */
+  setRange(start, end) {
+    this.start = Math.max(0, start);
+    this.end = Math.max(this.start + 1, end);
+    this.duration = this.end - this.start;
+    this.ended = false;
+    this.root.classList.remove("is-ended");
+    if (this.ready) { this.seek(this.start); this.play(); }
+    else this.render(this.start);
+  }
 
   destroy() {
     clearInterval(this.tick);
