@@ -1,6 +1,7 @@
 // Small UI helpers shared by both pages: element builder, icons, time format,
 // header, modal and toast.
 import { getMode } from "./api.js";
+import { autoGuide, startGuide } from "./guide.js";
 
 export function h(tag, attrs = {}, ...children) {
   const el = document.createElement(tag);
@@ -67,8 +68,14 @@ export function lectureName(lecture) {
   return lecture?.course ? `${subjectName(lecture)} · ${n}` : n;
 }
 
+/** "min 3–4": whole minutes of the lecture, so it does not read like a clock time. */
+export function mins(start, end) {
+  const a = Math.floor((start || 0) / 60), b = Math.floor((end || 0) / 60);
+  return a === b ? `min ${a}` : `min ${a}–${b}`;
+}
+
 export function lectureLine(lecture, snippet) {
-  return `${lectureName(lecture)} · ${fmt(snippet.start)}–${fmt(snippet.end)}`;
+  return `${lectureName(lecture)} · ${mins(snippet.start, snippet.end)}`;
 }
 
 /** Shared header. `page` is "student" | "lecturer"; `extra` goes on the right. */
@@ -78,6 +85,7 @@ export function header(page, extra) {
     h("a", { href: href + mock, class: `nav-link ${page === key ? "is-active" : ""}`, "aria-current": page === key ? "page" : null }, label);
   const tag = h("span", { class: "demo-tag", hidden: true, title: "Running on built-in demo data, not the live API" }, "demo data");
   getMode().then(({ mocked, mode }) => { if (mocked || mode === "fake") tag.hidden = false; });
+  autoGuide();
   return h("header", { class: "site-header" },
     h("div", { class: "wrap header-inner" },
       h("a", { class: "brand", href: "index.html" + mock },
@@ -88,7 +96,9 @@ export function header(page, extra) {
       h("nav", { class: "nav" }, link("index.html", "Student", "student"), link("lecturer.html", "Lecturer", "lecturer"),
         // Lecturer-side only: students never see the settings link.
         page !== "student" ? link("settings.html", "AI settings", "settings") : null),
-      extra || ""));
+      extra || "",
+      h("button", { class: "help", type: "button", "aria-label": "How to use this page", title: "How to use this page", onclick: () => startGuide() }, "?"),
+      h("a", { class: "logout", href: "login.html" + mock, onclick: () => { try { localStorage.removeItem("rewind.role"); } catch {} } }, "Log out")));
 }
 
 /** Simple modal. Returns {el, close}. */

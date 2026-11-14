@@ -44,6 +44,7 @@ function seededState() {
 }
 function daysAgo(d) { return new Date(Date.now() - d * 864e5).toISOString(); }
 
+let mockJob = null;
 let state = load();
 function load() {
   try { const s = JSON.parse(localStorage.getItem(LS_KEY)); if (s && s.stats) return s; } catch {}
@@ -142,6 +143,17 @@ const routes = [
     return { ok: true };
   }],
   ["POST", /^\/api\/lecturer\/seed$/, async () => { await sleep(500); state = seededState(); save(); return { ok: true }; }],
+  ["POST", /^\/api\/questions$/, (_, body) => {
+    state.gaps.unshift({ gap_id: Date.now(), question: String(body.question || "").trim(), count: 1, last_asked: new Date().toISOString() }); save();
+    return { ok: true };
+  }],
+  ["POST", /^\/api\/lecturer\/lectures$/, (_, body) => { mockJob = { job_id: "mock", lecture_id: "mock01", title: body.title, state: "running", step: "upload", percent: 0, message: "", t0: Date.now() }; return mockJob; }],
+  ["GET", /^\/api\/lecturer\/uploads\/([^/]+)$/, () => {
+    const s = (Date.now() - mockJob.t0) / 1000;
+    if (s < 5) return { ...mockJob, step: "transcribe", percent: Math.round(20 * s) };
+    if (s < 7) return { ...mockJob, step: "moments", percent: 100 };
+    return { ...mockJob, state: "done", step: "done", percent: 100, snippet_count: 0, message: "Browser demo: nothing was really uploaded." };
+  }],
   ["GET", /^\/api\/graph$/, () => {
     const course = `course:${MOCK_META.course}`;
     const lec = `lecture:${MOCK_META.lecture_id}`;

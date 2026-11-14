@@ -17,6 +17,17 @@
       </div>
     </div>
 
+    <section class="card upload-card" id="upload">
+      <div class="card-head"><h2 class="card-title">Add a lecture recording</h2><span class="muted small">Video or audio. Rewind transcribes it, cuts it into 1–2 minute moments and writes check questions.</span></div>
+      <form id="upload-form" class="upload-form">
+        <input id="up-file" class="input" type="file" accept="video/*,audio/*,.mp4,.webm,.mov,.mkv,.mp3,.m4a,.wav" required aria-label="Recording file">
+        <input id="up-title" class="input" type="text" placeholder="Lecture title" maxlength="120" required aria-label="Lecture title">
+        <input id="up-course" class="input" type="text" placeholder="Course" maxlength="80" aria-label="Course">
+        <button class="btn btn-primary" type="submit">Add lecture</button>
+      </form>
+      <div id="up-progress" class="up-progress" hidden aria-live="polite"></div>
+    </section>
+
     <section id="metrics" class="metrics" aria-label="Key numbers"></section>
 
     <div class="lect-grid">
@@ -46,19 +57,17 @@
 
     <section class="card graph-card">
       <div class="card-head">
-        <h2 class="card-title">Knowledge map</h2>
+        <h2 class="card-title">Where in each lecture</h2>
         <div class="legend">
-          <span><i class="lg lg-course"></i>Course</span>
-          <span><i class="lg lg-lecture"></i>Lecture</span>
-          <span><i class="lg lg-concept"></i>Concept</span>
-          <span><i class="lg lg-grad"></i>Clip: size = times asked, colour = fail rate</span>
+          <span><i class="lg lg-asked"></i>Darker = asked more often</span>
+          <span><i class="lg lg-bad"></i>Red = more than 40% wrong answers</span>
         </div>
       </div>
       <div id="graph" class="graph"></div>
     </section>
   </main>
   <footer class="site-footer wrap">
-    <span>Rewind · Ask your lecture.</span>
+    <span>Raise your hand later.</span>
     <button id="seed" class="btn btn-ghost btn-sm" type="button">Load demo data</button>
   </footer>
   <script type="module" src="js/lecturer.js"></script>

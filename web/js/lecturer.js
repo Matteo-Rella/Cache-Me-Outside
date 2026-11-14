@@ -1,7 +1,7 @@
 // Lecturer page: metrics, where students get stuck, uncovered questions, knowledge map.
 import { api } from "./api.js";
 import { ClipPlayer } from "./player.js";
-import { fmt, h, header, icon, lectureName, modal, pct, toast } from "./ui.js";
+import { fmt, h, header, icon, lectureName, mins, modal, pct, toast } from "./ui.js";
 
 const $ = (s) => document.querySelector(s);
 const UNCLEAR = 0.4;
@@ -11,22 +11,23 @@ let network = null;
 
 document.body.prepend(header("lecturer"));
 
-/** 0 -> green, 0.6+ -> red. */
-export function failColor(rate, alpha = 1) {
-  const r = Math.min(1, Math.max(0, (rate || 0) / 0.6));
-  return `hsla(${Math.round(145 - 145 * r)}, ${62 + 10 * r}%, ${44 + 4 * r}%, ${alpha})`;
+const cssVar = (name, fallback) => getComputedStyle(document.documentElement).getPropertyValue(name).trim() || fallback;
+
+/** Palette colours: blue normally, red when the fail rate is above the "unclear" line. */
+export function failColor(rate) {
+  return (rate || 0) > UNCLEAR ? cssVar("--mark", "#d00b1c") : cssVar("--accent", "#2e3f93");
 }
 
 async function load() {
-  const [ls, st, gaps, graph] = await Promise.all([
-    api.lectures().catch(() => []), api.stats(), api.gaps().catch(() => []), api.graph().catch(() => null),
+  const [ls, st, gaps] = await Promise.all([
+    api.lectures().catch(() => []), api.stats(), api.gaps().catch(() => []),
   ]);
   lectures = Object.fromEntries(ls.map((l) => [l.lecture_id, l]));
   stats = st;
   renderMetrics(st.totals);
   renderStuck(st.snippets);
   renderGaps(gaps);
-  if (graph) renderGraph(graph);
+  renderGraph();
   renderSlides(ls);
 }
 
@@ -120,7 +121,7 @@ function renderStuck(rows) {
         h("span", { class: "stuck-main" },
           h("span", { class: "stuck-concept" }, r.concept),
           h("span", { class: "muted small" },
-            `${lec ? lectureName(lec) : r.lecture_title} · ${fmt(r.start)}–${fmt(r.end)}`),
+            `${lec ? lectureName(lec) : r.lecture_title} · ${mins(r.start, r.end)}`),
           unclear ? h("span", { class: "flag" }, icon("flag"), "possibly unclear") : null),
         h("span", { class: "asked" },
           h("span", { class: "asked-num" }, String(r.times_asked)),
@@ -176,7 +177,7 @@ function playClip(row) {
   const mount = h("div", { class: "player-mount" });
   let p;
   modal(h("div", {},
-    h("p", { class: "eyebrow" }, `${lectureName(lec)} · ${fmt(row.start)}–${fmt(row.end)}`),
+    h("p", { class: "eyebrow" }, `${lectureName(lec)} · ${mins(row.start, row.end)}`),
     h("h2", { class: "modal-title" }, row.concept),
     mount,
     h("div", { class: "modal-stats" },
@@ -229,57 +230,59 @@ export function tidyGraph(graph, lecturesById = {}) {
   return { nodes, edges };
 }
 
-function renderGraph(rawGraph) {
-  if (!window.vis) { setTimeout(() => renderGraph(rawGraph), 100); return; }
-  const graph = tidyGraph(rawGraph, lectures);
-  const css = getComputedStyle(document.documentElement);
-  const accent = css.getPropertyValue("--accent").trim();
-  const ink = css.getPropertyValue("--ink").trim();
-  const snippetNodes = graph.nodes.filter((n) => n.type === "snippet");
-  const asked = snippetNodes.map((n) => n.times_asked || 0);
-  // With many clips, only label the most-asked ones; the rest show their name on hover.
-  const labelled = graph.filtered ? new Set(snippetNodes.map((n) => n.id)) : new Set([...snippetNodes].sort((a, b) => (b.times_asked || 0) - (a.times_asked || 0))
-    .slice(0, snippetNodes.length > 14 ? 10 : snippetNodes.length).filter((n) => snippetNodes.length <= 14 || n.times_asked)
-    .map((n) => n.id));
-  const maxAsked = Math.max(1, ...asked);
-  const font = { face: "Inter, sans-serif", color: ink, size: 17 };
-
-  const nodes = graph.nodes.map((n) => {
-    if (n.type === "course") return { id: n.id, label: n.label, shape: "box", margin: 12, color: { background: ink, border: ink }, font: { ...font, color: "#fff", size: 20 }, level: 0 };
-    if (n.type === "lecture") return { id: n.id, label: n.label, title: n.fullTitle, shape: "box", margin: 10, borderWidth: 1.5, color: { background: "#fff", border: ink }, font: { ...font, size: 18 }, level: 1 };
-    if (n.type === "concept") return { id: n.id, label: n.label, shape: "box", margin: 8, borderWidth: 0, shapeProperties: { borderRadius: 14 }, color: { background: "#EEF0FF", border: "#EEF0FF", highlight: { background: "#E0E3FF", border: accent } }, font: { ...font, color: accent, size: 15 }, level: 3 };
-    const size = 14 + 22 * Math.sqrt((n.times_asked || 0) / maxAsked);
-    const c = failColor(n.fail_rate);
-    return {
-      id: n.id, label: labelled.has(n.id) ? wrap(n.label) : undefined, shape: "dot", size, level: 2,
-      color: { background: c, border: "#fff", highlight: { background: c, border: ink }, hover: { background: c, border: ink } },
-      borderWidth: 3, font: { ...font, size: 17, vadjust: 2 },
-      title: h("div", {}, h("strong", {}, n.label), h("br"), `${n.times_asked || 0} times asked · ${pct(n.fail_rate)} fail rate`,
-        h("br"), h("span", { class: "muted" }, "Click to play")),
-      snippet_id: n.snippet_id,
-    };
-  });
-  const edges = graph.edges.map((e) => ({ from: e.from, to: e.to, color: { color: "#D5D8E3", highlight: accent }, width: 1.4, smooth: { type: "continuous" } }));
-
-  network?.destroy();
-  network = new vis.Network($("#graph"), { nodes: new vis.DataSet(nodes), edges: new vis.DataSet(edges) }, {
-    layout: { improvedLayout: true },
-    physics: { solver: "forceAtlas2Based", forceAtlas2Based: { gravitationalConstant: -120, springLength: 110, springConstant: 0.06, avoidOverlap: 1 }, stabilization: { iterations: 250 } },
-    interaction: { hover: true, tooltipDelay: 120, zoomView: false },
-  });
-  network.once("stabilizationIterationsDone", () => {
-    network.setOptions({ physics: false });
-    network.fit({ maxZoomLevel: 1.5 });
-  });
-  network.on("click", (e) => {
-    const node = nodes.find((n) => n.id === e.nodes[0]);
-    if (!node?.snippet_id) return;
-    const row = stats.snippets.find((s) => s.snippet_id === node.snippet_id);
-    if (row) playClip(row);
-  });
-  network.on("hoverNode", (e) => { $("#graph").style.cursor = nodes.find((n) => n.id === e.node)?.snippet_id ? "pointer" : "default"; });
-  network.on("blurNode", () => { $("#graph").style.cursor = "default"; });
+/** One bar per lecture: every moment is a block (width = its length). Darker = asked more, red = often failed. */
+function renderGraph() {
+  const byLecture = {};
+  for (const r of stats.snippets) (byLecture[r.lecture_id] ||= []).push(r);
+  const maxAsked = Math.max(1, ...stats.snippets.map((r) => r.times_asked || 0));
+  network = null;
+  $("#graph").replaceChildren(...Object.entries(byLecture).map(([id, rows]) => {
+    rows.sort((x, y) => x.start - y.start);
+    const lec = lectures[id];
+    const asked = rows.reduce((n, r) => n + (r.times_asked || 0), 0);
+    return h("div", { class: "lmap-row" },
+      h("div", { class: "lmap-head" },
+        h("strong", {}, lec ? lectureName(lec) : rows[0].lecture_title || id),
+        h("span", { class: "muted small" }, `${rows.length} moments · ${asked} question${asked === 1 ? "" : "s"}`)),
+      h("div", { class: "lmap-bar" }, ...rows.map((r) => {
+        const bad = r.attempts > 0 && r.fail_rate > UNCLEAR;
+        const level = Math.ceil(4 * (r.times_asked || 0) / maxAsked); // 0..4
+        return h("button", { class: `lmap-seg lv${level} ${bad ? "is-bad" : ""}`, type: "button",
+          style: { flexGrow: String(Math.max(1, Math.round(r.end - r.start))) },
+          title: `${r.concept} · ${mins(r.start, r.end)} · asked ${r.times_asked || 0}×${r.attempts ? ` · ${pct(r.fail_rate)} wrong` : ""}`,
+          "aria-label": `${r.concept}, ${mins(r.start, r.end)}`, onclick: () => playClip(r) });
+      })),
+      h("div", { class: "lmap-foot muted small" }, h("span", {}, "min 0"), h("span", {}, `min ${Math.round(rows[rows.length - 1].end / 60)}`)));
+  }));
 }
+
+// ---- Add a lecture recording: upload, then poll the job and show the steps.
+const STEPS = [["upload", "Uploading the recording"], ["transcribe", "Writing down what was said"], ["moments", "Cutting it into moments and writing check questions"], ["done", "Ready"]];
+function showUpload(job) {
+  const at = STEPS.findIndex(([k]) => k === job.step);
+  $("#up-progress").hidden = false;
+  $("#up-progress").replaceChildren(
+    h("p", { class: "up-title" }, job.title || ""),
+    h("div", { class: "up-bar" }, h("i", { style: { width: `${job.state === "done" ? 100 : Math.round((100 * (at + (job.step === "transcribe" ? job.percent / 100 : 0))) / (STEPS.length - 1))}%` } })),
+    ...STEPS.map(([k, label], i) => h("p", { class: `up-step ${i < at || job.state === "done" ? "is-done" : i === at ? "is-on" : ""}` },
+      h("i", {}), k === "transcribe" && i === at ? `${label} · ${job.percent}%` : k === "done" && job.state === "done" ? `Ready · ${job.snippet_count ?? 0} moments` : label)),
+    job.state === "error" ? h("p", { class: "up-error" }, `It stopped: ${job.message}`) : job.message ? h("p", { class: "muted small" }, job.message) : "");
+}
+$("#upload-form")?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const file = $("#up-file").files[0];
+  if (!file) return;
+  const form = new FormData();
+  form.append("file", file); form.append("title", $("#up-title").value.trim()); form.append("course", $("#up-course").value.trim());
+  const btn = e.currentTarget.querySelector("button"); btn.disabled = true;
+  try {
+    let job = await api.addLecture(form);
+    showUpload(job);
+    while (job.state === "running") { await new Promise((r) => setTimeout(r, 1500)); job = await api.uploadStatus(job.job_id); showUpload(job); }
+    if (job.state === "done") { toast("Lecture added."); e.currentTarget?.reset?.(); $("#upload-form").reset(); await load(); }
+  } catch (err) { toast(`Couldn't add the lecture: ${err.message}`); }
+  finally { btn.disabled = false; }
+});
 
 $("#seed").addEventListener("click", async (e) => {
   const b = e.currentTarget;

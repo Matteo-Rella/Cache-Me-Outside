@@ -184,6 +184,20 @@ def write_meta(lecture_id: str, video_path: Path, title: str | None, course: str
 # ---------------------------------------------------------------- step 2: transcript
 
 
+def _decode_audio_ffmpeg(video: Path):
+    """16 kHz mono float32 samples of the file's audio track, decoded by the ffmpeg command."""
+    import subprocess
+
+    import numpy as np
+
+    if not shutil.which("ffmpeg"):
+        raise IngestError("Could not read the audio. Install ffmpeg (https://ffmpeg.org) or run "
+                          "'pip install --upgrade faster-whisper av', then try again.")
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(video), "-f", "s16le", "-ac", "1", "-ar", "16000", "-"],
+                         capture_output=True, check=True).stdout
+    return np.frombuffer(raw, dtype=np.int16).astype(np.float32) / 32768.0
+
+
 def transcribe_whisper(video: Path, model_name: str = WHISPER_MODEL, out=None) -> list[dict]:
     """Transcribe with faster-whisper (device auto: CUDA if available). Raises ImportError if missing."""
     out = out or sys.stdout
@@ -191,7 +205,11 @@ def transcribe_whisper(video: Path, model_name: str = WHISPER_MODEL, out=None) -
 
     print(f"Loading faster-whisper model {model_name!r} (device auto) ...", file=out, flush=True)
     model = WhisperModel(model_name, device="auto", compute_type="default")
-    segments, info = model.transcribe(str(video), vad_filter=True)
+    try:
+        segments, info = model.transcribe(str(video), vad_filter=True)
+    except TypeError:
+        print("  built-in audio decoder failed; decoding with ffmpeg ...", file=out, flush=True)
+        segments, info = model.transcribe(_decode_audio_ffmpeg(video), vad_filter=True)
     total = float(getattr(info, "duration", 0) or 0)
     print(f"Detected language: {getattr(info, 'language', '?')}; audio {_fmt(total)}", file=out, flush=True)
     collected, last_pct = [], -10
@@ -298,7 +316,7 @@ def export_prompt(lecture_id: str, segments: list[dict], title: str | None) -> P
 
 
 def make_lecture_snippets(lecture_id: str, segments: list[dict], title: str | None,
-                          raw: Path | None, ask: Callable[..., Any] | None = None) -> list[dict] | None:
+                          raw: Path | None, ask: Callable[..., Any] | None = None, offline: bool = False) -> list[dict] | None:
     """Snippets via LLM, or --raw import. None if neither was possible (prompt exported instead)."""
     from rewind import snippet_maker as sm
 
@@ -309,6 +327,11 @@ def make_lecture_snippets(lecture_id: str, segments: list[dict], title: str | No
         print("Making snippets with the LLM ...", flush=True)
         kwargs = {"ask": ask} if ask is not None else preprocess_kwargs()
         snippets = sm.make_snippets(segments, lecture_id, title=title, **kwargs)
+    elif offline:
+        from rewind import offline_snippets
+
+        print("Making snippets without an LLM (key terms and sentence questions) ...", flush=True)
+        snippets = offline_snippets.make_snippets(segments, lecture_id)
     else:
         return None
     if not snippets:
@@ -337,6 +360,8 @@ def run(args: argparse.Namespace, transcriber=None, ask=None, indexer=None) -> i
 
     video = copy_video(Path(args.video), lecture_id)
     write_meta(lecture_id, video, args.title, args.course, args.lecture_number)
+    if transcriber is None and getattr(args, "whisper_model", None):
+        transcriber = lambda v: transcribe_whisper(v, model_name=args.whisper_model)  # noqa: E731
     segments = get_transcript(lecture_id, Path(args.video),
                               Path(args.transcript) if args.transcript else None, transcriber)
     slide_count = None
@@ -345,7 +370,8 @@ def run(args: argparse.Namespace, transcriber=None, ask=None, indexer=None) -> i
         print(f"  {slide_count} slides")
 
     snippets = make_lecture_snippets(lecture_id, segments, args.title,
-                                     Path(args.raw) if args.raw else None, ask=ask)
+                                     Path(args.raw) if args.raw else None, ask=ask,
+                                     offline=bool(getattr(args, "offline", False)))
     if snippets is None:
         prompt = export_prompt(lecture_id, segments, args.title)
         transcript_path = folder / "transcript.json"
@@ -380,7 +406,10 @@ def run(args: argparse.Namespace, transcriber=None, ask=None, indexer=None) -> i
         from rewind import search
 
         indexer = search.index_lecture
-    indexer(lecture_id)
+    try:
+        indexer(lecture_id)
+    except ImportError as err:  # sentence-transformers missing: fine for keyword (fake) mode
+        print(f"  skipped: {err}. Keyword search still works; install requirements.txt and rerun to index.", flush=True)
 
     duration = segments[-1]["end"] - segments[0]["start"]
     print(
@@ -408,6 +437,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--raw", help="raw LLM output for the snippet prompt (skips the LLM call)")
     p.add_argument("--slides", help="the lecture's slides (PDF, or PPTX) to show next to clips and search")
     p.add_argument("--force", action="store_true", help="rebuild a lecture that already has snippets")
+    p.add_argument("--offline", action="store_true",
+                   help="no LLM and no --raw: cut moments and write questions with rewind.offline_snippets")
+    p.add_argument("--whisper-model", default=None, help="faster-whisper model name (default: small)")
     return p
 
 

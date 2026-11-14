@@ -1,7 +1,7 @@
 // Student page: ask a question, watch the professor's clip, check yourself.
 import { api } from "./api.js";
 import { ClipPlayer } from "./player.js";
-import { fmt, h, header, icon, lectureLine, modal, subjectName } from "./ui.js";
+import { fmt, h, header, icon, lectureLine, mins, modal, subjectName } from "./ui.js";
 import { chatPanel } from "./chat.js";
 import { openSlide, slideAside, slideOnlyCard } from "./slides.js";
 
@@ -9,6 +9,9 @@ import { openSlide, slideAside, slideOnlyCard } from "./slides.js";
 const aiStatusP = api.aiStatus().catch(() => ({}));
 
 const NAME_KEY = "rewind.studentName";
+// Sign-in gate (demo): without a chosen role, start at login.html (see js/login.js).
+try { if (!localStorage.getItem("rewind.role")) location.replace("login.html" + location.search.replace(/[?&]lecture=[^&]*/, "").replace(/^&/, "?")); } catch {}
+const LECTURE = new URLSearchParams(location.search).get("lecture"); // one lecture's page; none = start page
 const $ = (s) => document.querySelector(s);
 let player = null;
 let askToken = 0;
@@ -23,6 +26,8 @@ const studentId = () => getName().trim().toLowerCase() || "guest";
 const userChip = h("button", { class: "user-chip", onclick: () => askName(true) }, icon("user"), h("span", {}, ""));
 function renderUser() { userChip.querySelector("span:last-child").textContent = getName() || "Guest"; }
 document.body.prepend(header("student", userChip));
+const baseQs = location.search.replace(/[?&]lecture=[^&]*/, "").replace(/^&/, "?"); // keeps ?mock=1 / ?api=
+if (LECTURE) document.querySelector(".hero")?.before(h("a", { class: "back-link", href: "index.html" + baseQs }, "← All lectures"));
 renderUser();
 
 function askName(dismissable = false) {
@@ -36,8 +41,7 @@ function askName(dismissable = false) {
   const m = modal(form, { dismissable, cls: "modal-sm" });
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const n = input.value.trim();
-    if (!n) { input.focus(); input.classList.add("shake"); setTimeout(() => input.classList.remove("shake"), 400); return; }
+    const n = input.value.trim() || "Guest"; // an empty name never blocks the demo
     setName(n);
     renderUser();
     m.close();
@@ -70,7 +74,7 @@ api.lectures().then((all) => {
   const moments = ls.reduce((a, l) => a + l.snippet_count, 0);
   lectureLine_ = searchLine(ls.length ? ls : all);
   const el = $("#coverage");
-  el.textContent = `Searching ${lectureLine_}`;
+  if (!LECTURE) el.textContent = `Searching ${lectureLine_}`;
   el.title = [`${moments} explained moments`,
     ...ls.map((l) => `${subjectName(l)} · ${l.lecture_number ? `Lecture ${l.lecture_number}: ` : ""}${l.title}`)].join("\n");
 }).catch(() => {});
@@ -78,6 +82,76 @@ api.lectures().then((all) => {
 api.examples().then((ex) => {
   $("#examples").replaceChildren(...ex.slice(0, 3).map((t) =>
     h("button", { class: "chip", type: "button", onclick: () => { q.value = t; ask(t); } }, icon("sparkle"), t)));
+}).catch(() => {});
+
+// The tape: the whole lecture as one bar, like a video progress bar. It appears with an answer
+// and shows where in the lecture that answer is.
+const tapeKicker = h("p", { class: "lec-banner-kicker" }, "");
+const tapeTrack = h("div", { class: "tape" });
+const tapeHere = h("span", { class: "tape-here" }, "");
+const tapeStart = h("span", {}, "min 0"), tapeEnd = h("span", {}, "");
+const banner = h("section", { class: "lec-banner", hidden: true },
+  tapeKicker, h("div", { class: "tape-wrap" }, tapeHere, tapeTrack), h("div", { class: "tape-foot" }, tapeStart, tapeEnd));
+let allRows = [];
+const pick = (r) => { q.value = r.concept; ask(r.concept); };
+
+function markTape(snip, lec) {
+  if (!snip) { banner.hidden = true; return; }
+  const rows = allRows.filter((r) => r.lecture_id === snip.lecture_id);
+  const total = Math.max(snip.end, ...rows.map((r) => r.end));
+  const left = (100 * snip.start) / total, width = Math.max(1.2, (100 * (snip.end - snip.start)) / total);
+  tapeTrack.replaceChildren(
+    ...rows.map((r) => h("i", { class: "tape-tick", style: { left: `${(100 * r.start) / total}%` } })),
+    h("b", { class: "tape-hit", style: { left: `${left}%`, width: `${width}%` } }));
+  tapeHere.textContent = `Your answer: ${mins(snip.start, snip.end)}`;
+  const mid = left + width / 2;
+  tapeHere.style.left = `${Math.min(88, Math.max(12, mid))}%`;
+  tapeKicker.textContent = `Where it is in the lecture · ${lec ? `${subjectName(lec)}${lec.lecture_number ? ` · Lecture ${lec.lecture_number}` : ""}` : ""}`;
+  tapeEnd.textContent = `min ${Math.round(total / 60)}`;
+  banner.hidden = false;
+}
+
+// Under the question field: the list of lectures (start page) or the chapters of one lecture.
+Promise.all([api.lectures().catch(() => []), api.stats()]).then(([ls, st]) => {
+  allRows = st.snippets || [];
+  $(".hero").after(banner);
+  if (!LECTURE) {
+    const ready = ls.filter((l) => (l.snippet_count || 0) > 0);
+    if (!ready.length) return;
+    const sep = baseQs ? "&" : "?";
+    $("#examples").after(h("div", { class: "chapters", id: "lec-list" },
+      h("p", { class: "chapters-label" }, "Your lectures"),
+      h("div", { class: "lecs" }, ...ready.map((l) =>
+        h("a", { class: "lec", href: `index.html${baseQs}${sep}lecture=${encodeURIComponent(l.lecture_id)}` },
+          h("span", { class: "lec-thumb" }),
+          h("span", { class: "lec-main" },
+            h("strong", {}, `${subjectName(l)}${l.lecture_number ? ` · Lecture ${l.lecture_number}` : ""}`),
+            h("span", { class: "muted" }, l.title || "")),
+          h("span", { class: "lec-kind" }, `${l.snippet_count} moments`),
+          h("span", { class: "lec-open" }, "Open →")))),
+      h("div", { class: "how3" }, ...[["01", "Ask", "Type what you didn't get, in your own words."],
+        ["02", "Watch", "Rewind plays the 1–2 minutes where your professor explains it."],
+        ["03", "Check yourself", "Two quick questions. What you miss goes to your rewatch list."]].map(([n, t, d]) =>
+        h("div", { class: "how3-i" }, h("span", { class: "how3-n" }, n), h("h3", {}, t), h("p", {}, d))))));
+    return;
+  }
+  const rows = allRows.filter((r) => r.lecture_id === LECTURE).sort((a, b) => a.start - b.start);
+  if (!rows.length) return;
+  const lec = ls.find((l) => l.lecture_id === LECTURE);
+  if (lec) $("#coverage").textContent = `${subjectName(lec)}${lec.lecture_number ? ` · Lecture ${lec.lecture_number}` : ""} · ${lec.title}`;
+  const box = h("div", { class: "chapters", id: "chapters" },
+    h("p", { class: "chapters-label" }, `The lecture in ${rows.length} chapters`),
+    h("div", { class: "chapters-list" }, ...rows.map((r, i) =>
+      h("button", { class: "chapter", type: "button", onclick: () => pick(r) },
+        h("span", { class: "chapter-n" }, String(i + 1).padStart(2, "0")),
+        h("span", { class: "chapter-t" }, r.concept),
+        h("span", { class: "chapter-m" }, mins(r.start, r.end))))));
+  const FIRST = 8; // long lectures: show the first chapters, the rest behind one link
+  if (rows.length > FIRST) {
+    box.classList.add("is-short");
+    box.append(h("button", { class: "chapters-more", type: "button", onclick: (e) => { const short = box.classList.toggle("is-short"); e.currentTarget.textContent = short ? `Show all ${rows.length} chapters` : "Show fewer"; } }, `Show all ${rows.length} chapters`));
+  }
+  $("#examples").after(box);
 }).catch(() => {});
 
 // ------------------------------------------------------------------ ask flow
@@ -95,6 +169,7 @@ async function ask(text) {
   player?.destroy(); player = null;
   const out = $("#result");
   out.replaceChildren(loadingCard());
+  markTape(null);
   window.scrollTo({ top: 0, behavior: "smooth" });
   let res;
   try {
@@ -106,17 +181,17 @@ async function ask(text) {
   }
   if (token !== askToken) return;
   if (res.status === "found" && res.snippet) out.replaceChildren(...foundView(res, text));
-  else if (res.status === "slide_only" && res.slides?.length) out.replaceChildren(slideOnlyCard(res, text));
-  else out.replaceChildren(notCoveredCard(text));
+  else if (res.status === "slide_only" && res.slides?.length) { out.replaceChildren(slideOnlyCard(res, text)); markTape(null); }
+  else { out.replaceChildren(notCoveredCard(text)); markTape(null); }
 }
 
 function loadingCard() {
-  const code = h("span", { class: "rw-code" }, "45:00");
+  const code = h("span", { class: "rw-code" }, "min 45");
   let t = 45 * 60;
   const iv = setInterval(() => {
     if (!code.isConnected) return clearInterval(iv);
     t = t > 40 ? t - 37 - Math.floor(Math.random() * 20) : 45 * 60;
-    code.textContent = fmt(t);
+    code.textContent = `min ${Math.floor(t / 60)}`;
   }, 50);
   return h("div", { class: "card result-card is-loading", "aria-live": "polite" },
     h("div", { class: "rw-line" }, h("span", { class: "rw-icon" }, icon("rewind")), code,
@@ -154,6 +229,7 @@ function foundView(res, text) {
   const clipInfo = h("div", { class: "clip-info" });
 
   const showClip = (snip, lec, label) => {
+    markTape(snip, lec);
     player?.destroy();
     player = new ClipPlayer(playerMount, { lecture: lec, start: snip.start, end: snip.end });
     current = { snip, lec };
@@ -175,7 +251,8 @@ function foundView(res, text) {
   const clipCard = h("article", { class: "card result-card appear" },
     homework ? h("div", { class: "hw-note" }, icon("bulb"),
       h("span", {}, h("strong", {}, "Here's where the method is explained. "), "Try it yourself, then check below.")) : null,
-    clipHead, jumpBar, media, clipInfo);
+    clipHead, jumpBar, media, clipInfo,
+    text ? h("p", { class: "ask-prof" }, "Still not clear? ", askProfButton(text)) : null);
 
   // [mm:ss] chips in the chat: seek inside the clip, or play that part of the lecture.
   const onTimeFor = (snip, lec, t) => {
@@ -218,9 +295,21 @@ function foundView(res, text) {
   const quiz = quizCard(snippet, alternatives, (alt) => {
     showClip(alt.snippet, alt.lecture, "Explained another way");
     mountChat(alt.snippet, alt.lecture);
+    clipCard.classList.remove("is-swapped"); void clipCard.offsetWidth; clipCard.classList.add("is-swapped");
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
   return [clipCard, chatSlot, quiz];
+}
+
+/** "Send it to your professor": the question lands in the lecturer's open questions. */
+function askProfButton(text) {
+  const b = h("button", { class: "linkish", type: "button" }, "Send this question to your professor");
+  b.addEventListener("click", async () => {
+    b.disabled = true;
+    try { await api.askProfessor(studentId(), text, LECTURE); b.replaceWith(h("span", { class: "sent" }, "Sent. Your professor will see it.")); }
+    catch (err) { b.disabled = false; b.textContent = `Couldn't send (${err.message}). Try again`; }
+  });
+  return b;
 }
 
 // ------------------------------------------------------------------ quiz
@@ -275,7 +364,7 @@ function quizCard(snippet, alternatives, playAlt) {
             h("div", {}, h("p", { class: "alt-label" }, "See it explained another way"),
               h("p", { class: "alt-concept" }, alt.snippet.concept),
               h("p", { class: "muted small" }, lectureLine(alt.lecture, alt.snippet))),
-            h("button", { class: "btn btn-ghost", onclick: () => playAlt(alt) }, icon("play"), "Watch clip")));
+            h("button", { class: "btn btn-ghost", onclick: (e) => { playAlt(alt); e.currentTarget.replaceWith(h("span", { class: "sent" }, "Playing now, in the clip")); } }, icon("play"), "Watch clip")));
         }
       }
       parts.push(nextBtn);
@@ -335,7 +424,7 @@ function openClip(snippet, lecture) {
 // ------------------------------------------------------------------ start
 
 loadRewatch();
-if (!getName()) askName(false);
+if (!getName()) { setName("Guest"); renderUser(); } // login.html normally sets the name
 
 // AI status (round 4): read quietly. Without AI the student page looks exactly the same;
 // the mode is only recorded on <body> for styling or debugging.

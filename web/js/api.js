@@ -57,6 +57,16 @@ export const api = {
   resolveGap: (gap_id) => call("POST", `/api/lecturer/gaps/${enc(gap_id)}/resolve`),
   seed: () => call("POST", "/api/lecturer/seed"),
   graph: () => call("GET", "/api/graph"),
+  askProfessor: (student_id, question, lecture_id) => call("POST", "/api/questions", { student_id, question, lecture_id }),
+  uploadStatus: (job_id) => call("GET", `/api/lecturer/uploads/${enc(job_id)}`),
+  /** Upload a recording (FormData with file, title, course). Returns the job to poll. */
+  addLecture: async (form) => {
+    const { mocked } = await getMode();
+    if (mocked) return mockFetch("POST", "/api/lecturer/lectures", { title: form.get("title") });
+    const r = await fetch(`${BASE}/api/lecturer/lectures`, { method: "POST", body: form });
+    if (!r.ok) throw new Error((await r.json().catch(() => ({}))).detail || `upload failed: ${r.status}`);
+    return r.json();
+  },
   // AI settings (local-only on the server)
   aiStatus: () => call("GET", "/api/ai-status"),
   settings: () => call("GET", "/api/settings"),

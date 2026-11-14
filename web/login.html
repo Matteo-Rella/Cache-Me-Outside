@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rewind · Log in</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-login">
+  
+  <main class="login-split">
+    <section class="login-brand" aria-hidden="true">
+      <p class="login-brand-top"><span>Rewind</span><span>For your lectures</span></p>
+      <svg class="login-arrows" viewBox="0 0 480 480"><path d="M222 97 L238 97 M192 121 L230 121 M162 144 L230 145 M131 168 L230 169 M101 192 L244 192 M70 217 L230 216 M40 241 L230 241 M70 265 L230 263 M101 287 L244 287 M131 311 L230 311 M162 337 L230 335 M192 360 L230 361 M222 383 L230 385 M432 97 L440 97 M402 119 L448 120 M372 143 L440 143 M341 168 L440 169 M311 191 L440 193 M280 217 L454 215 M250 241 L454 239 M280 265 L440 264 M311 287 L454 289 M341 312 L448 313 M372 335 L454 335 M402 359 L440 359 M432 384 L454 384" stroke="#FFFFFF" stroke-width="22" stroke-linecap="round" fill="none"/></svg>
+      <p class="login-slogan">Raise your hand later.</p>
+      <p class="login-brand-bottom">Go back to the minute you lost</p>
+    </section>
+    <section class="login">
+    <p class="eyebrow"><span class="dot"></span>Ask your lecture</p>
+    <h1 class="hero-title login-title">Log in with your university account</h1>
+    <p class="hero-sub login-sub">No new password. Rewind uses the account your university already gave you, so you see the lectures of your own courses.</p>
+    <label class="login-name"><span>Your first name (optional)</span><input id="name" class="input" maxlength="40" autocomplete="given-name" placeholder="Guest"></label>
+    <div class="roles">
+      <button id="as-student" class="role role-primary" type="button"><strong>Student</strong><span>Ask a question and get the minute where your professor answers it.</span></button>
+      <button id="as-lecturer" class="role" type="button"><strong>Lecturer</strong><span>See where students got stuck and what your lectures don't cover.</span></button>
+    </div>
+    <p class="muted small login-note">Demo sign-in: pick a role to continue. University single sign-on is the next step.</p>
+    </section>
+  </main>
+  <script type="module" src="js/login.js"></script>
+</body>
+</html>

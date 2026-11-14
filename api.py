@@ -35,7 +35,7 @@ from types import SimpleNamespace
 from typing import Any, Callable, Literal
 from urllib.parse import parse_qs, urlparse
 
-from fastapi import Depends, FastAPI, HTTPException, Request
+from fastapi import Depends, FastAPI, File, Form, HTTPException, Request, UploadFile as FastUploadFile
 from fastapi.concurrency import run_in_threadpool
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, Response, StreamingResponse
@@ -443,6 +443,12 @@ class ChatBody(BaseModel):
     messages: list[ChatMessage] = Field(min_length=1, max_length=50)
 
 
+class QuestionBody(BaseModel):
+    student_id: str
+    question: str
+    lecture_id: str | None = None
+
+
 def chat_status() -> tuple[bool, str]:
     """(available, reason). Chat needs a live AI (API mode, incl. local Ollama), llm.chat and rewind.chat."""
     if _llm_available() is not True:
@@ -710,6 +716,84 @@ def create_app(
         alts = [_with_lecture(a, cache) for a in map(_as_snippet, result.get("alternatives", [])) if shown(a)]
         return {"status": "found", "homework": homework, "snippet": main["snippet"],
                 "lecture": main["lecture"], "alternatives": alts, "slides": slides_out}
+
+    @app.post("/api/questions")
+    def ask_professor(body: QuestionBody):
+        """A student sends a question straight to the lecturer (shows up under open questions)."""
+        question = body.question.strip()
+        if not question:
+            raise HTTPException(400, "Question is empty.")
+        gap_id = st.flag_gap(body.student_id, question, body.lecture_id)
+        return {"ok": True, "gap_id": gap_id}
+
+    # ---- lecturer adds a recording: upload -> transcribe -> moments -> questions -> index
+    upload_jobs: dict[str, dict] = {}
+
+    def _run_upload(job_id: str, tmp: Path, lecture_id: str, title: str, course: str) -> None:
+        import argparse
+        import io
+
+        job = upload_jobs[job_id]
+
+        class Progress(io.StringIO):
+            def write(self, text: str) -> int:
+                m = re.search(r"(\d+)%", text)
+                if m:
+                    job["percent"] = int(m.group(1))
+                return len(text)
+
+        def transcriber(video: Path) -> list[dict]:
+            job["step"] = "transcribe"
+            segs = ingest.transcribe_whisper(video, model_name=os.environ.get("REWIND_WHISPER_MODEL", "base"), out=Progress())
+            job["step"], job["percent"] = "moments", 100
+            return segs
+
+        try:
+            args = argparse.Namespace(video=str(tmp), lecture_id=lecture_id, title=title, course=course,
+                                      lecture_number=None, transcript=None, raw=None, force=True, offline=True,
+                                      whisper_model=None)
+            code = ingest.run(args, transcriber=transcriber, indexer=reindex)
+            if code != 0:
+                raise ingest.IngestError("The moments could not be made.")
+            info = lecture_info(lecture_id) or {}
+            job.update(state="done", step="done", snippet_count=info.get("snippet_count", 0))
+        except Exception as exc:  # noqa: BLE001 - report any failure to the page
+            job.update(state="error", message=str(exc)[:300])
+        finally:
+            try:
+                tmp.unlink()
+            except OSError:
+                pass
+
+    @app.post("/api/lecturer/lectures", dependencies=[Depends(local_only)])
+    async def add_lecture(file: FastUploadFile = File(...), title: str = Form(...), course: str = Form("")):
+        """Save an uploaded recording and start making it searchable. Poll /api/lecturer/uploads/{job_id}."""
+        import tempfile
+        import uuid
+
+        suffix = Path(file.filename or "").suffix.lower()
+        if suffix not in MEDIA_EXTENSIONS:
+            raise HTTPException(400, f"Unsupported file type {suffix or '(none)'}. Use mp4, webm, mov, mp3, m4a or wav.")
+        title = title.strip()
+        if not title:
+            raise HTTPException(400, "Give the lecture a title.")
+        slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")[:24] or "lecture"
+        job_id = uuid.uuid4().hex[:8]
+        lecture_id = f"{slug}-{job_id[:4]}"
+        tmp = Path(tempfile.gettempdir()) / f"rewind-upload-{job_id}{suffix}"
+        with tmp.open("wb") as out:
+            while chunk := await file.read(1 << 20):
+                out.write(chunk)
+        upload_jobs[job_id] = {"job_id": job_id, "lecture_id": lecture_id, "title": title, "state": "running",
+                               "step": "upload", "percent": 0, "message": ""}
+        threading.Thread(target=_run_upload, args=(job_id, tmp, lecture_id, title, course.strip()), daemon=True).start()
+        return upload_jobs[job_id]
+
+    @app.get("/api/lecturer/uploads/{job_id}", dependencies=[Depends(local_only)])
+    def upload_status(job_id: str):
+        if job_id not in upload_jobs:
+            raise HTTPException(404, "Unknown upload.")
+        return upload_jobs[job_id]
 
     # ---------------------------------------------------------------- follow-up chat
 

@@ -70,7 +70,7 @@
       qr.addData(url);
       qr.make();
       document.getElementById("qr").innerHTML = qr.createSvgTag({ cellSize: 8, margin: 0, scalable: true });
-      document.querySelector("#qr svg path, #qr svg rect:last-child")?.setAttribute("fill", "#15172b");
+      document.querySelector("#qr svg path, #qr svg rect:last-child")?.setAttribute("fill", "#2e3f93");
       document.getElementById("qr-url").textContent = url.replace(/^https?:\/\//, "").replace(/\/$/, "");
       document.getElementById("qr-warn").hidden = !/\/\/(localhost|127\.0\.0\.1)/.test(url);
       input.value = url;
