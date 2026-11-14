@@ -1,0 +1,12 @@
+[
+  {"question": "What are the three ways the professor plans to view a system of equations?", "expected_snippet_id": "demo01-001"},
+  {"question": "Why does the opening example start with as many equations as unknown quantities?", "expected_snippet_id": "demo01-001"},
+  {"question": "Quale rappresentazione considera un'equazione alla volta e mostra rette che si incontrano?", "expected_snippet_id": "demo01-001"},
+  {"question": "Which numbers go in the coefficient array for the example with 2x minus y and minus x plus 2y?", "expected_snippet_id": "demo01-002"},
+  {"question": "In the worked two-equation example, where are the constants zero and three collected?", "expected_snippet_id": "demo01-002"},
+  {"question": "Nella scrittura Ax = b, che cosa rappresentano A, x e b?", "expected_snippet_id": "demo01-003"},
+  {"question": "How do I bake a chocolate cake?", "expected_snippet_id": null},
+  {"question": "What causes a solar eclipse?", "expected_snippet_id": null},
+  {"question": "How does Gaussian elimination solve the professor's system step by step?", "expected_snippet_id": null},
+  {"question": "How can I use a determinant to tell whether a linear system has a unique solution?", "expected_snippet_id": null}
+]

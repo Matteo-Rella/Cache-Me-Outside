@@ -1,0 +1,17 @@
+anthropic
+python-dotenv
+streamlit
+sentence-transformers
+numpy
+youtube-transcript-api
+networkx
+pyvis
+pytest
+fastapi
+uvicorn
+httpx
+playwright  # dev only: screenshot checks of web/
+openai
+google-genai
+PyMuPDF
+python-pptx

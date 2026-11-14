@@ -1,0 +1,342 @@
+[
+  {
+    "start": 8.71,
+    "end": 9.21,
+    "text": "Hi."
+  },
+  {
+    "start": 9.21,
+    "end": 14.23,
+    "text": "This is the first lecture in MIT's course 18.06,"
+  },
+  {
+    "start": 14.23,
+    "end": 19.43,
+    "text": "linear algebra, and I'm Gilbert Strang."
+  },
+  {
+    "start": 19.43,
+    "end": 23.44,
+    "text": "The text for the course is this book,"
+  },
+  {
+    "start": 23.44,
+    "end": 26.07,
+    "text": "Introduction to Linear Algebra."
+  },
+  {
+    "start": 26.07,
+    "end": 32.73,
+    "text": "And the course web page, which has got a lot of exercises from"
+  },
+  {
+    "start": 32.73,
+    "end": 38.47,
+    "text": "the past, MatLab codes, the syllabus for the course,"
+  },
+  {
+    "start": 38.47,
+    "end": 44.06,
+    "text": "is web.mit.edu/18.06."
+  },
+  {
+    "start": 44.06,
+    "end": 47.35,
+    "text": "And this is the first lecture, lecture one."
+  },
+  {
+    "start": 49.92,
+    "end": 55.49,
+    "text": "So, and later we'll give the web address for viewing these,"
+  },
+  {
+    "start": 55.49,
+    "end": 57.27,
+    "text": "videotapes."
+  },
+  {
+    "start": 57.27,
+    "end": 59.2,
+    "text": "Okay, so what's in the first lecture?"
+  },
+  {
+    "start": 62.68,
+    "end": 65.53,
+    "text": "This is my plan."
+  },
+  {
+    "start": 65.53,
+    "end": 69.34,
+    "text": "The fundamental problem of linear algebra,"
+  },
+  {
+    "start": 69.34,
+    "end": 73.88,
+    "text": "which is to solve a system of linear equations."
+  },
+  {
+    "start": 73.88,
+    "end": 76.21,
+    "text": "So let's start with a case when we"
+  },
+  {
+    "start": 76.21,
+    "end": 81.44,
+    "text": "have some number of equations, say n equations and n unknowns."
+  },
+  {
+    "start": 81.44,
+    "end": 83.82,
+    "text": "So an equal number of equations and unknowns."
+  },
+  {
+    "start": 83.82,
+    "end": 86.86,
+    "text": "That's the normal, nice case."
+  },
+  {
+    "start": 86.86,
+    "end": 91.87,
+    "text": "And what I want to do is -- with examples, of course --"
+  },
+  {
+    "start": 91.87,
+    "end": 97.23,
+    "text": "to describe, first, what I call the Row picture."
+  },
+  {
+    "start": 97.23,
+    "end": 100.87,
+    "text": "That's the picture of one equation at a time."
+  },
+  {
+    "start": 100.87,
+    "end": 103.98,
+    "text": "It's the picture you've seen before in two"
+  },
+  {
+    "start": 103.98,
+    "end": 106.35,
+    "text": "by two equations where lines meet."
+  },
+  {
+    "start": 106.35,
+    "end": 109.46,
+    "text": "So in a minute, you'll see lines meeting."
+  },
+  {
+    "start": 109.46,
+    "end": 112.23,
+    "text": "The second picture, I'll put a star"
+  },
+  {
+    "start": 112.23,
+    "end": 115.07,
+    "text": "beside that, because that's such an important one."
+  },
+  {
+    "start": 115.07,
+    "end": 121.6,
+    "text": "And maybe new to you is the picture -- a column at a time."
+  },
+  {
+    "start": 121.6,
+    "end": 125.44,
+    "text": "And those are the rows and columns of a matrix."
+  },
+  {
+    "start": 125.44,
+    "end": 128.97,
+    "text": "So the third -- the algebra way to look at the problem is"
+  },
+  {
+    "start": 128.97,
+    "end": 133.79,
+    "text": "the matrix form and using a matrix that I'll call A."
+  },
+  {
+    "start": 133.79,
+    "end": 137.49,
+    "text": "Okay, so can I do an example?"
+  },
+  {
+    "start": 137.49,
+    "end": 143.42,
+    "text": "The whole semester will be examples and then see what's"
+  },
+  {
+    "start": 143.42,
+    "end": 145.11,
+    "text": "going on with the example."
+  },
+  {
+    "start": 145.11,
+    "end": 147.99,
+    "text": "So, take an example."
+  },
+  {
+    "start": 147.99,
+    "end": 150.43,
+    "text": "Two equations, two unknowns."
+  },
+  {
+    "start": 150.43,
+    "end": 158.29,
+    "text": "So let me take 2x - y = 0, let's say."
+  },
+  {
+    "start": 158.29,
+    "end": 165.35,
+    "text": "And -x 2y=3."
+  },
+  {
+    "start": 165.35,
+    "end": 166.53,
+    "text": "Okay."
+  },
+  {
+    "start": 166.53,
+    "end": 170.68,
+    "text": "let me -- I can even say right away --"
+  },
+  {
+    "start": 170.68,
+    "end": 177.65,
+    "text": "what's the matrix, that is, what's the coefficient matrix?"
+  },
+  {
+    "start": 177.65,
+    "end": 180.59,
+    "text": "The matrix that involves these numbers --"
+  },
+  {
+    "start": 180.59,
+    "end": 185.19,
+    "text": "a matrix is just a rectangular array of numbers."
+  },
+  {
+    "start": 185.19,
+    "end": 189.61,
+    "text": "Here it's two rows and two columns, so 2 and --"
+  },
+  {
+    "start": 189.61,
+    "end": 194.42,
+    "text": "minus 1 in the first row minus 1 and 2 in the second row,"
+  },
+  {
+    "start": 194.42,
+    "end": 196.7,
+    "text": "that's the matrix."
+  },
+  {
+    "start": 196.7,
+    "end": 201.61,
+    "text": "And the right-hand -- the, unknown --"
+  },
+  {
+    "start": 201.61,
+    "end": 203.09,
+    "text": "well, we've got two unknowns."
+  },
+  {
+    "start": 203.09,
+    "end": 207.37,
+    "text": "So we've got a vector, with two components, x and y,"
+  },
+  {
+    "start": 207.37,
+    "end": 211.15,
+    "text": "and we've got two right-hand sides that go into a vector"
+  },
+  {
+    "start": 211.15,
+    "end": 212.94,
+    "text": "0 3."
+  },
+  {
+    "start": 212.94,
+    "end": 218.26,
+    "text": "I couldn't resist writing the matrix form, right --"
+  },
+  {
+    "start": 218.26,
+    "end": 221.05,
+    "text": "even before the pictures."
+  },
+  {
+    "start": 221.05,
+    "end": 225.03,
+    "text": "So I always will think of this as the matrix A,"
+  },
+  {
+    "start": 225.03,
+    "end": 229.44,
+    "text": "the matrix of coefficients, then there's a vector of"
+  },
+  {
+    "start": 229.44,
+    "end": 230.03,
+    "text": "unknowns."
+  },
+  {
+    "start": 230.03,
+    "end": 231.79,
+    "text": "Here we've only got two unknowns."
+  },
+  {
+    "start": 231.79,
+    "end": 234.1,
+    "text": "Later we'll have any number of unknowns."
+  },
+  {
+    "start": 234.1,
+    "end": 237.62,
+    "text": "And that vector of unknowns, well I'll often --"
+  },
+  {
+    "start": 237.62,
+    "end": 239.82,
+    "text": "I'll make that x --"
+  },
+  {
+    "start": 239.82,
+    "end": 241.15,
+    "text": "extra bold."
+  },
+  {
+    "start": 241.15,
+    "end": 244.85,
+    "text": "A and the right-hand side is also a vector"
+  },
+  {
+    "start": 244.85,
+    "end": 248.23,
+    "text": "that I'll always call b."
+  },
+  {
+    "start": 248.23,
+    "end": 253.79,
+    "text": "So linear equations are A x equal b and the idea now"
+  },
+  {
+    "start": 253.79,
+    "end": 256.82,
+    "text": "is to solve this particular example"
+  },
+  {
+    "start": 256.82,
+    "end": 260.94,
+    "text": "and then step back to see the bigger picture."
+  },
+  {
+    "start": 260.94,
+    "end": 264.63,
+    "text": "Okay, what's the picture for this example, the Row picture?"
+  },
+  {
+    "start": 264.63,
+    "end": 266.74,
+    "text": "Okay, so here comes the Row picture."
+  }
+]

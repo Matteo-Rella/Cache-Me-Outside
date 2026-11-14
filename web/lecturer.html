@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rewind · Lecturer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="vendor/vis-network/vis-network.min.js" defer></script>
+</head>
+<body class="page-lecturer">
+  <main class="wrap lecturer">
+    <div class="page-head">
+      <div>
+        <p class="eyebrow"><span class="dot"></span>Lecturer view</p>
+        <h1 class="page-title">Your lectures, through your <em>students' questions</em></h1>
+      </div>
+    </div>
+
+    <section id="metrics" class="metrics" aria-label="Key numbers"></section>
+
+    <div class="lect-grid">
+      <section class="card">
+        <div class="card-head">
+          <h2 class="card-title">Where students get stuck</h2>
+          <span class="muted small" id="stuck-sub">Ranked by times asked · click to play</span>
+        </div>
+        <div id="stuck" class="stuck"></div>
+      </section>
+      <section class="card">
+        <div class="card-head">
+          <h2 class="card-title">Questions your lectures don't cover</h2>
+          <span id="gap-count" class="count"></span>
+        </div>
+        <div id="gaps" class="gaps"></div>
+      </section>
+    </div>
+
+    <section class="card up-card" id="slides-card" hidden>
+      <div class="card-head">
+        <h2 class="card-title">Your slides</h2>
+        <span class="muted small">PDF or PowerPoint · students see the matching slide next to each clip</span>
+      </div>
+      <div id="slides-list" class="up-list"></div>
+    </section>
+
+    <section class="card graph-card">
+      <div class="card-head">
+        <h2 class="card-title">Knowledge map</h2>
+        <div class="legend">
+          <span><i class="lg lg-course"></i>Course</span>
+          <span><i class="lg lg-lecture"></i>Lecture</span>
+          <span><i class="lg lg-concept"></i>Concept</span>
+          <span><i class="lg lg-grad"></i>Clip: size = times asked, colour = fail rate</span>
+        </div>
+      </div>
+      <div id="graph" class="graph"></div>
+    </section>
+  </main>
+  <footer class="site-footer wrap">
+    <span>Rewind · Ask your lecture.</span>
+    <button id="seed" class="btn btn-ghost btn-sm" type="button">Load demo data</button>
+  </footer>
+  <script type="module" src="js/lecturer.js"></script>
+</body>
+</html>

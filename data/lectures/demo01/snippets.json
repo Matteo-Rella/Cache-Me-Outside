@@ -1,0 +1,101 @@
+[
+  {
+    "id": "demo01-001",
+    "lecture_id": "demo01",
+    "concept": "Three pictures of a linear system",
+    "start": 62.68,
+    "end": 137.49,
+    "summary": "The fundamental problem of linear algebra is to solve a system of linear equations, starting with the normal case of n equations in n unknowns. The professor will look at it three ways: the row picture of one equation at a time, the column picture of one column at a time, and the matrix form using a matrix A.",
+    "text": "This is my plan. The fundamental problem of linear algebra, which is to solve a system of linear equations. So let's start with a case when we have some number of equations, say n equations and n unknowns. So an equal number of equations and unknowns. That's the normal, nice case. And what I want to do is -- with examples, of course -- to describe, first, what I call the Row picture. That's the picture of one equation at a time. It's the picture you've seen before in two by two equations where lines meet. So in a minute, you'll see lines meeting. The second picture, I'll put a star beside that, because that's such an important one. And maybe new to you is the picture -- a column at a time. And those are the rows and columns of a matrix. So the third -- the algebra way to look at the problem is the matrix form and using a matrix that I'll call A. Okay, so can I do an example?",
+    "questions": [
+      {
+        "q": "A classmate draws the two lines given by two equations and finds where they cross. Which of the professor's pictures is that?",
+        "options": [
+          "The column picture",
+          "The row picture",
+          "The matrix form",
+          "None, it is a different method"
+        ],
+        "answer": 1,
+        "explanation": "The professor describes the row picture as taking one equation at a time, the familiar 2 by 2 case where lines meet."
+      },
+      {
+        "q": "Why does the professor say the first case to study is n equations and n unknowns?",
+        "options": [
+          "Because it is the only case that has solutions",
+          "Because it is the case where matrices are not needed",
+          "Because an equal number of equations and unknowns is the normal, nice case",
+          "Because the column picture only works when n is 2"
+        ],
+        "answer": 2,
+        "explanation": "He starts with an equal number of equations and unknowns and calls it 'the normal, nice case'."
+      }
+    ]
+  },
+  {
+    "id": "demo01-002",
+    "lecture_id": "demo01",
+    "concept": "Coefficient matrix of a 2x2 system",
+    "start": 137.49,
+    "end": 212.94,
+    "summary": "The example is the system 2x - y = 0 and -x + 2y = 3, two equations in two unknowns. Its coefficient matrix is the rectangular array with 2 and -1 in the first row and -1 and 2 in the second, the unknowns x and y form a vector, and the right-hand sides form the vector (0, 3).",
+    "text": "The whole semester will be examples and then see what's going on with the example. So, take an example. Two equations, two unknowns. So let me take 2x - y = 0, let's say. And -x 2y=3. Okay. let me -- I can even say right away -- what's the matrix, that is, what's the coefficient matrix? The matrix that involves these numbers -- a matrix is just a rectangular array of numbers. Here it's two rows and two columns, so 2 and -- minus 1 in the first row minus 1 and 2 in the second row, that's the matrix. And the right-hand -- the, unknown -- well, we've got two unknowns. So we've got a vector, with two components, x and y, and we've got two right-hand sides that go into a vector 0 3.",
+    "questions": [
+      {
+        "q": "For the system 3x + y = 5 and x - 4y = 2, what is the second row of the coefficient matrix, following the professor's method?",
+        "options": [
+          "3 and 1",
+          "1 and -4",
+          "5 and 2",
+          "1 and 4"
+        ],
+        "answer": 1,
+        "explanation": "Each row of the coefficient matrix holds the numbers multiplying the unknowns in one equation, as the professor did with -1 and 2 for -x + 2y = 3."
+      },
+      {
+        "q": "Where do the numbers 0 and 3 from the professor's example go?",
+        "options": [
+          "Into the vector of unknowns",
+          "Into the first column of the matrix",
+          "Into the right-hand side vector",
+          "Into the diagonal of the matrix"
+        ],
+        "answer": 2,
+        "explanation": "The professor puts the two right-hand sides into a vector (0, 3), separate from the matrix of coefficients and the vector of unknowns."
+      }
+    ]
+  },
+  {
+    "id": "demo01-003",
+    "lecture_id": "demo01",
+    "concept": "Matrix form Ax = b",
+    "start": 212.94,
+    "end": 266.74,
+    "summary": "The professor always thinks of a system as the matrix A of coefficients times a vector of unknowns x, written in bold, equal to the right-hand side vector b. So linear equations are Ax = b, and the plan is to solve the example and then step back to see the bigger picture.",
+    "text": "I couldn't resist writing the matrix form, right -- even before the pictures. So I always will think of this as the matrix A, the matrix of coefficients, then there's a vector of unknowns. Here we've only got two unknowns. Later we'll have any number of unknowns. And that vector of unknowns, well I'll often -- I'll make that x -- extra bold. A and the right-hand side is also a vector that I'll always call b. So linear equations are A x equal b and the idea now is to solve this particular example and then step back to see the bigger picture. Okay, what's the picture for this example, the Row picture? Okay, so here comes the Row picture.",
+    "questions": [
+      {
+        "q": "A system has 3 equations in 3 unknowns. In the professor's notation Ax = b, what is x?",
+        "options": [
+          "The matrix of coefficients",
+          "The vector of the 3 unknowns",
+          "The vector of right-hand sides",
+          "The first column of A"
+        ],
+        "answer": 1,
+        "explanation": "The professor calls the vector of unknowns x (in bold), A the matrix of coefficients and b the right-hand side."
+      },
+      {
+        "q": "Why does the professor say he 'couldn't resist' writing the matrix form before drawing any pictures?",
+        "options": [
+          "Because he always thinks of a system as A times x equals b",
+          "Because the pictures don't work for this example",
+          "Because the matrix form gives the answer directly",
+          "Because the textbook requires it"
+        ],
+        "answer": 0,
+        "explanation": "He says he will always think of the system as the matrix A, a vector of unknowns x and a right-hand side b, so he writes Ax = b right away."
+      }
+    ]
+  }
+]
